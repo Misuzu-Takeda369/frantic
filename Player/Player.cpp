@@ -32,12 +32,15 @@ void Player::Initialize()
 	playerDirection_ = 1;
 	attackframe_ = 60;
 
+	// シングルトンインスタンス取得
+	input_ = Input::GetInstance();
+
 }
 
-void Player::Update(char* keys, char* preKeys)
+void Player::Update()
 {
 	//移動処理
-	Move(keys,preKeys);
+	Move();
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
@@ -73,8 +76,9 @@ void Player::Update(char* keys, char* preKeys)
 void Player::Draw()
 {
 
+	
 	//プレイヤー本体
-	Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color,kFillModeSolid);
+	//Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color,kFillModeSolid);
 
 	//近距離用当たり判定が起きている時場合
 	if (mAttack_) {
@@ -87,31 +91,31 @@ void Player::Draw()
 
 #ifdef _DEBUG
 
-	Novice::DrawLine(0,int(standardPos_.y+charaBase_.radius_),1280, int(standardPos_.y + charaBase_.radius_),BLACK);
+	//Novice::DrawLine(0,int(standardPos_.y+charaBase_.radius_),1280, int(standardPos_.y + charaBase_.radius_),BLACK);
 	
 #endif // _DEBUG
 
 }
 
-void Player::Move(char* keys, char* preKeys)
+void Player::Move()
 {
-
-	//横移動
-	if (keys[DIK_LEFT] || keys[DIK_A]) {
+	// 横移動
+	if (input_->PushKey(DIK_LEFT) || input_->PushKey(DIK_A)) {
 		charaBase_.pos_.x -= charaBase_.speed_.x;
 		playerDirection_ = 0;
-	}
-	else if (keys[DIK_RIGHT] || keys[DIK_D]) {
+	} 
+	else if (input_->PushKey(DIK_RIGHT) || input_->PushKey(DIK_D)) {
 		charaBase_.pos_.x += charaBase_.speed_.x;
 		playerDirection_ = 1;
 	}
 
 	//縦
 	Jump();
-	if (((preKeys[DIK_UP] ==0 && keys[DIK_UP] !=0)|| (preKeys[DIK_W] == 0 && keys[DIK_W] != 0))&& jumpLag_ <= 0) {
+
+	if (input_->TriggerKey(DIK_UP) || input_->TriggerKey(DIK_W)) {
 		jumpFrag_ = true;
 		jumpLag_ = 10;
-	}
+	} 
 
 }
 
@@ -136,7 +140,7 @@ void Player::Jump()
 void Player::AttackTypeChange()
 {
 	//右クリックしたら攻撃のモードが変わる(攻撃中は変わらない)
-	if (Novice::IsTriggerMouse(1) && !attackFrag_) {
+	if ((GetAsyncKeyState(VK_RBUTTON)) && !attackFrag_) {
 
 		if (playerAttackTypeNow_ == Plane) {
 			playerAttackTypeNow_ = Magic;
@@ -155,7 +159,7 @@ void Player::AttackTypeChange()
 void Player::Attack()
 {
 	//左クリックしたら攻撃する
-	if (Novice::IsTriggerMouse(0)) {
+	if ((GetAsyncKeyState(VK_LBUTTON))) {
 
 		//現在SP使う攻撃の時に弾が出るようになる
 		if ((playerAttackTypeNow_ == Magic) && !attackFrag_) {

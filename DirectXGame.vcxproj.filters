@@ -58,12 +58,6 @@
     <Filter Include="ヘッダー ファイル\SceneManager">
       <UniqueIdentifier>{8f52686d-8cea-4684-82df-b3084b3c20b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Adapter">
-      <UniqueIdentifier>{790b1fdc-4afd-434e-8cba-44b845a88e07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Adapter">
-      <UniqueIdentifier>{6506f24f-0bce-42d8-8cfa-c71d5053cc2e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Player">
       <UniqueIdentifier>{50d37be9-ce7f-4ccc-a22f-68bc5a18ce5b}</UniqueIdentifier>
     </Filter>
@@ -102,13 +96,7 @@
     <ClCompile Include="SceneManager\TitleScene.cpp">
       <Filter>ソース ファイル\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="Adapter\Novice.cpp">
-      <Filter>ソース ファイル\Adapter</Filter>
-    </ClCompile>
     <ClCompile Include="Player\Player.cpp">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Player\PlayerBullet.cpp">
       <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player\PlayerLAttack.cpp">
@@ -221,13 +209,7 @@
     <ClInclude Include="SceneManager\TitleScene.h">
       <Filter>ヘッダー ファイル\SceneManager</Filter>
     </ClInclude>
-    <ClInclude Include="Adapter\Novice.h">
-      <Filter>ヘッダー ファイル\Adapter</Filter>
-    </ClInclude>
     <ClInclude Include="Player\Player.h">
-      <Filter>ヘッダー ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Player\PlayerBullet.h">
       <Filter>ヘッダー ファイル\Player</Filter>
     </ClInclude>
     <ClInclude Include="Player\PlayerLAttack.h">

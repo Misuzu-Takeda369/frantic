@@ -1,5 +1,8 @@
 ﻿#pragma once
-#include <Adapter/Novice.h>
+#include "Audio.h"
+#include "DirectXCommon.h"
+#include "Input.h"
+#include "Sprite.h"
 
 /// <summary>
 /// ゲームクリアシーンのクラス
@@ -25,7 +28,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update();
 
 	/// <summary>
 	/// 前景描画
@@ -54,7 +57,8 @@ private:
 	// シーン変更できるかどうか
 	bool flagChange_ = false; 
 
-	//受け取りのせいですぐに変わるのでそれを防ぐためのラグ(後で消える)
-	int changeTimingFrame_ = 0;
+	DirectXCommon* dxCommon_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
 
 };

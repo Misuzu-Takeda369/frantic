@@ -1,5 +1,8 @@
 ﻿#pragma once
-#include <Adapter/Novice.h>
+#include "Audio.h"
+#include "DirectXCommon.h"
+#include "Input.h"
+#include "Sprite.h"
 /// <summary>
 /// タイトルシーンのクラス
 /// </summary>
@@ -30,7 +33,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update();
 
 	/// <summary>
 	/// 前景描画
@@ -52,6 +55,10 @@ public:
 
 private:
 
+
+	DirectXCommon* dxCommon_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
 	//シーン変更できるかどうか
 	bool flagChange_ = false; 
 
@@ -60,7 +67,6 @@ private:
 	/// </summary>
 	int titleSModeNow_ = None;
 
-	//受け取りのせいですぐに変わるのでそれを防ぐためのラグ(後で消える)
-	int changeTimingFrame_ = 40;
+	
 
 };

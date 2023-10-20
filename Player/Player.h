@@ -1,7 +1,10 @@
 ﻿#pragma once
 #include <Vector2.h>
-#include <Adapter/Novice.h>
 #include "ImGuiManager.h"
+#include "Audio.h"
+#include "DirectXCommon.h"
+#include "Input.h"
+#include "Sprite.h"
 #include <list>
 #include "CharaBase.h"
 #include "PlayerMAttack.h"
@@ -41,7 +44,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update();
 
 	/// <summary>
 	/// 前景描画
@@ -51,7 +54,7 @@ public:
 	/// <summary>
 	/// キー入力
 	/// </summary>
-	void Move(char* keys, char* preKeys);
+	void Move();
 	//char* keys, char* preKeys
 	/// <summary>
 	///	ジャンプ処理用
@@ -127,6 +130,9 @@ private:
 
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
 	int attackframe_ = 60;
+
+	// キーボード入力
+	Input* input_ = nullptr;
 
 };
 

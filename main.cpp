@@ -1,13 +1,13 @@
 #include "Audio.h"
 #include "AxisIndicator.h"
 #include "DirectXCommon.h"
-#include "GameScene.h"
+//#include "GameScene.h"
 #include "SceneManager/SceneManager.h"
 #include "ImGuiManager.h"
 #include "PrimitiveDrawer.h"
 #include "TextureManager.h"
 #include "WinApp.h"
-#include <Adapter/Novice.h>
+//#include <Adapter/Novice.h>
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Audio* audio = nullptr;
 	AxisIndicator* axisIndicator = nullptr;
 	PrimitiveDrawer* primitiveDrawer = nullptr;
-	GameScene* gameScene = nullptr;
+	//GameScene* gameScene = nullptr;
 	// シーン管理する奴の初期化
 	SceneManager* sceneManager_ = nullptr;
 
@@ -62,15 +62,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 #pragma endregion
 
 	// ゲームシーンの初期化
-	gameScene = new GameScene();
-	gameScene->Initialize();
+	//gameScene = new GameScene();
+	//gameScene->Initialize();
 	// シーン管理する奴の初期化
 	sceneManager_ = new SceneManager();
 	sceneManager_->Initialize();
-
-	// キー入力結果を受け取る箱
-	char keys[256] = {0};
-	char preKeys[256] = {0};
 
 	// メインループ
 	while (true) {
@@ -85,13 +81,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		// 入力関連の毎フレーム処理
 		input->Update();
 		// ゲームシーンの毎フレーム処理
-		gameScene->Update();
-
-		// キー入力を受け取る
-		memcpy(preKeys, preKeys, 256);
-		Novice::GetHitKeyStateAll(keys);
-
-		sceneManager_->Update(keys, preKeys);
+		//gameScene->Update();
+		sceneManager_->Update();
 
 		// 軸表示の更新
 		axisIndicator->Update();
@@ -101,7 +92,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		// 描画開始
 		dxCommon->PreDraw();
 		// ゲームシーンの描画
-		gameScene->Draw();
+		//gameScene->Draw();
 		sceneManager_->Draw();
 		// 軸表示の描画
 		axisIndicator->Draw();
@@ -114,7 +105,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	}
 
 	// 各種解放
-	delete gameScene;
 	delete sceneManager_;
 	audio->Finalize();
 	// ImGui解放

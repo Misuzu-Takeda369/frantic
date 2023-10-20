@@ -1,6 +1,9 @@
 ﻿#pragma once
-#include <Adapter/Novice.h>
 #include "ImGuiManager.h"
+#include "Audio.h"
+#include "DirectXCommon.h"
+#include "Input.h"
+#include "Sprite.h"
 #include "Player/Player.h"
 /// <summary>
 /// プレイシーンのクラス
@@ -32,7 +35,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update();
 
 	/// <summary>
 	/// 前景描画
@@ -61,6 +64,11 @@ public:
 
 
 private:
+
+	DirectXCommon* dxCommon_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
+
 	// シーン変更できるかどうか
 	bool flagChange_ = false;
 	//クリアとoverを判別するためのフラグ
@@ -74,9 +82,6 @@ private:
 	/// </summary>
 	int gameSModeNow_ = None;
 
-	//受け取りのせいですぐに変わるのでそれを防ぐためのラグ(後で消える)
-	//シーンチェンジとポーズ変更
-	int changeTimingFrame_ = 0;
 
 	//ゲームをうごかしているか
 	bool GameMove_ = false;

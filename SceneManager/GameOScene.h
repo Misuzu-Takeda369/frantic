@@ -1,5 +1,8 @@
 ﻿#pragma once
-#include <Adapter/Novice.h>
+#include "Audio.h"
+#include "DirectXCommon.h"
+#include "Input.h"
+#include "Sprite.h"
 
 /// <summary>
 /// ゲームオーバーシーンのクラス
@@ -26,7 +29,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update();
 
 	/// <summary>
 	/// 前景描画
@@ -53,11 +56,13 @@ public:
 	bool GetFlagRetry() { return flagRetry_; };
 
 private:
+
+	DirectXCommon* dxCommon_ = nullptr;
+	Input* input_ = nullptr;
+	Audio* audio_ = nullptr;
+
 	// シーン変更できるかどうか
 	bool flagChange_ = false;
-
-	//受け取りのせいですぐに変わるのでそれを防ぐためのラグ(後で消える)
-	int changeTimingFrame_ = 0;
 
 	//リトライするかを判別するためのフラグ
 	bool flagRetry_ = false;

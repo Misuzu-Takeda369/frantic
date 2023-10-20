@@ -29,14 +29,14 @@ void SceneManager::Initialize() {
 
 }
 
-void SceneManager::Update(char* keys, char* preKeys) {
+void SceneManager::Update() {
 
 	// シーン毎の更新
 	switch (sceneNum_) {
 
 	case TitleMode:
 
-		title_->Update(keys, preKeys);
+		title_->Update();
 
 		//シーン変換
 		//タイトルのクラスから変更出来るか否かフラグ貰ってきてtrueだった場合
@@ -53,7 +53,7 @@ void SceneManager::Update(char* keys, char* preKeys) {
 		break;
 
 	case GPlayMode:
-		gameP_->Update(keys, preKeys);
+		gameP_->Update();
 
 		//シーン変換
 		//プレイモードのクラスから変更出来るか否かフラグ貰ってきてtrueだった場合
@@ -76,7 +76,7 @@ void SceneManager::Update(char* keys, char* preKeys) {
 		break;
 
 	case GClearMode:
-		gameC_->Update(keys, preKeys);
+		gameC_->Update();
 
 		//シーン変換
 		//クリアシーンのクラスから変更出来るか否かフラグ貰ってきてtrueだった場合
@@ -93,7 +93,7 @@ void SceneManager::Update(char* keys, char* preKeys) {
 		break;
 
 	case GOverMode:
-		gameO_->Update(keys, preKeys);
+		gameO_->Update();
 
 		//シーン変換
 		//オーバーシーンのクラスから変更出来るか否かフラグ貰ってきてtrueだった場合

@@ -6,10 +6,12 @@ TitleScene::~TitleScene() {}
 
 void TitleScene::Initialize()
 {
-
+	dxCommon_ = DirectXCommon::GetInstance();
+	input_ = Input::GetInstance();
+	audio_ = Audio::GetInstance();
 }
 
-void TitleScene::Update(char* keys, char* preKeys)
+void TitleScene::Update()
 {
 
 
@@ -18,12 +20,10 @@ void TitleScene::Update(char* keys, char* preKeys)
 	case None:
 
 
-		changeTimingFrame_++;
 		//ここのif文でシーン移行出来るかを判別
-		//現在は1を押したときに移動
-		if ((preKeys[DIK_I] == 0 && keys[DIK_I] != 0)&& changeTimingFrame_>= 30) {
+		//現在はIを押したときに移動
+		if (input_->TriggerKey(DIK_I)) {
 			flagChange_ = true;
-			changeTimingFrame_ = 0;
 		}
 
 		break;
@@ -41,6 +41,20 @@ void TitleScene::Update(char* keys, char* preKeys)
 
 void TitleScene::Draw()
 {
+	// コマンドリストの取得
+	ID3D12GraphicsCommandList* commandList = dxCommon_->GetCommandList();
+#pragma region スプライト描画
+	// スプライト描画前処理
+	Sprite::PreDraw(commandList);
+
+	/// <summary>
+	/// ここに前景スプライトの描画処理を追加できる
+	/// </summary>
+
+	// スプライト描画後処理
+	Sprite::PostDraw();
+
+#pragma endregion
 
 }
 
