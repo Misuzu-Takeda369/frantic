@@ -4,7 +4,6 @@
 Player::~Player()
 {
 	delete mAttack_;
-
 	for (PlayerLAttack* lAttack: lAttack_) {
 		delete lAttack;
 	}
