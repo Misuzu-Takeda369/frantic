@@ -49,19 +49,20 @@ void Player::Update(char* keys, char* preKeys)
 		lAttack->Update();
 	}
 
+	//弾の時間経過で消える処理
 	BulletDead();
 
 #pragma region ImGum関連
 
 #ifdef _DEBUG
-	
-
 	ImGui::Begin("Player");
+
 	ImGui::Text("PlayerPos: x_%.2f, y_%.2f\n", charaBase_.pos_.x, charaBase_.pos_.y);
 	ImGui::Text("PlayerSpeed: x_%.2f, y_%.2f\n", charaBase_.speed_.x, charaBase_.speed_.y);
 	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
 	ImGui::Text("attackFrag: %d\n", attackFrag_);
+
 	ImGui::End();
 #endif // DEBUG
 
@@ -133,8 +134,8 @@ void Player::Jump()
 
 void Player::AttackTypeChange()
 {
-	//右クリックしたら攻撃のモードが変わる
-	if (Novice::IsTriggerMouse(1)) {
+	//右クリックしたら攻撃のモードが変わる(攻撃中は変わらない)
+	if (Novice::IsTriggerMouse(1) && !attackFrag_) {
 
 		if (playerAttackTypeNow_ == Plane) {
 			playerAttackTypeNow_ = Magic;
