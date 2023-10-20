@@ -48,13 +48,13 @@ void GamePScene::Update(char* keys, char* preKeys)
 			///シーン変換
 			//ここのif文でシーン移行出来るかを判別
 			//現在は1を押したときに移動
-			if ((preKeys[DIK_0] == 0 && keys[DIK_0] != 0) && changeTimingFrame_ >= 30) {
+			if ((preKeys[DIK_I] == 0 && keys[DIK_I] != 0) && changeTimingFrame_ >= 30) {
 				flagChange_ = true;
 				changeTimingFrame_ = 0;
 			}
 			//ここのif文でシーン移行出来るかを判別
 			//現在は3を押したときに移動(がめおべ)
-			if ((preKeys[DIK_1] == 0 && keys[DIK_1] != 0) && changeTimingFrame_ >= 30) {
+			if ((preKeys[DIK_O] == 0 && keys[DIK_O] != 0) && changeTimingFrame_ >= 30) {
 				flagChange_ = true;
 				flagGameOver_ = true;
 				changeTimingFrame_ = 0;

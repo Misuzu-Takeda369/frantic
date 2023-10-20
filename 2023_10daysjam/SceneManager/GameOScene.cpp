@@ -18,12 +18,12 @@ void GameOScene::Update(char* keys, char* preKeys)
 	changeTimingFrame_++;
 	//ここのif文でシーン移行出来るかを判別
 	//現在は0を押したときに移動タイトルへ
-	if ((preKeys[DIK_0] == 0 && keys[DIK_0] != 0) && changeTimingFrame_ >= 30) {
+	if ((preKeys[DIK_I] == 0 && keys[DIK_I] != 0) && changeTimingFrame_ >= 30) {
 		flagChange_ = true;
 		changeTimingFrame_ = 0;
 	}
 	//リトライする場合
-	else if ((preKeys[DIK_1] == 0 && keys[DIK_1] != 0) && changeTimingFrame_ >= 30) {
+	else if ((preKeys[DIK_O] == 0 && keys[DIK_O] != 0) && changeTimingFrame_ >= 30) {
 		flagChange_ = true;
 		flagRetry_ = true;
 		changeTimingFrame_ = 0;

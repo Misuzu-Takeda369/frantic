@@ -21,7 +21,7 @@ void TitleScene::Update(char* keys, char* preKeys)
 		changeTimingFrame_++;
 		//ここのif文でシーン移行出来るかを判別
 		//現在は1を押したときに移動
-		if ((preKeys[DIK_0] == 0 && keys[DIK_0] != 0)&& changeTimingFrame_>= 60) {
+		if ((preKeys[DIK_I] == 0 && keys[DIK_I] != 0)&& changeTimingFrame_>= 60) {
 			flagChange_ = true;
 			changeTimingFrame_ = 0;
 		}

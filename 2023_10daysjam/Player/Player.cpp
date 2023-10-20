@@ -61,6 +61,8 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
 	ImGui::Text("attackFrag: %d\n", attackFrag_);
+	ImGui::InputFloat("Hp:",&hp_);
+	ImGui::InputFloat("Sp:\n", &sp_);
 
 	ImGui::End();
 #endif // DEBUG
@@ -153,10 +155,10 @@ void Player::AttackTypeChange()
 void Player::Attack()
 {
 	//左クリックしたら攻撃する
-	if (Novice::IsTriggerMouse(0)) {
+	if (Novice::IsTriggerMouse(0) && !attackFrag_) {
 
 		//現在SP使う攻撃の時に弾が出るようになる
-		if ((playerAttackTypeNow_ == Magic) && !attackFrag_) {
+		if ((playerAttackTypeNow_ == Magic)) {
 
 			PlayerLAttack* newlAttack = new PlayerLAttack();
 			newlAttack->Initialize(playerAttackTypeNow_, maindStateNow_, playerDirection_, charaBase_.pos_);
@@ -164,6 +166,11 @@ void Player::Attack()
 		}
 
 		attackFrag_ = true;
+
+		if (mAttack_) {
+			delete mAttack_;
+			mAttack_ = nullptr;
+		}
 
 		mAttack_ = new PlayerMAttack();
 		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
