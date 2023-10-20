@@ -83,7 +83,6 @@ void Player::Draw()
 
 }
 
-
 void Player::Move(char* keys, char* preKeys)
 {
 
