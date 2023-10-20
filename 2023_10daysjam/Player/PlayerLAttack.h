@@ -28,6 +28,11 @@ public:
 	void Draw();
 
 
+	/// <summary>
+	/// クラスの外部用弾消えるためのフラグ変数
+	/// </summary>
+	bool IsDead() const { return isDead_; };
+
 private:
 
 	CharaBase charaBase_;
@@ -39,6 +44,13 @@ private:
 	int maindStateNow_;
 	//プレイヤーの向き
 	int playerDirection_;
+
+	//弾の寿命(消えるまでの時間の定数)
+	static const int kLifeTime = 120;
+	// 弾の寿命(消えるまでの時間の判定用変数)
+	int deathTimer_ = kLifeTime;
+	//消えるフラグ
+	bool isDead_ = false;
 
 };
 
