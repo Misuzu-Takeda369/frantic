@@ -114,18 +114,18 @@ private:
 	//現在の攻撃type
 	bool playerAttackTypeNow_ = Plane;
 	//近距離攻撃できるかフラグ(近距離)
-	bool mAttackFrag_ = false;
+	bool attackFrag_ = false;
 	//近距離攻撃できるかフラグ(遠距離)
-	std::list<bool> lAttackFrag_;
+	//std::list<bool> lAttackFrag_;
 
 	//最初にいる位置
 	Vector2 standardPos_;
 
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
-	int mAttackframe_ = 60;
+	int attackframe_ = 60;
 
 	//攻撃している時間仮遠距離(多分eff・animeでいらなくなる)
-	std::list<int> lAttackframe_;
+	//std::list<int> lAttackframe_;
 
 };
 

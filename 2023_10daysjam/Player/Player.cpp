@@ -44,6 +44,11 @@ void Player::Update(char* keys, char* preKeys)
 	//攻撃
 	Attack();
 
+	for (PlayerLAttack* lAttack : lAttack_) {
+
+		lAttack->Update();
+	}
+
 #pragma region ImGum関連
 
 #ifdef _DEBUG
@@ -62,6 +67,10 @@ void Player::Draw()
 	//近距離用当たり判定が起きている時場合
 	if (mAttack_) {
 		mAttack_->Draw();
+	}
+
+	for (PlayerLAttack* lAttack : lAttack_) {
+		lAttack->Draw();
 	}
 
 #ifdef _DEBUG
