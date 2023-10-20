@@ -27,11 +27,12 @@ void Player::Initialize()
 	jumpLag_ = 10;
 
 	playerAttackTypeNow_ = Plane;
-	attackFrag_ = false;
+	mAttackFrag_ = false;
 
 	maindStateNow_ = Normal;
 	playerDirection_ = 1;
-	attackframe_ = 60;
+	mAttackframe_ = 60;
+
 }
 
 void Player::Update(char* keys, char* preKeys)
@@ -135,26 +136,34 @@ void Player::Attack()
 {
 	//左クリックしたら攻撃する
 	if (Novice::IsTriggerMouse(0)) {
-		attackFrag_ = true;
+		mAttackFrag_ = true;
 
 		mAttack_ = new PlayerMAttack();
 		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
+
+		if (playerAttackTypeNow_== Magic) {
+			
+			PlayerLAttack*newlAttack = new PlayerLAttack();
+			newlAttack->Initialize(playerAttackTypeNow_, maindStateNow_, playerDirection_, charaBase_.pos_);
+			lAttack_.push_back(newlAttack);
+		}
 	}
 
 	//アタックフラグが動いている場合
-	if (attackFrag_) {
+	if (mAttackFrag_) {
 
 		//近距離用当たり判定が起きている時場合
 		if (mAttack_) {
 			mAttack_->Update(charaBase_.pos_,playerDirection_);
 		}
 
-		attackframe_--;
-		if (attackframe_<= 0) {
-			attackFrag_ = false;
+		mAttackframe_--;
+		if (mAttackframe_<= 0) {
+			mAttackFrag_ = false;
 			delete mAttack_;
-			attackframe_ = 60;
+			mAttackframe_ = 60;
 		}
 	}
+
 }
 

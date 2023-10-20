@@ -6,6 +6,7 @@
 
 class PlayerLAttack
 {
+public:
 	/// <summary>
 		/// 初期化
 		/// </summary>

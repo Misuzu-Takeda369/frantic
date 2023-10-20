@@ -1,4 +1,5 @@
 ﻿#include "PlayerLAttack.h"
+#include <cassert>
 
 void PlayerLAttack::Initialize(bool& playerAttackTypeNow, int& maindStateNow, int& playerDirection, Vector2& playerPos)
 {
