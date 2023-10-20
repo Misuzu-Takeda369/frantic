@@ -16,14 +16,14 @@ public:
 	/// <param name="playerAttackTypeNow">攻撃のtype</param>
 	/// <param name="maindStateNow">現在狂気か否か</param>
 	/// <param name="playerDirection">向き</param>
-	void Initialize(bool* playerAttackTypeNow, int* maindStateow,int* playerDirection);
+	void Initialize(bool& playerAttackTypeNow, int& maindStateow,int& playerDirection);
 	//必要な引数
 	//狂気か否か、攻撃type、プレイヤーの向き、
 
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(Vector2* playerPos,int playerDirection);
+	void Update(Vector2& playerPos,int& playerDirection);
 	//プレイヤーの現在地、
 
 	/// <summary>

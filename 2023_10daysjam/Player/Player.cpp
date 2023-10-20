@@ -134,7 +134,7 @@ void Player::Attack()
 		attackFrag_ = true;
 
 		mAttack_ = new PlayerMAttack();
-		mAttack_->Initialize(&playerAttackTypeNow_,&maindStateNow_,&playerDirection_);
+		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
 	}
 
 	//アタックフラグが動いている場合
@@ -142,7 +142,7 @@ void Player::Attack()
 
 		//近距離用当たり判定が起きている時場合
 		if (mAttack_) {
-			mAttack_->Update(&charaBase_.pos_,playerDirection_);
+			mAttack_->Update(charaBase_.pos_,playerDirection_);
 		}
 
 		attackframe_--;
