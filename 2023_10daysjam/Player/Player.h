@@ -2,8 +2,10 @@
 #include <Vector2.h>
 #include <Novice.h>
 #include "ImGuiManager.h"
+#include <list>
 #include "CharaBase.h"
 #include "PlayerMAttack.h"
+#include "PlayerLAttack.h"
 
 
 class Player
@@ -75,6 +77,12 @@ public:
 	/// <returns></returns>
 	PlayerMAttack GetMAttack() { return *mAttack_; };
 
+	/// <summary>
+	/// 遠距離の攻撃のゲッター
+	/// </summary>
+	/// <returns></returns>
+	const std::list<PlayerLAttack*>& GetBullet() { return lAttack_; };
+
 private:
 
 	//基準となる情報(ここからアニメーション用に引っ張る)
@@ -89,6 +97,9 @@ private:
 
 	//近距離用の当たり判定用クラス
 	PlayerMAttack* mAttack_;
+
+	//遠距離の当たり判定(複数にする)
+	std::list<PlayerLAttack*> lAttack_;
 
 	///ジャンプ関連
 	//ジャンプの最初のスピード
