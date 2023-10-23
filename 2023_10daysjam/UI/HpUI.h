@@ -28,7 +28,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(float hp);
+	void Update(float hp, float maxhp);
 
 	/// <summary>
 	/// 前景描画
@@ -44,13 +44,13 @@ private:
 	//画像
 	int image_= 0;
 	//写したいサイズ
-	const int sizeX_ = 440;
+	const int sizeX_ = 500;
 	const int sizeY_ = 64;
 
 	//移動した合計
 	int moveX_ = 0;
 	//移動する量(HPが1減るたびに動く量)
-	int moveSpeedX_ = int(0.88f);
+	int moveSpeedX_ = 1;
 
 };
 

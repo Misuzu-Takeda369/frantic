@@ -86,6 +86,9 @@ public:
 	float GetPlayerHp() { return hp_; };
 	float GetPlayerSp() { return sp_; };
 
+	float GetPlayerHpMax() { return maxHp_; };
+	float GetPlayerSpMax() { return maxSp_; };
+
 	/// <summary>
 	/// 近距離の攻撃のゲッター
 	/// </summary>
@@ -107,6 +110,7 @@ private:
 	const float maxSp_ = 500.0f;
 	float hp_;
 	float sp_;
+	
 
 	//現在の狂気度
 	int maindStateNow_ = Normal;

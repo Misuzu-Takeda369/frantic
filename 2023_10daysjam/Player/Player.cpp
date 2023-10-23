@@ -17,7 +17,7 @@ void Player::Initialize()
 		{standardPos_.x,standardPos_.y},{2.0f,-2.0f},64.0f,0.0f,WHITE
 	};
 
-	hp_ = maxHp_;
+	hp_ = 200.0f;//maxHp_;
 	sp_ = maxSp_;
 
 	jumpSpeed_ = 25.0f;
@@ -45,6 +45,8 @@ void Player::Update(char* keys, char* preKeys)
 	AttackTypeChange();
 	//攻撃
 	Attack();
+	//減った量
+	
 
 	for (PlayerLAttack* lAttack : lAttack_) {
 

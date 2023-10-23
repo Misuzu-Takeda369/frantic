@@ -36,7 +36,8 @@ void GamePScene::Update(char* keys, char* preKeys)
 		else {
 
 			player_->Update(keys, preKeys);
-			hpUi_->Update(player_->GetPlayerHp());
+
+			hpUi_->Update(player_->GetPlayerHp(),player_->GetPlayerHpMax());
 
 #pragma region シーン変更含む
 			changeTimingFrame_++;
