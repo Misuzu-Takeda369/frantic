@@ -68,6 +68,8 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Text("attackFrag: %d\nMouseLeftBottun\n", attackFrag_);
 	ImGui::InputFloat("Hp:",&hp_);
 	ImGui::InputFloat("Sp:\n", &sp_);
+	ImGui::InputFloat("spChangingPoint:", &spChangingPoint_);
+	ImGui::InputFloat("attackSpDown:\n", &attackSpDown_);
 
 	ImGui::End();
 #endif // DEBUG
