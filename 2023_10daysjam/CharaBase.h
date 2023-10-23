@@ -7,4 +7,5 @@ struct CharaBase {
 	float radius_;
 	float attack_;
 	unsigned int color;
+	int image_;
 };

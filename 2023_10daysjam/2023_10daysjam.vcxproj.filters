@@ -20,6 +20,9 @@
     <Filter Include="Player">
       <UniqueIdentifier>{566316af-cbe9-4424-a286-89743e9bff5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{1f28b0c2-503a-4ef6-b014-f353e46f0e41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="Player\PlayerLAttack.cpp">
       <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\HpUI.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +172,9 @@
     <ClInclude Include="CharaBase.h" />
     <ClInclude Include="Player\PlayerLAttack.h">
       <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\HpUI.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
