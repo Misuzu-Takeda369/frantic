@@ -167,6 +167,7 @@ void Player::Attack()
 
 		attackFrag_ = true;
 
+		/*
 		if (mAttack_) {
 			delete mAttack_;
 			mAttack_ = nullptr;
@@ -174,23 +175,26 @@ void Player::Attack()
 
 		mAttack_ = new PlayerMAttack();
 		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
-
+		*/
 	}
 
 	//アタックフラグが動いている場合
 	if (attackFrag_) {
 
+		/*
 		//近距離用当たり判定が起きている時場合
 		if (mAttack_) {
 			mAttack_->Update(charaBase_.pos_,playerDirection_);
-		}
+		}*/
 
 		attackframe_--;
+
 		if (attackframe_<= 0) {
 			attackFrag_ = false;
-			delete mAttack_;
+			//delete mAttack_;
 			attackframe_ = 60;
 		}
+		
 	}
 
 }
