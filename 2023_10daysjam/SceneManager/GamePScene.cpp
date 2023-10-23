@@ -1,21 +1,24 @@
 ﻿#include "GamePScene.h"
 
-GamePScene::GamePScene() 
+GamePScene::GamePScene()
 {
-	
+
 }
 
 GamePScene::~GamePScene()
 {
 	delete player_;
+	delete hpUi_;
 }
 
-void GamePScene::Initialize() 
+void GamePScene::Initialize()
 {
 	CountNum_ = 0;
 	player_ = new Player();
 	player_->Initialize();
 
+	hpUi_ = new HpUI();
+	hpUi_->Initialize();
 }
 
 void GamePScene::Update(char* keys, char* preKeys)
@@ -33,11 +36,12 @@ void GamePScene::Update(char* keys, char* preKeys)
 		else {
 
 			player_->Update(keys, preKeys);
-		
+			hpUi_->Update(player_->GetPlayerHp());
+
 #pragma region シーン変更含む
 			changeTimingFrame_++;
 			///ポーズへ
-			if((preKeys[DIK_P] == 0 && keys[DIK_P] != 0)&& changeTimingFrame_>=30){
+			if ((preKeys[DIK_P] == 0 && keys[DIK_P] != 0) && changeTimingFrame_ >= 30) {
 				GameMove_ = false;
 				gameSModeNow_ = Pause;
 				changeTimingFrame_ = 0;
@@ -61,14 +65,14 @@ void GamePScene::Update(char* keys, char* preKeys)
 			}
 #pragma endregion 
 		}
-		
+
 		break;
 
 	case Pause:
 
 		changeTimingFrame_++;
 		//解除
-		if ((preKeys[DIK_P] == 0 && keys[DIK_P] != 0)&& changeTimingFrame_ >= 30) {
+		if ((preKeys[DIK_P] == 0 && keys[DIK_P] != 0) && changeTimingFrame_ >= 30) {
 			GameMove_ = true;
 			gameSModeNow_ = None;
 			changeTimingFrame_ = 0;
@@ -93,12 +97,12 @@ void GamePScene::Update(char* keys, char* preKeys)
 }
 
 
-void GamePScene::Draw() 
+void GamePScene::Draw()
 {
 	switch (gameSModeNow_)
 	{
 	case None:
-	
+
 		break;
 
 	default:
@@ -108,4 +112,10 @@ void GamePScene::Draw()
 	player_->Draw();
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
 	Novice::ScreenPrintf(500, 550, "%d", changeTimingFrame_);
+
+
+#pragma region UI関連(一番前に写す)
+	hpUi_->Draw();
+
+#pragma endregion
 }

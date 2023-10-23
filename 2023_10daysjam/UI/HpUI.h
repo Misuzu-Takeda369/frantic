@@ -6,7 +6,7 @@
 
 //Hpゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる
-typedef struct HpState {
+struct HpState {
 	int x_;
 	int y_;
 };

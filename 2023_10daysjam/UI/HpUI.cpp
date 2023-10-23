@@ -3,11 +3,11 @@
 void HpUI::Initialize()
 {
 	//左上端
-	Lpos_ = { 200,100 };
+	Lpos_ = { 50,20 };
 	//右下端
 	Rpos_ = { sizeX_,sizeY_ };
 	//画像
-	image_ = Novice::LoadTexture("./Resource/images/HPBar_kari.png");
+	image_ = Novice::LoadTexture("./Resources/images/HPBar_kari.png");
 	
 	//移動した合計
 	moveX_ = 0;
@@ -17,7 +17,7 @@ void HpUI::Initialize()
 
 void HpUI::Update(float hp)
 {
-
+	
 }
 
 
@@ -26,6 +26,6 @@ void HpUI::Draw()
 	//決まった範囲に画像写すタイプ
 	//Novice::DrawSpriteRect();
 	//画像写す範囲を徐々に狭めていくタイプ
-	Novice::DrawQuad(Lpos_.x_, Lpos_.y_, Rpos_.x_, Lpos_.y_, Lpos_.x_, Rpos_.y_, Rpos_.x_, Rpos_.y_
+	Novice::DrawQuad(Lpos_.x_, Lpos_.y_, Lpos_.x_ +Rpos_.x_, Lpos_.y_, Lpos_.x_, Lpos_.y_ + Rpos_.y_, Lpos_.x_ + Rpos_.x_, Lpos_.y_ + Rpos_.y_
 	,0,0, sizeX_, sizeY_, image_,WHITE);
 }

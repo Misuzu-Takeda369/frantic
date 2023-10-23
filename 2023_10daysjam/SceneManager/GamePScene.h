@@ -2,6 +2,7 @@
 #include "Novice.h"
 #include "ImGuiManager.h"
 #include "Player/Player.h"
+#include "UI/HpUI.h"
 /// <summary>
 /// プレイシーンのクラス
 /// </summary>
@@ -83,5 +84,7 @@ private:
 
 
 	Player* player_ = nullptr;
+
+	HpUI* hpUi_ = nullptr;
 
 };
