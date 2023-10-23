@@ -64,6 +64,11 @@ public:
 	void AttackTypeChange();
 
 	/// <summary>
+	/// 精神状態の変更
+	/// </summary>
+	void MindTypeChange();
+
+	/// <summary>
 	/// 攻撃処理
 	/// </summary>
 	void Attack();
@@ -72,6 +77,11 @@ public:
 	/// 弾が消える関数
 	/// </summary>
 	void BulletDead();
+
+	/// <summary>
+	/// 攻撃時のSPの処理
+	/// </summary>
+	void AttackSpDown();
 
 	float GetPlayerHp() { return hp_; };
 	float GetPlayerSp() { return sp_; };
@@ -97,8 +107,15 @@ private:
 
 	//現在の狂気度
 	int maindStateNow_ = Normal;
+	//狂気カラー(デバック用)
+	unsigned int maindColor_ = WHITE;
 	//プレイヤーの向き
 	int playerDirection_ = RIGHT;
+
+	//精神状態が変わる値の変数
+	float spChangingPoint_ = 250.0f;
+	//精神状態が変わる値の変数
+	float attackSpDown_ = 20.0f;
 
 	//近距離用の当たり判定用クラス
 	PlayerMAttack* mAttack_;

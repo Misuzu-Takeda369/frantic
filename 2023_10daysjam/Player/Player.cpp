@@ -29,6 +29,9 @@ void Player::Initialize()
 	attackFrag_ = false;
 
 	maindStateNow_ = Normal;
+	maindColor_ = WHITE;
+	spChangingPoint_ = 250.0f;
+
 	playerDirection_ = 1;
 	attackframe_ = 60;
 
@@ -50,6 +53,8 @@ void Player::Update(char* keys, char* preKeys)
 
 	//弾の時間経過で消える処理
 	BulletDead();
+	//精神状態が変わるか否か
+	MindTypeChange();
 
 #pragma region ImGum関連
 
@@ -88,7 +93,7 @@ void Player::Draw()
 #ifdef _DEBUG
 
 	Novice::DrawLine(0,int(standardPos_.y+charaBase_.radius_),1280, int(standardPos_.y + charaBase_.radius_),BLACK);
-	
+	Novice::DrawBox(900,100,50,50,0.0f, maindColor_,kFillModeSolid);
 #endif // _DEBUG
 
 }
@@ -152,6 +157,18 @@ void Player::AttackTypeChange()
 
 }
 
+void Player::MindTypeChange()
+{
+	if (sp_<= spChangingPoint_) {
+		maindStateNow_ = Lunatic;
+		maindColor_ = RED;
+	}
+	else {
+		maindStateNow_ = Normal;
+		maindColor_ = WHITE;
+	}
+}
+
 void Player::Attack()
 {
 	//左クリックしたら攻撃する
@@ -166,6 +183,8 @@ void Player::Attack()
 		}
 
 		attackFrag_ = true;
+		//SP関連の処理
+		AttackSpDown();
 
 		if (mAttack_) {
 			delete mAttack_;
@@ -185,6 +204,7 @@ void Player::Attack()
 			mAttack_->Update(charaBase_.pos_,playerDirection_);
 		}
 
+		//アニメーション入るまで仮フレーム
 		attackframe_--;
 		if (attackframe_<= 0) {
 			attackFrag_ = false;
@@ -206,5 +226,12 @@ void Player::BulletDead()
 
 		return false;
 		});
+}
+
+void Player::AttackSpDown()
+{
+	if (playerAttackTypeNow_== Magic) {
+		sp_ -= attackSpDown_;
+	}
 }
 
