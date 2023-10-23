@@ -102,6 +102,9 @@ private:
 
 	//基準となる情報(ここからアニメーション用に引っ張る)
 	CharaBase charaBase_;
+
+	const float maxHp_ = 500.0f;
+	const float maxSp_ = 500.0f;
 	float hp_;
 	float sp_;
 

@@ -17,8 +17,8 @@ void Player::Initialize()
 		{standardPos_.x,standardPos_.y},{2.0f,-2.0f},64.0f,0.0f,WHITE
 	};
 
-	hp_ = 500.0f;
-	sp_ = 500.0f;
+	hp_ = maxHp_;
+	sp_ = maxSp_;
 
 	jumpSpeed_ = 25.0f;
 

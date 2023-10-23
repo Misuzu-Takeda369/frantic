@@ -33,6 +33,11 @@ public:
 	/// </summary>
 	bool IsDead() const { return isDead_; };
 
+	/// <summary>
+	/// 攻撃力を決める関数
+	/// </summary>
+	void DeterminingAttackPower(float hp, float maxHp);
+
 private:
 
 	CharaBase charaBase_;
@@ -53,10 +58,12 @@ private:
 	bool isDead_ = false;
 
 	//最終的に判断する攻撃力
-	float attackPoint_ = 0;
+	float attackPoint_ = 0.0f;
+	//計算時の倍率
+	const float attackMultiples_ = 2.0f;
 
-	//攻撃力(通常時　変動なし？)
-	const float nomalAttackPoint = 1.0f;
+	//攻撃力(magic時　変動あり)
+	float magicAttackPoint_ = 5.0f;
 
 };
 

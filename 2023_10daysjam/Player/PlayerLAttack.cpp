@@ -13,6 +13,11 @@ void PlayerLAttack::Initialize(bool& playerAttackTypeNow, int& maindStateNow, in
 	maindStateNow_ = maindStateNow;
 	//プレイヤーの向き
 	playerDirection_ = playerDirection;
+
+	//最終的に判断する攻撃力
+	attackPoint_ = 0.0f;
+	//攻撃力(magic時　変attackPoint_動あり)
+	magicAttackPoint_ = 5.0f;
 }
 
 void PlayerLAttack::Update()
@@ -36,4 +41,20 @@ void PlayerLAttack::Draw()
 {
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color, kFillModeSolid);
 
+}
+
+void PlayerLAttack::DeterminingAttackPower(float hp,float maxHp)
+{
+	if (maindStateNow_==1) {
+
+		if (maindStateNow_ == 0) {
+			attackPoint_ = magicAttackPoint_;
+		}
+		else {
+			magicAttackPoint_ = magicAttackPoint_ + ((maxHp - hp) * attackMultiples_);
+			attackPoint_ = magicAttackPoint_;
+		}
+
+	}
+	
 }
