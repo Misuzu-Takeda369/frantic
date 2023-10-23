@@ -28,7 +28,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(float hp, float maxhp);
+	void Update(float decreasedHp);
 
 	/// <summary>
 	/// 前景描画

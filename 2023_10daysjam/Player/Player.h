@@ -89,6 +89,9 @@ public:
 	float GetPlayerHpMax() { return maxHp_; };
 	float GetPlayerSpMax() { return maxSp_; };
 
+	float GetPlayerDecreasedHp() { return decreasedHp_; };
+	float GetPlayerDecreasedSp() { return decreasedSp_; };
+
 	/// <summary>
 	/// 近距離の攻撃のゲッター
 	/// </summary>
@@ -110,6 +113,9 @@ private:
 	const float maxSp_ = 500.0f;
 	float hp_;
 	float sp_;
+	float decreasedHp_;
+	float decreasedSp_;
+	
 	
 
 	//現在の狂気度
