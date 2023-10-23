@@ -56,11 +56,11 @@ void Player::Update(char* keys, char* preKeys)
 #ifdef _DEBUG
 	ImGui::Begin("Player");
 
-	ImGui::Text("PlayerPos: x_%.2f, y_%.2f\n", charaBase_.pos_.x, charaBase_.pos_.y);
+	ImGui::Text("PlayerPos: x_%.2f, y_%.2f\nMove_AWSD&Dicrection\n", charaBase_.pos_.x, charaBase_.pos_.y);
 	ImGui::Text("PlayerSpeed: x_%.2f, y_%.2f\n", charaBase_.speed_.x, charaBase_.speed_.y);
-	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic\n", playerAttackTypeNow_);
+	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic MouseRightBottun\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
-	ImGui::Text("attackFrag: %d\n", attackFrag_);
+	ImGui::Text("attackFrag: %d\nMouseLeftBottun\n", attackFrag_);
 	ImGui::InputFloat("Hp:",&hp_);
 	ImGui::InputFloat("Sp:\n", &sp_);
 
@@ -189,6 +189,7 @@ void Player::Attack()
 		if (attackframe_<= 0) {
 			attackFrag_ = false;
 			delete mAttack_;
+			mAttack_ = nullptr;
 			attackframe_ = 60;
 		}
 	}

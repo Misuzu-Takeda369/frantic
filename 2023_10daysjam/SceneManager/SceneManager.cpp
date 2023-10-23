@@ -126,7 +126,7 @@ void SceneManager::Update(char* keys, char* preKeys) {
 #pragma region ImGui関連
 	
 	ImGui::Begin("SceneModeCheck");
-	ImGui::Text("sceneNum_ %d\nButten[DIK_0] GameOver[DIK_1]", sceneNum_);
+	ImGui::Text("sceneNum_ %d\nNextScene[DIK_I] GameOver&Retry[DIK_O]", sceneNum_);
 	ImGui::End();
 
 #pragma endregion
