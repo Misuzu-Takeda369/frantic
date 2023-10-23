@@ -31,23 +31,35 @@ void PlayerMAttack::Update(Vector2& playerPos, int& playerDirection)
 	}
 	
 
+
+#pragma region ImGum関連
+
+#ifdef _DEBUG
+	ImGui::Begin("Medle");
+	ImGui::InputFloat("attackPoint_:", &attackPoint_);
+	ImGui::Text("attackMultiples_:%.2f, \n", attackMultiples_);
+	ImGui::Text("nomalAttackPoint_:%.2f, \n", nomalAttackPoint_);
+	ImGui::InputFloat("magicAttackPoint_:", &magicAttackPoint_);
+	ImGui::End();
+#endif // DEBUG
+
 }
 
 void PlayerMAttack::Draw()
 {
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color, kFillModeWireFrame);
-
+	Novice::ScreenPrintf(600,600,"attackPoint_:%.2f", attackPoint_);
 }
 
 void PlayerMAttack::DeterminingAttackPower(float hp, float maxHp)
 {
-	if (maindStateNow_ == 1) {
+	if (playerAttackTypeNow_ == 1) {
 
 		if (maindStateNow_ == 0) {
 			attackPoint_ = magicAttackPoint_;
 		}
 		else {
-			magicAttackPoint_ = magicAttackPoint_ + ((maxHp - hp) * attackMultiples_);
+			magicAttackPoint_ +=  ((maxHp - hp) * attackMultiples_);
 			attackPoint_ = magicAttackPoint_;
 		}
 

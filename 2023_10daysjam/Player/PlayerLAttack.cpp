@@ -35,6 +35,8 @@ void PlayerLAttack::Update()
 	if (deathTimer_ <= 0) {
 		isDead_ = true;
 	}
+
+
 }
 
 void PlayerLAttack::Draw()
@@ -45,7 +47,7 @@ void PlayerLAttack::Draw()
 
 void PlayerLAttack::DeterminingAttackPower(float hp,float maxHp)
 {
-	if (maindStateNow_==1) {
+	if (playerAttackTypeNow_ ==1) {
 
 		if (maindStateNow_ == 0) {
 			attackPoint_ = magicAttackPoint_;

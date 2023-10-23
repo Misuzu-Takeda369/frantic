@@ -148,5 +148,6 @@ private:
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
 	int attackframe_ = 60;
 
+	
 };
 

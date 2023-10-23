@@ -196,6 +196,14 @@ void Player::Attack()
 		mAttack_ = new PlayerMAttack();
 		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
 
+
+		//攻撃力の設定
+		mAttack_->DeterminingAttackPower(hp_,maxHp_);
+
+		for (PlayerLAttack* lAttack : lAttack_) {
+			lAttack->DeterminingAttackPower(hp_, maxHp_);
+		}
+
 	}
 
 	//アタックフラグが動いている場合
