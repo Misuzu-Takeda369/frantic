@@ -114,7 +114,7 @@ private:
 
 	//精神状態が変わる値の変数
 	float spChangingPoint_ = 250.0f;
-	//精神状態が変わる値の変数
+	//magic攻撃時のSP減少量
 	float attackSpDown_ = 20.0f;
 
 	//近距離用の当たり判定用クラス

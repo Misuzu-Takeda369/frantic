@@ -52,5 +52,11 @@ private:
 	//消えるフラグ
 	bool isDead_ = false;
 
+	//最終的に判断する攻撃力
+	float attackPoint_ = 0;
+
+	//攻撃力(通常時　変動なし？)
+	const float nomalAttackPoint = 1.0f;
+
 };
 
