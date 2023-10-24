@@ -89,7 +89,7 @@ void Player::Draw()
 {
 
 	//プレイヤー本体
-	Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color,kFillModeSolid);
+	Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color_,kFillModeSolid);
 
 	//近距離用当たり判定が起きている時場合
 	if (mAttack_) {
@@ -155,11 +155,11 @@ void Player::AttackTypeChange()
 
 		if (playerAttackTypeNow_ == Plane) {
 			playerAttackTypeNow_ = Magic;
-			charaBase_.color = RED;
+			charaBase_.color_ = RED;
 		}
 		else {
 			playerAttackTypeNow_ = Plane; 
-			charaBase_.color = WHITE;
+			charaBase_.color_ = WHITE;
 		}
 		
 
