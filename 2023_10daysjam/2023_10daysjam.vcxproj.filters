@@ -23,6 +23,9 @@
     <Filter Include="UI">
       <UniqueIdentifier>{1f28b0c2-503a-4ef6-b014-f353e46f0e41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Function">
+      <UniqueIdentifier>{87eb6494-584e-4504-a5ba-77dc50b29314}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -73,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="UI\HpUI.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Function\Easing.cpp">
+      <Filter>Function</Filter>
+    </ClCompile>
+    <ClCompile Include="Function\Function.cpp">
+      <Filter>Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +184,15 @@
     </ClInclude>
     <ClInclude Include="UI\HpUI.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\Easing.h">
+      <Filter>Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\Function.h">
+      <Filter>Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\UtilityStruct.h">
+      <Filter>Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
