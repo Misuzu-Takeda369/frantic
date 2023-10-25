@@ -1,4 +1,5 @@
 ﻿#pragma once
+#pragma once
 #include <Vector2.h>
 #include <ScreenSize.h>
 #include <Novice.h>
@@ -8,11 +9,11 @@
 /// <summary>
 /// HP表示のクラス
 /// </summary>
-class HpUI
+class SpUI
 {
 public:
 
-	//~HpUI();
+	//~SpUI();
 
 	/// <summary>
 	/// 初期化
@@ -22,7 +23,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(float decreasedHp);
+	void Update(float decreasedSp);
 
 	/// <summary>
 	/// 前景描画
@@ -32,14 +33,14 @@ public:
 private:
 
 	//左端
-	HpState Lpos_ = {0,0};
+	HpState Lpos_ = { 0,60 };
 	//右端
-	HpState Rpos_ = { 0,0 };
+	HpState Rpos_ = { 0,0};
 	//画像
-	int image_= 0;
+	int image_ = 0;
 	//写したいサイズ
 	const int sizeX_ = 500;
-	const int sizeY_ = 64;
+	const int sizeY_ = 32;
 
 	//移動した合計
 	int moveX_ = 0;
@@ -47,4 +48,5 @@ private:
 	int moveSpeedX_ = 1;
 
 };
+
 

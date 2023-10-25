@@ -3,6 +3,7 @@
 #include "ImGuiManager.h"
 #include "Player/Player.h"
 #include "UI/HpUI.h"
+#include "UI/SpUI.h"
 /// <summary>
 /// プレイシーンのクラス
 /// </summary>
@@ -86,5 +87,6 @@ private:
 	Player* player_ = nullptr;
 
 	HpUI* hpUi_ = nullptr;
+	SpUI* spUi_ = nullptr;
 
 };
