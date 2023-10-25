@@ -20,7 +20,7 @@ enum STATE {
 	SPECIAL,//6_特殊攻撃?
 };
 
-//Hpゲージ用のっぽい何か(まとめたかった)
+//HpとSPゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる
 struct IntState {
 	int x_;

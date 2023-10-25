@@ -129,6 +129,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="SceneManager\TitleScene.cpp" />
     <ClCompile Include="UI\HpUI.cpp" />
     <ClCompile Include="UI\SpUI.cpp" />
+    <ClCompile Include="UI\TimerUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h" />
@@ -173,6 +174,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="ScreenSize.h" />
     <ClInclude Include="UI\HpUI.h" />
     <ClInclude Include="UI\SpUI.h" />
+    <ClInclude Include="UI\TimerUI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

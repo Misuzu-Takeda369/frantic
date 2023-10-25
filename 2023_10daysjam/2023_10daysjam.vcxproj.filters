@@ -86,6 +86,9 @@
     <ClCompile Include="UI\SpUI.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="UI\TimerUI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
@@ -198,6 +201,9 @@
       <Filter>Function</Filter>
     </ClInclude>
     <ClInclude Include="UI\SpUI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\TimerUI.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
