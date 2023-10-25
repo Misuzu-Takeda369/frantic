@@ -79,7 +79,7 @@ public:
 	/// <summary>
 	/// アニメーション？のチェンジ
 	/// </summary>
-	void PlayerStateChange(char* keys, char* preKeys);
+	void PlayerStateChange(char* keys);
 
 	/// <summary>
 	/// 近距離の攻撃のゲッター

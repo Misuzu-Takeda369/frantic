@@ -51,7 +51,6 @@ void Player::Update(char* keys, char* preKeys)
 	//攻撃
 	Attack();
 	//減った量
-	
 	//ゲージ処理用
 	decreasedHp_ = maxHp_ - hp_;
 	decreasedSp_ = maxSp_ - sp_;
@@ -66,6 +65,9 @@ void Player::Update(char* keys, char* preKeys)
 	//精神状態が変わるか否か
 	MindTypeChange();
 
+	//状態の奴
+	PlayerStateChange(keys);
+
 #pragma region ImGum関連
 
 #ifdef _DEBUG
@@ -76,6 +78,7 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic MouseRightBottun\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
 	ImGui::Text("attackFrag: %d\nMouseLeftBottun\n", attackFrag_);
+	ImGui::Text("playerState: %d\n", playerState_);
 	ImGui::InputFloat("Hp:",&hp_);
 	ImGui::InputFloat("Sp:\n", &sp_);
 	ImGui::InputFloat("spChangingPoint:", &spChangingPoint_);
@@ -140,6 +143,7 @@ void Player::Jump()
 	if (jumpFrag_) {
 		jumpSpeed_ += charaBase_.speed_.y;
 		charaBase_.pos_.y -= jumpSpeed_;
+	
 
 		if (charaBase_.pos_.y>= standardPos_.y) {
 			jumpFrag_ = false;
@@ -257,30 +261,26 @@ void Player::AttackSpDown()
 	}
 }
 
-void Player::PlayerStateChange(char* keys, char* preKeys)
+void Player::PlayerStateChange(char* keys)
 {
 	//移動処理のモーションよりもジャンプの方が優先度高い
-	if ((keys[DIK_LEFT] || keys[DIK_A]) || (keys[DIK_RIGHT] || keys[DIK_D])) {
-		playerState_ = MOVE;
-	}
-	else {
-		playerState_ = IDOL;
-	}
-
-
-
-	if (((preKeys[DIK_UP] == 0 && keys[DIK_UP] != 0) || (preKeys[DIK_W] == 0 && keys[DIK_W] != 0)) && jumpLag_ <= 0) {
-		playerState_ = JUMP;
-	}
-
-	if (Novice::IsTriggerMouse(0) && !attackFrag_) {
-		if (playerAttackTypeNow_==Plane) {
+	if (attackFrag_) {
+		if (playerAttackTypeNow_ == Plane) {
 			playerState_ = ATTACK;
 		}
 		else {
 			playerState_ = SKILL;
 		}
 		
+	}
+	else if (jumpFrag_) {
+		playerState_ = JUMP;
+	}
+	else if ((keys[DIK_LEFT] || keys[DIK_A]) || (keys[DIK_RIGHT] || keys[DIK_D])) {
+		playerState_ = MOVE;
+	}
+	else {
+		playerState_ = IDOL;
 	}
 
 }

@@ -64,6 +64,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 				flagGameOver_ = true;
 				changeTimingFrame_ = 0;
 			}
+
 #pragma endregion 
 		}
 
