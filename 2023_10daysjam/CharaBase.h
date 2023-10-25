@@ -27,5 +27,5 @@ enum PlayerAttackType {
 ///プレイヤーの攻撃向き
 enum PlayerDirection {
 	//0:左,1:右
-	Left, RIGHT
+	LEFT, RIGHT
 };

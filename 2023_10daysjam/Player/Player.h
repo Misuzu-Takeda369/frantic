@@ -67,19 +67,48 @@ public:
 	/// </summary>
 	void AttackSpDown();
 
-	float GetPlayerHp() { return hp_; };
-	float GetPlayerSp() { return sp_; };
-
-	float GetPlayerHpMax() { return maxHp_; };
-	float GetPlayerSpMax() { return maxSp_; };
-
-	float GetPlayerDecreasedHp() { return decreasedHp_; };
-	float GetPlayerDecreasedSp() { return decreasedSp_; };
+	/// <summary>
+	/// プレイヤーの攻撃方向をマウスの位置で決める
+	/// </summary>
+	void playerDirectionDecision();
 
 	/// <summary>
-	/// アニメーション？のチェンジ
+	/// enum　State適応のチェンジ
 	/// </summary>
 	void PlayerStateChange(char* keys);
+
+	/// <summary>
+	/// 現在のHP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerHp() { return hp_; };
+	/// <summary>
+	/// 現在のSP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerSp() { return sp_; };
+
+	/// <summary>
+	/// 最大値のHP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerHpMax() { return maxHp_; };
+	/// <summary>
+	/// 最大値のSP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerSpMax() { return maxSp_; };
+
+	/// <summary>
+	/// 最大-現在のHP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerDecreasedHp() { return decreasedHp_; };
+	/// <summary>
+	/// 最大-現在のSP
+	/// </summary>
+	/// <returns></returns>
+	float GetPlayerDecreasedSp() { return decreasedSp_; };
 
 	/// <summary>
 	/// 近距離の攻撃のゲッター
@@ -98,6 +127,12 @@ private:
 	//基準となる情報(ここからアニメーション用に引っ張る)
 	CharaBase charaBase_;
 
+	//マウスの位置(Xのみ)
+
+	IntState mousePos_ = {0,0};
+	
+
+	//STATE用変数
 	int playerState_ = IDOL;
 
 	//Hp,Sp関連(最大、現在,減少量)

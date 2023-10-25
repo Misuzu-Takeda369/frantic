@@ -22,7 +22,7 @@ enum STATE {
 
 //Hpゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる
-struct HpState {
+struct IntState {
 	int x_;
 	int y_;
 };

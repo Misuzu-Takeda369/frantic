@@ -33,9 +33,9 @@ public:
 private:
 
 	//左端
-	HpState Lpos_ = { 0,60 };
+	IntState Lpos_ = { 0,60 };
 	//右端
-	HpState Rpos_ = { 0,0};
+	IntState Rpos_ = { 0,0};
 	//画像
 	int image_ = 0;
 	//写したいサイズ

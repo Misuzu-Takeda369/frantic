@@ -39,13 +39,15 @@ void Player::Initialize()
 	attackframe_ = 60;
 
 	playerState_ = IDOL;
-
+	mousePos_ = { 0,0 };
 }
 
 void Player::Update(char* keys, char* preKeys)
 {
 	//移動処理
 	Move(keys,preKeys);
+	//プレイヤーの向き
+	playerDirectionDecision();
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
@@ -74,6 +76,7 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Begin("Player");
 
 	ImGui::Text("PlayerPos: x_%.2f, y_%.2f\nMove_AWSD&Dicrection\n", charaBase_.pos_.x, charaBase_.pos_.y);
+	
 	ImGui::Text("PlayerSpeed: x_%.2f, y_%.2f\n", charaBase_.speed_.x, charaBase_.speed_.y);
 	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic MouseRightBottun\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
@@ -119,12 +122,12 @@ void Player::Move(char* keys, char* preKeys)
 	//横移動
 	if (keys[DIK_LEFT] || keys[DIK_A]) {
 		charaBase_.pos_.x -= charaBase_.speed_.x;
-		playerDirection_ = 0;
+		//playerDirection_ = 0;
 		//playerState_ = MOVE;
 	}
 	else if (keys[DIK_RIGHT] || keys[DIK_D]) {
 		charaBase_.pos_.x += charaBase_.speed_.x;
-		playerDirection_ = 1;
+		//playerDirection_ = 1;
 		//playerState_ = MOVE;
 	}
 
@@ -258,6 +261,20 @@ void Player::AttackSpDown()
 {
 	if (playerAttackTypeNow_== Magic) {
 		sp_ -= attackSpDown_;
+	}
+}
+
+void Player::playerDirectionDecision()
+{
+	Novice::GetMousePosition(&mousePos_.x_, &mousePos_.y_);
+
+	int mouseToP = mousePos_.x_ - int(charaBase_.pos_.x);
+
+	if (mouseToP >= 0) {
+		playerDirection_ = RIGHT;
+	}
+	else {
+		playerDirection_ = LEFT;
 	}
 }
 
