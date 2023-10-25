@@ -76,7 +76,6 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Begin("Player");
 
 	ImGui::Text("PlayerPos: x_%.2f, y_%.2f\nMove_AWSD&Dicrection\n", charaBase_.pos_.x, charaBase_.pos_.y);
-	
 	ImGui::Text("PlayerSpeed: x_%.2f, y_%.2f\n", charaBase_.speed_.x, charaBase_.speed_.y);
 	ImGui::Text("playerAttackTypeNow: %d\n0_Nomal,1_Magic MouseRightBottun\n", playerAttackTypeNow_);
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
