@@ -38,6 +38,8 @@ void Player::Initialize()
 	playerDirection_ = 1;
 	attackframe_ = 60;
 
+	playerState_ = IDOL;
+
 }
 
 void Player::Update(char* keys, char* preKeys)
@@ -110,15 +112,17 @@ void Player::Draw()
 
 void Player::Move(char* keys, char* preKeys)
 {
-
+	
 	//横移動
 	if (keys[DIK_LEFT] || keys[DIK_A]) {
 		charaBase_.pos_.x -= charaBase_.speed_.x;
 		playerDirection_ = 0;
+		//playerState_ = MOVE;
 	}
 	else if (keys[DIK_RIGHT] || keys[DIK_D]) {
 		charaBase_.pos_.x += charaBase_.speed_.x;
 		playerDirection_ = 1;
+		//playerState_ = MOVE;
 	}
 
 	//縦
@@ -251,5 +255,33 @@ void Player::AttackSpDown()
 	if (playerAttackTypeNow_== Magic) {
 		sp_ -= attackSpDown_;
 	}
+}
+
+void Player::PlayerStateChange(char* keys, char* preKeys)
+{
+	//移動処理のモーションよりもジャンプの方が優先度高い
+	if ((keys[DIK_LEFT] || keys[DIK_A]) || (keys[DIK_RIGHT] || keys[DIK_D])) {
+		playerState_ = MOVE;
+	}
+	else {
+		playerState_ = IDOL;
+	}
+
+
+
+	if (((preKeys[DIK_UP] == 0 && keys[DIK_UP] != 0) || (preKeys[DIK_W] == 0 && keys[DIK_W] != 0)) && jumpLag_ <= 0) {
+		playerState_ = JUMP;
+	}
+
+	if (Novice::IsTriggerMouse(0) && !attackFrag_) {
+		if (playerAttackTypeNow_==Plane) {
+			playerState_ = ATTACK;
+		}
+		else {
+			playerState_ = SKILL;
+		}
+		
+	}
+
 }
 

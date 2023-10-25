@@ -11,12 +11,13 @@ struct UnitColor
 };
 
 enum STATE {
-	IDOL,  //0_待機
-	MOVE,  //1_移動
-	DEAD,  //2_死亡
-	ATTACK,//3_攻撃
-	SKILL, //4_魔法など
-	SPECIAL,//5_特殊攻撃?
+	IDOL,   //0_待機
+	MOVE,   //1_移動
+	JUMP,   //2_ジャンプ
+	DEAD,   //3_死亡
+	ATTACK, //4_攻撃
+	SKILL,  //5_魔法など
+	SPECIAL,//6_特殊攻撃?
 };
 
 

@@ -77,6 +77,11 @@ public:
 	float GetPlayerDecreasedSp() { return decreasedSp_; };
 
 	/// <summary>
+	/// アニメーション？のチェンジ
+	/// </summary>
+	void PlayerStateChange(char* keys, char* preKeys);
+
+	/// <summary>
 	/// 近距離の攻撃のゲッター
 	/// </summary>
 	/// <returns></returns>
@@ -92,6 +97,8 @@ private:
 
 	//基準となる情報(ここからアニメーション用に引っ張る)
 	CharaBase charaBase_;
+
+	int playerState_ = IDOL;
 
 	//Hp,Sp関連(最大、現在,減少量)
 	const float maxHp_ = 500.0f;
