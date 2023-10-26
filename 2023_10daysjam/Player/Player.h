@@ -70,7 +70,8 @@ public:
 	/// <summary>
 	/// プレイヤーの攻撃方向をマウスの位置で決める
 	/// </summary>
-	void playerDirectionDecision();
+	void playerDirectionDecisionA();
+
 
 	/// <summary>
 	/// enum　State適応のチェンジ
@@ -148,8 +149,11 @@ private:
 	MaindState maindStateNow_ = Normal;
 	//狂気カラー(デバック用)
 	unsigned int maindColor_ = WHITE;
-	//プレイヤーの向き
-	PlayerDirection playerDirection_ = RIGHT;
+	//プレイヤーの向き(攻撃の向き)
+	PlayerDirection playerDirectionA_ = RIGHT;
+
+	//プレイヤーの向き(動き(待機や移動などキー入力で変化するタイプ))
+	PlayerDirection playerDirectionM_ = RIGHT;
 
 	//精神状態が変わる値の変数
 	float spChangingPoint_ = 250.0f;

@@ -37,7 +37,9 @@ void Player::Initialize()
 	maindColor_ = WHITE;
 	spChangingPoint_ = 250.0f;
 
-	playerDirection_ = RIGHT;
+	playerDirectionA_ = RIGHT;
+	playerDirectionM_ = RIGHT;
+
 	attackframe_ = 60;
 
 	playerState_ = IDOL;
@@ -52,12 +54,13 @@ void Player::Update(char* keys, char* preKeys)
 {
 	//移動処理
 	Move(keys,preKeys);
-	//アニメーション
-	playerAnimation_->Update(charaBase_.pos_ , playerState_, _NONE);
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
 	Attack();
+
+	//アニメーション
+	playerAnimation_->Update(charaBase_.pos_, playerState_, _NONE);
 	//減った量
 	//ゲージ処理用
 	decreasedHp_ = maxHp_ - hp_;
@@ -130,12 +133,12 @@ void Player::Move(char* keys, char* preKeys)
 	//横移動
 	if (keys[DIK_LEFT] || keys[DIK_A]) {
 		charaBase_.pos_.x -= charaBase_.speed_.x;
-		//playerDirection_ = 0;
+		playerDirectionM_ = LEFT;
 		//playerState_ = MOVE;
 	}
 	else if (keys[DIK_RIGHT] || keys[DIK_D]) {
 		charaBase_.pos_.x += charaBase_.speed_.x;
-		//playerDirection_ = 1;
+		playerDirectionM_ = RIGHT;
 		//playerState_ = MOVE;
 	}
 
@@ -204,13 +207,13 @@ void Player::Attack()
 	if (Novice::IsTriggerMouse(0) && !attackFrag_) {
 
 		//プレイヤーの向き
-		playerDirectionDecision();
+		playerDirectionDecisionA();
 
 		//現在SP使う攻撃の時に弾が出るようになる
 		if ((playerAttackTypeNow_ == Magic)) {
 
 			PlayerLAttack* newlAttack = new PlayerLAttack();
-			newlAttack->Initialize(playerAttackTypeNow_, maindStateNow_, playerDirection_, charaBase_.pos_);
+			newlAttack->Initialize(playerAttackTypeNow_, maindStateNow_, playerDirectionA_, charaBase_.pos_);
 			lAttack_.push_back(newlAttack);
 		}
 
@@ -224,7 +227,7 @@ void Player::Attack()
 		}
 
 		mAttack_ = new PlayerMAttack();
-		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirection_);
+		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirectionA_);
 
 
 		//攻撃力の設定
@@ -241,7 +244,7 @@ void Player::Attack()
 
 		//近距離用当たり判定が起きている時場合
 		if (mAttack_) {
-			mAttack_->Update(charaBase_.pos_,playerDirection_);
+			mAttack_->Update(charaBase_.pos_,playerDirectionA_);
 		}
 
 		//アニメーション入るまで仮フレーム
@@ -275,17 +278,17 @@ void Player::AttackSpDown()
 	}
 }
 
-void Player::playerDirectionDecision()
+void Player::playerDirectionDecisionA()
 {
 	Novice::GetMousePosition(&mousePos_.x_, &mousePos_.y_);
 
 	int mouseToP = mousePos_.x_ - int(charaBase_.pos_.x);
 
 	if (mouseToP >= 0) {
-		playerDirection_ = RIGHT;
+		playerDirectionA_ = RIGHT;
 	}
 	else {
-		playerDirection_ = LEFT;
+		playerDirectionA_ = LEFT;
 	}
 }
 
