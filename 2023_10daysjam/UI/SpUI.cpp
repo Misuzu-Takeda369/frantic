@@ -7,7 +7,7 @@ void SpUI::Initialize()
 	//右下端
 	Rpos_ = { sizeX_,sizeY_ };
 	//画像
-	image_ = Novice::LoadTexture("./Resources/images/HPBar_kari.png");
+	image_ = Novice::LoadTexture("./Resources/images/UI/HPBar_kari.png");
 
 	//移動した合計
 	moveX_ = 0;

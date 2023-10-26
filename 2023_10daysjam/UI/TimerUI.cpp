@@ -13,8 +13,9 @@ void TimerUI::Update()
 	timerDisplay_ = timer_ / 60;
 
 	if (timer_<= 0) {
-		timer_ = 3600;
+		timer_ = 0;
 	}
+
 }
 
 void TimerUI::Draw()
@@ -24,4 +25,10 @@ void TimerUI::Draw()
 	Novice::ScreenPrintf(timerUIPos_.x_, timerUIPos_.y_,"Timer: %d", timerDisplay_);
 #endif // _DEBUG
 
+}
+
+void TimerUI::ConversionUI()
+{
+	//int decreaseSp = int(timerDisplay_);
+	//moveX_ = (moveSpeedX_)*decreaseSp;
 }

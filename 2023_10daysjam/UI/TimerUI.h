@@ -25,6 +25,11 @@ public:
 	void Draw();
 
 	/// <summary>
+	/// ゲージ変換用
+	/// </summary>
+	void ConversionUI();
+
+	/// <summary>
 	/// タイマーのゲッター
 	/// </summary>
 	/// <returns></returns>
