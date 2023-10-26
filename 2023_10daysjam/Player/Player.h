@@ -127,12 +127,11 @@ private:
 	//基準となる情報(ここからアニメーション用に引っ張る)
 	CharaBase charaBase_;
 
-	//マウスの位置(Xのみ)
-
+	//マウスの位置(Yも無いと関数動かん)
 	IntState mousePos_ = {0,0};
 	
 
-	//STATE用変数(コレ関連いらんかも)
+	//STATE用変数
 	STATE playerState_ = IDOL;
 
 	//Hp,Sp関連(最大、現在,減少量)
@@ -164,7 +163,7 @@ private:
 	std::list<PlayerLAttack*> lAttack_;
 
 	//アニメーション関連
-	PlayerAnimation* playerAnimetion_ = nullptr;
+	PlayerAnimation* playerAnimation_ = nullptr;
 
 	///ジャンプ関連
 	//ジャンプの最初のスピード
