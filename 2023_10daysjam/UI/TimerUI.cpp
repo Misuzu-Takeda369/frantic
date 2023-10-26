@@ -2,7 +2,7 @@
 
 void TimerUI::Initialize()
 {
-	timerUIPos_ = {20,600};
+	timerUIPos_ = {50,650};
 	timer_ = 3600;
 	timerDisplay_ = timer_/60;
 	timerMaxDis_ = 60;
@@ -25,8 +25,9 @@ void TimerUI::Update()
 {
 	timer_--;
 	timerDisplay_ = timer_ / 60;
-
-	ConversionUI();
+	
+	ConversionUIVer2();
+	//ConversionUIVer1();
 
 	if (timer_<= 0) {
 		timer_ = 0;
@@ -50,8 +51,17 @@ void TimerUI::Draw()
 
 }
 
-void TimerUI::ConversionUI()
+void TimerUI::ConversionUIVer1()
 {
+
 	int timer = timerMaxDis_ - timerDisplay_;
 	moveX_ = (moveSpeedX_)*timer;
+}
+
+void TimerUI::ConversionUIVer2()
+{
+	if (timer_%7 == 0) {
+		
+		moveX_ += 1;
+	}
 }

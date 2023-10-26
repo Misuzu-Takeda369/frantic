@@ -25,9 +25,14 @@ public:
 	void Draw();
 
 	/// <summary>
-	/// ゲージ変換用
+	/// ゲージ変換用パターン1
 	/// </summary>
-	void ConversionUI();
+	void ConversionUIVer1();
+
+	/// <summary>
+	/// ゲージ変換用パターン2
+	/// </summary>
+	void ConversionUIVer2();
 
 	/// <summary>
 	/// タイマーのゲッター
