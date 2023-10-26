@@ -109,6 +109,12 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation\Animation.cpp" />
+    <ClCompile Include="Animation\PlayerAnimation.cpp" />
+    <ClCompile Include="Animation\PlayerAttackAnim.cpp" />
+    <ClCompile Include="Animation\PlayerAttackAnim1.cpp" />
+    <ClCompile Include="Animation\PlayerIdolAnim.cpp" />
+    <ClCompile Include="Animation\PlayerRunAnim.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\WinApp.cpp" />
@@ -132,6 +138,13 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="UI\TimerUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation\Animation.h" />
+    <ClInclude Include="Animation\AnimationStruct.h" />
+    <ClInclude Include="Animation\PlayerAnimation.h" />
+    <ClInclude Include="Animation\PlayerAttackAnim.h" />
+    <ClInclude Include="Animation\PlayerAttackAnim1.h" />
+    <ClInclude Include="Animation\PlayerIdolAnim.h" />
+    <ClInclude Include="Animation\PlayerRunAnim.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Matrix4x4.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Vector2.h" />

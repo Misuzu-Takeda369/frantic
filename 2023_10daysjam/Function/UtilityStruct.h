@@ -27,4 +27,10 @@ struct IntState {
 	int y_;
 };
 
+//アニメーション分け&移動制御用 だと思う
+enum SABSTATE {
+	_NONE,   //0_特になし
+	_ATTACK, //1_攻撃中
+	_SPELL,  //2_詠唱中
+};
 
