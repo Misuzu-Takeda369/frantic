@@ -38,6 +38,23 @@ public:
 private:
 
 	IntState timerUIPos_;
+	
 	int timer_;
+	int timerMaxDis_;
 	int timerDisplay_;
+
+	//左端
+	IntState Lpos_ = { 0,60 };
+	//右端
+	IntState Rpos_ = { 0,0 };
+	//画像
+	int image_ = 0;
+	//写したいサイズ
+	const int sizeX_ = 500;
+	const int sizeY_ = 32;
+
+	//移動した合計
+	int moveX_ = 0;
+	//移動する量(HPが1減るたびに動く量)
+	int moveSpeedX_ = 9;
 };

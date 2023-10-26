@@ -13,6 +13,8 @@ void SpUI::Initialize()
 	moveX_ = 0;
 	//移動する量(HPが1たび増減するたびに動く量)
 	moveSpeedX_ = 1;
+
+
 }
 
 void SpUI::Update(float decreasedSp)
