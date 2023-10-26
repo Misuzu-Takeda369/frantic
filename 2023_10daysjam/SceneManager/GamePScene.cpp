@@ -10,6 +10,8 @@ GamePScene::~GamePScene()
 	delete player_;
 	delete hpUi_;
 	delete spUi_;
+	delete timerUi_;
+
 }
 
 void GamePScene::Initialize()
@@ -23,6 +25,9 @@ void GamePScene::Initialize()
 
 	spUi_ = new SpUI();
 	spUi_->Initialize();
+
+	timerUi_ = new TimerUI();
+	timerUi_->Initialize();
 }
 
 void GamePScene::Update(char* keys, char* preKeys)
@@ -44,6 +49,8 @@ void GamePScene::Update(char* keys, char* preKeys)
 			hpUi_->Update(player_->GetPlayerDecreasedHp());
 
 			spUi_->Update(player_->GetPlayerDecreasedSp());
+
+			timerUi_->Update();
 
 #pragma region シーン変更含む
 			changeTimingFrame_++;
@@ -125,6 +132,7 @@ void GamePScene::Draw()
 #pragma region UI関連(一番前に写す)
 	hpUi_->Draw();
 	spUi_->Draw();
+	timerUi_->Draw();
 
 #pragma endregion
 }

@@ -4,6 +4,7 @@
 #include "Player/Player.h"
 #include "UI/HpUI.h"
 #include "UI/SpUI.h"
+#include "UI/TimerUI.h"
 /// <summary>
 /// プレイシーンのクラス
 /// </summary>
@@ -88,5 +89,6 @@ private:
 
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;
+	TimerUI* timerUi_ = nullptr;
 
 };

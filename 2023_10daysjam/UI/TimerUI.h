@@ -34,5 +34,5 @@ private:
 
 	IntState timerUIPos_;
 	int timer_;
-	int
+	int timerDisplay_;
 };

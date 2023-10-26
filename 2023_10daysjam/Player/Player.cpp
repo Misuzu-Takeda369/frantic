@@ -46,8 +46,6 @@ void Player::Update(char* keys, char* preKeys)
 {
 	//移動処理
 	Move(keys,preKeys);
-	//プレイヤーの向き
-	playerDirectionDecision();
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
@@ -193,6 +191,9 @@ void Player::Attack()
 {
 	//左クリックしたら攻撃する
 	if (Novice::IsTriggerMouse(0) && !attackFrag_) {
+
+		//プレイヤーの向き
+		playerDirectionDecision();
 
 		//現在SP使う攻撃の時に弾が出るようになる
 		if ((playerAttackTypeNow_ == Magic)) {

@@ -36,7 +36,6 @@ public:
 	/// キー入力
 	/// </summary>
 	void Move(char* keys, char* preKeys);
-	//char* keys, char* preKeys
 	/// <summary>
 	///	ジャンプ処理用
 	/// </summary>
