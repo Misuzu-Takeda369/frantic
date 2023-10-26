@@ -16,14 +16,14 @@ public:
 	/// <param name="playerAttackTypeNow">攻撃のtype</param>
 	/// <param name="maindStateNow">現在狂気か否か</param>
 	/// <param name="playerDirection">向き</param>
-	void Initialize(bool& playerAttackTypeNow, int& maindStateow,int& playerDirection);
+	void Initialize(PlayerAttackType& playerAttackTypeNow, MaindState& maindStateNow, PlayerDirection& playerDirection);
 	//必要な引数
 	//狂気か否か、攻撃type、プレイヤーの向き、
 
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(Vector2& playerPos,int& playerDirection);
+	void Update(Vector2& playerPos, PlayerDirection& playerDirection);
 	//プレイヤーの現在地、
 
 	/// <summary>
@@ -42,11 +42,11 @@ private:
 
 	///プレイヤーから引っ張ってくる引数
 	//現在の攻撃type
-	bool playerAttackTypeNow_;
+	PlayerAttackType playerAttackTypeNow_;
 	//現在の狂気度
-	int maindStateNow_;
+	MaindState maindStateNow_;
 	//プレイヤーの向き
-	int playerDirection_;
+	PlayerDirection playerDirection_;
 
 	//本体と近距離当たり判定の中心までどれぐらい離れているか
 	const Vector2 ptoA_ = { 64.0f,0.0f };

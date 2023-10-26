@@ -6,6 +6,7 @@
 #include "CharaBase.h"
 #include "PlayerMAttack.h"
 #include "PlayerLAttack.h"
+#include "Animation/PlayerAnimation.h"
 
 
 class Player
@@ -131,8 +132,8 @@ private:
 	IntState mousePos_ = {0,0};
 	
 
-	//STATE用変数
-	int playerState_ = IDOL;
+	//STATE用変数(コレ関連いらんかも)
+	STATE playerState_ = IDOL;
 
 	//Hp,Sp関連(最大、現在,減少量)
 	const float maxHp_ = 500.0f;
@@ -145,11 +146,11 @@ private:
 	
 
 	//現在の狂気度
-	int maindStateNow_ = Normal;
+	MaindState maindStateNow_ = Normal;
 	//狂気カラー(デバック用)
 	unsigned int maindColor_ = WHITE;
 	//プレイヤーの向き
-	int playerDirection_ = RIGHT;
+	PlayerDirection playerDirection_ = RIGHT;
 
 	//精神状態が変わる値の変数
 	float spChangingPoint_ = 250.0f;
@@ -157,10 +158,13 @@ private:
 	float attackSpDown_ = 20.0f;
 
 	//近距離用の当たり判定用クラス
-	PlayerMAttack* mAttack_;
+	PlayerMAttack* mAttack_ = nullptr;
 
 	//遠距離の当たり判定(複数にする)
 	std::list<PlayerLAttack*> lAttack_;
+
+	//アニメーション関連
+	PlayerAnimation* playerAnimetion_ = nullptr;
 
 	///ジャンプ関連
 	//ジャンプの最初のスピード
@@ -173,7 +177,7 @@ private:
 	
 	///攻撃関連
 	//現在の攻撃type
-	bool playerAttackTypeNow_ = Plane;
+	PlayerAttackType playerAttackTypeNow_ = Plane;
 	//近距離攻撃できるかフラグ(近距離)
 	bool attackFrag_ = false;
 	

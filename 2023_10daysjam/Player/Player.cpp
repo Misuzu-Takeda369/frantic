@@ -7,6 +7,8 @@ Player::~Player()
 	for (PlayerLAttack* lAttack: lAttack_) {
 		delete lAttack;
 	}
+
+	delete playerAnimation_;
 }
 
 void Player::Initialize()
@@ -35,17 +37,23 @@ void Player::Initialize()
 	maindColor_ = WHITE;
 	spChangingPoint_ = 250.0f;
 
-	playerDirection_ = 1;
+	playerDirection_ = RIGHT;
 	attackframe_ = 60;
 
 	playerState_ = IDOL;
 	mousePos_ = { 0,0 };
+
+	playerAnimation_ = new PlayerAnimation();
+	playerAnimation_->Initialize();
+
 }
 
 void Player::Update(char* keys, char* preKeys)
 {
 	//移動処理
 	Move(keys,preKeys);
+	//アニメーション
+	playerAnimation_->Update(charaBase_.pos_ , playerState_, _NONE);
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
@@ -67,6 +75,7 @@ void Player::Update(char* keys, char* preKeys)
 
 	//状態の奴
 	PlayerStateChange(keys);
+
 
 #pragma region ImGum関連
 
@@ -95,6 +104,8 @@ void Player::Draw()
 
 	//プレイヤー本体
 	Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color_,kFillModeSolid);
+
+	playerAnimation_->Draw();
 
 	//近距離用当たり判定が起きている時場合
 	if (mAttack_) {

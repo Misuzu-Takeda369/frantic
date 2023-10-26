@@ -1,6 +1,6 @@
 ﻿#include "PlayerMAttack.h"
 
-void PlayerMAttack::Initialize(bool& playerAttackTypeNow, int& maindStateNow, int& playerDirection)
+void PlayerMAttack::Initialize(PlayerAttackType& playerAttackTypeNow, MaindState& maindStateNow, PlayerDirection& playerDirection)
 {
 	charaBase_ = {
 		{-200.0f,-200.0f},{0.0f,0.0f},64.0f,0.0f,RED
@@ -21,7 +21,7 @@ void PlayerMAttack::Initialize(bool& playerAttackTypeNow, int& maindStateNow, in
 
 }
 
-void PlayerMAttack::Update(Vector2& playerPos, int& playerDirection)
+void PlayerMAttack::Update(Vector2& playerPos, PlayerDirection& playerDirection)
 {
 	if (playerDirection == 1) {
 		charaBase_.pos_ = { playerPos.x + ptoA_.x,playerPos.y + ptoA_.y };

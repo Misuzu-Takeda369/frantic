@@ -13,7 +13,7 @@ public:
 		/// <param name="playerAttackTypeNow">攻撃のtype</param>
 		/// <param name="maindStateNow">現在狂気か否か</param>
 		/// <param name="playerDirection">向き</param>
-	void Initialize(bool& playerAttackTypeNow, int& maindStateow, int& playerDirection, Vector2& playerPos);
+	void Initialize(PlayerAttackType& playerAttackTypeNow, MaindState& maindStateNow, PlayerDirection& playerDirection, Vector2& playerPos);
 	
 
 	/// <summary>
@@ -44,11 +44,11 @@ private:
 
 	///プレイヤーから引っ張ってくる引数
 	//現在の攻撃type
-	bool playerAttackTypeNow_;
+	PlayerAttackType playerAttackTypeNow_;
 	//現在の狂気度
-	int maindStateNow_;
+	MaindState maindStateNow_;
 	//プレイヤーの向き
-	int playerDirection_;
+	PlayerDirection playerDirection_;
 
 	//弾の寿命(消えるまでの時間の定数)
 	static const int kLifeTime = 120;

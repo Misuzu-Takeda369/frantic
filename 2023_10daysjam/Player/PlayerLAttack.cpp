@@ -1,7 +1,7 @@
 ﻿#include "PlayerLAttack.h"
 #include <cassert>
 
-void PlayerLAttack::Initialize(bool& playerAttackTypeNow, int& maindStateNow, int& playerDirection, Vector2& playerPos)
+void PlayerLAttack::Initialize(PlayerAttackType& playerAttackTypeNow, MaindState& maindStateNow, PlayerDirection& playerDirection, Vector2& playerPos)
 {
 	charaBase_ = {
 		{playerPos},{8.0f,0.0f},32.0f,0.0f,RED
