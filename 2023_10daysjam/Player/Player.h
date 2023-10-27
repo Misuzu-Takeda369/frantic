@@ -116,7 +116,7 @@ public:
 	/// 近距離の攻撃のゲッター
 	/// </summary>
 	/// <returns></returns>
-	PlayerMAttack GetMAttack() { return *mAttack_; };
+	PlayerMAttack* GetMAttack() { return mAttack_; };
 
 	/// <summary>
 	/// 遠距離の攻撃のゲッター

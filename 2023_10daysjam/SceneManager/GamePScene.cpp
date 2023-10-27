@@ -51,6 +51,10 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 			player_->Update(keys, preKeys);
 
+
+			//当たり判定
+			CollisionDetection();
+
 			hpUi_->Update(player_->GetPlayerDecreasedHp());
 
 			spUi_->Update(player_->GetPlayerDecreasedSp());
@@ -156,4 +160,53 @@ void GamePScene::Draw()
 	timerUi_->Draw();
 
 #pragma endregion
+}
+
+void GamePScene::CollisionDetection()
+{
+	PtoECollision();
+	PMAtoECollision();
+	PLAtoECollision();
+	PtoICollision();
+}
+
+void GamePScene::PtoECollision()
+{
+	/*
+	if (CircleCollision(float aX, float aY, float aRadius, float bX, float bY, float bRadius) ) {
+
+	}
+	*/
+}
+
+void GamePScene::PMAtoECollision()
+{
+	/*
+	if (CircleCollision(float aX, float aY, float aRadius, float bX, float bY, float bRadius) ) {
+
+	}
+	*/
+
+	//多分ここで確率アイテムドロップ？
+}
+
+void GamePScene::PLAtoECollision()
+{
+	/*
+	if (CircleCollision(float aX, float aY, float aRadius, float bX, float bY, float bRadius) ) {
+
+	}
+	*/
+
+	//多分ここで確率アイテムドロップ？
+}
+
+void GamePScene::PtoICollision()
+{
+	/*
+	if (CircleCollision(float aX, float aY, float aRadius, float bX, float bY, float bRadius) ) {
+
+	}
+	*/
+
 }

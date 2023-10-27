@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Novice.h"
 #include "ImGuiManager.h"
+#include "Function/Function.h"
 #include "Player/Player.h"
 #include "UI/HpUI.h"
 #include "UI/SpUI.h"
@@ -42,6 +43,29 @@ public:
 	/// </summary>
 	void Draw();
 
+	/// <summary>
+	/// 当たり判定すべてを統括する関数
+	/// </summary>
+	void CollisionDetection();
+
+	/// <summary>
+	/// プレイヤーと敵
+	/// </summary>
+	void PtoECollision();
+	/// <summary>
+	/// プレイヤー近攻と敵
+	/// </summary>
+	void PMAtoECollision();
+	/// <summary>
+	/// プレイヤー遠攻と敵
+	/// </summary>
+	void PLAtoECollision();
+	/// <summary>
+	/// プレイヤーとアイテム
+	/// </summary>
+	void PtoICollision();
+
+	///ゲッターセッター
 
 	/// <summary>
 	/// シーン変更管理のゲッター
