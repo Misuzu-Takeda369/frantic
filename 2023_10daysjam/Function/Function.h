@@ -75,3 +75,11 @@ void TranslateWave(float& pos, const float& theta, float range1, float range2);
 /// <param name="v"></param>
 /// <param name="theta"></param>
 void CircumferentialMovement(Vector2& v, const float& theta);
+
+/// <summary> 
+/// 足し算ベクター同士
+/// </summary>
+ /// <param name="a"></param>
+ ///  <param name="b"></param>
+ ///  <returns></returns>
+Vector2 VectorAdd(Vector2& a, Vector2& b);

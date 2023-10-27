@@ -4,6 +4,7 @@
 #include "ImGuiManager.h"
 #include <list>
 #include "CharaBase.h"
+#include "Function/Function.h"
 #include "PlayerMAttack.h"
 #include "PlayerLAttack.h"
 #include "Animation/PlayerAnimation.h"

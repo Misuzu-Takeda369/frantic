@@ -100,3 +100,14 @@ void CircumferentialMovement(Vector2& v, const float& theta)
 	v.x = v2.x * cosf(theta) - v2.y * sinf(theta);
 	v.y = v2.y * cosf(theta) + v2.x * sinf(theta);
 }
+
+
+Vector2 VectorAdd(Vector2& a, Vector2& b) {
+
+	Vector2 result;
+	result.x = a.x + b.x;
+	result.y = a.y + b.y;
+
+	return result;
+
+}
