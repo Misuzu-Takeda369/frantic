@@ -124,6 +124,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp" />
     <ClCompile Include="Function\Easing.cpp" />
     <ClCompile Include="Function\Function.cpp" />
+    <ClCompile Include="Item\ItemBase.cpp" />
+    <ClCompile Include="Item\SpRecoverItem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerLAttack.cpp" />
@@ -133,6 +135,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="SceneManager\GamePScene.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="SceneManager\TitleScene.cpp" />
+    <ClCompile Include="SpRecoverItem.cpp" />
     <ClCompile Include="UI\HpUI.cpp" />
     <ClCompile Include="UI\SpUI.cpp" />
     <ClCompile Include="UI\TimerUI.cpp" />
@@ -176,6 +179,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="Function\Easing.h" />
     <ClInclude Include="Function\Function.h" />
     <ClInclude Include="Function\UtilityStruct.h" />
+    <ClInclude Include="Item\ItemBase.h" />
+    <ClInclude Include="Item\SpRecoverItem.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Player\PlayerLAttack.h" />
     <ClInclude Include="Player\PlayerMAttack.h" />
