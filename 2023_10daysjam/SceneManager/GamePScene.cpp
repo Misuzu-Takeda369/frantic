@@ -41,6 +41,11 @@ void GamePScene::Update(char* keys, char* preKeys)
 			if (preKeys[DIK_SPACE] == 0 && keys[DIK_SPACE] != 0) {
 				GameMove_ = true;
 			}
+
+			if ((timerUi_->GetterTimer() <= 0) || ((player_->GetPlayerHp() <= 0) || (player_->GetPlayerSp() <= 0))) {
+				flagChange_ = true;
+			}
+
 		}
 		else {
 
@@ -54,6 +59,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 #pragma region シーン変更含む
 			changeTimingFrame_++;
+
 			///ポーズへ
 			if ((preKeys[DIK_P] == 0 && keys[DIK_P] != 0) && changeTimingFrame_ >= 30) {
 				GameMove_ = false;
@@ -62,8 +68,8 @@ void GamePScene::Update(char* keys, char* preKeys)
 			}
 			//確認用
 			CountNum_ += 1;
-
 			///シーン変換
+#ifdef _DEBUG
 			//ここのif文でシーン移行出来るかを判別
 			//現在はIを押したときに移動
 			if ((preKeys[DIK_I] == 0 && keys[DIK_I] != 0) && changeTimingFrame_ >= 30) {
@@ -76,6 +82,21 @@ void GamePScene::Update(char* keys, char* preKeys)
 				flagChange_ = true;
 				flagGameOver_ = true;
 				changeTimingFrame_ = 0;
+			}
+#endif // DEBUG
+
+			if (timerUi_->GetterTimer() <= 0) {
+				//flagChange_ = true;
+				changeTimingFrame_ = 0;
+				GameMove_ = false;
+			}
+			//ここのif文でシーン移行出来るかを判別
+			//現在はOを押したときに移動(がめおべ)
+			if ((player_->GetPlayerHp() <= 0) || (player_->GetPlayerSp() <= 0)) {
+				//flagChange_ = true;
+				flagGameOver_ = true;
+				changeTimingFrame_ = 0;
+				GameMove_ = false;
 			}
 
 #pragma endregion 
