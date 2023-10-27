@@ -1,7 +1,4 @@
 ﻿#pragma once
-#include <Novice.h>
-#include "ImGuiManager.h"
-#include "Function/Function.h"
 
 class ItemBase
 {
@@ -22,12 +19,25 @@ public:
 	/// </summary>
 	virtual void Draw();
 
-private:
+
+	/// <summary>
+	/// クラスの外部用アイテム消えるためのフラグ変数
+	/// </summary>
+	bool IsDead() const { return isDead_; };
+
+protected:
 
 	//位置
 	Vector2 pos_;
 	//画像サイズ
 	int sizeX_; int sizeY_;
 	int image_;
+
+	//弾の寿命(消えるまでの時間の定数)
+	static const int kLifeTime = 120;
+	// 弾の寿命(消えるまでの時間の判定用変数)
+	int deathTimer_ = kLifeTime;
+	//消えるフラグ
+	bool isDead_ = false;
 };
 

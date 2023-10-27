@@ -1,5 +1,9 @@
 ﻿#pragma once
+#include <Novice.h>
+#include "ImGuiManager.h"
+#include "Function/Function.h"
 #include "Item/ItemBase.h"
+
 
 class SpRecoverItem :public ItemBase
 {
@@ -24,6 +28,8 @@ public:
 	float GetRecoverSp() { return recoverSp_; }
 
 	float GetDownLineLunatic() { return downLineLunatic_; }
+
+
 	
 private:
 
