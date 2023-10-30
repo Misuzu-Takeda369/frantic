@@ -1,13 +1,14 @@
 ﻿#pragma once
+#include "Object/Object.h"
 
-class ItemBase
+class ItemBase :public Object
 {
 public:
 
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	virtual void Initialize();
+	virtual void Initialize() override;
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -17,7 +18,7 @@ public:
 	/// <summary>
 	/// 前景描画
 	/// </summary>
-	virtual void Draw();
+	virtual void Draw()override;
 
 
 	/// <summary>

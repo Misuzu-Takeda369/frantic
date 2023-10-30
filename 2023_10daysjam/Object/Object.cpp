@@ -1,15 +1,14 @@
 ﻿#include "Object.h"
 
-void Object::MindTypeChange()
+void Object::Initialize()
 {
+}
 
-	if (sp_ <= spChangingPoint_) {
-		maindStateNow_ = Lunatic;
-		maindColor_ = RED;
-	}
-	else {
-		maindStateNow_ = Normal;
-		maindColor_ = WHITE;
-	}
+void Object::Update(char* keys, char* preKeys)
+{
+	keys; preKeys;
+}
 
+void Object::Draw()
+{
 }

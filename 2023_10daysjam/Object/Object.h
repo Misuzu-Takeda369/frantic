@@ -22,12 +22,6 @@ public:
 	/// 前景描画
 	/// </summary>
 	virtual void Draw();
-
-	/// <summary>
-	/// 精神状態の変更
-	/// </summary>
-	virtual void MindTypeChange();
-
 	/// <summary>
 	/// 現在のHP
 	/// </summary>

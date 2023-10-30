@@ -1,14 +1,12 @@
 ﻿#pragma once
-#include <Vector2.h>
-#include <Novice.h>
-#include "ImGuiManager.h"
+
+#include "Object/Object.h"
 #include <list>
-#include "CharaBase.h"
 #include "Function/Function.h"
 #include "PlayerMAttack.h"
 #include "PlayerLAttack.h"
 #include "Animation/PlayerAnimation.h"
-#include "Object.h"
+
 
 
 class Player : public Object
@@ -52,7 +50,7 @@ public:
 	/// <summary>
 	/// 精神状態の変更(基底クラスに移動挙動すべて一緒のはずなので)
 	/// </summary>
-	//void MindTypeChange();
+	void MindTypeChange();
 
 	/// <summary>
 	/// 攻撃処理

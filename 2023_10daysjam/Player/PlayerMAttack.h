@@ -1,12 +1,9 @@
 ﻿#pragma once
-#include <Vector2.h>
-#include <Novice.h>
-#include "ImGuiManager.h"
-#include "CharaBase.h"
+#include "Object/Object.h"
 
 
 //近距離用の
-class PlayerMAttack
+class PlayerMAttack :public Object
 {
 public:
 	
@@ -29,7 +26,7 @@ public:
 	/// <summary>
 	/// 前景描画
 	/// </summary>
-	void Draw();
+	void Draw() override;
 
 	/// <summary>
 	/// 攻撃力を決める関数
@@ -38,13 +35,10 @@ public:
 
 private:
 
-	CharaBase charaBase_;
-
+	
 	///プレイヤーから引っ張ってくる引数
 	//現在の攻撃type
 	PlayerAttackType playerAttackTypeNow_;
-	//現在の狂気度
-	MaindState maindStateNow_;
 	//プレイヤーの向き
 	PlayerDirection playerDirection_;
 
