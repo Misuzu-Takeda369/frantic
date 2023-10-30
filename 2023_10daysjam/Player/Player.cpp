@@ -189,6 +189,7 @@ void Player::AttackTypeChange()
 
 }
 
+/*
 void Player::MindTypeChange()
 {
 	if (sp_<= spChangingPoint_) {
@@ -200,6 +201,7 @@ void Player::MindTypeChange()
 		maindColor_ = WHITE;
 	}
 }
+*/
 
 void Player::Attack()
 {

@@ -32,6 +32,9 @@
     <Filter Include="Item">
       <UniqueIdentifier>{d85723e0-118c-4eb4-b856-7c9cf9425c00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{5b01f0df-eab4-4d82-b50f-375bea3d6355}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -116,14 +119,14 @@
     <ClCompile Include="Item\ItemBase.cpp">
       <Filter>Item</Filter>
     </ClCompile>
-    <ClCompile Include="SpRecoverItem.cpp">
-      <Filter>KamataEngine</Filter>
-    </ClCompile>
     <ClCompile Include="Item\SpRecoverItem.cpp">
       <Filter>Item</Filter>
     </ClCompile>
     <ClCompile Include="Item\PopItem.cpp">
-      <Filter>KamataEngine</Filter>
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Object.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="Item\PopItem.h">
       <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Object.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

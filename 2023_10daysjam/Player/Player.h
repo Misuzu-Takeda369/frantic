@@ -8,9 +8,10 @@
 #include "PlayerMAttack.h"
 #include "PlayerLAttack.h"
 #include "Animation/PlayerAnimation.h"
+#include "Object.h"
 
 
-class Player
+class Player : public Object
 {
 public:
 
@@ -22,17 +23,17 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	void Initialize() override;
 
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys);
+	void Update(char* keys, char* preKeys) override;
 
 	/// <summary>
 	/// 前景描画
 	/// </summary>
-	void Draw();
+	void Draw() override;
 
 	/// <summary>
 	/// キー入力
@@ -49,9 +50,9 @@ public:
 	void AttackTypeChange();
 
 	/// <summary>
-	/// 精神状態の変更
+	/// 精神状態の変更(基底クラスに移動挙動すべて一緒のはずなので)
 	/// </summary>
-	void MindTypeChange();
+	//void MindTypeChange();
 
 	/// <summary>
 	/// 攻撃処理
@@ -78,17 +79,6 @@ public:
 	/// enum　State適応のチェンジ
 	/// </summary>
 	void PlayerStateChange(char* keys);
-
-	/// <summary>
-	/// 現在のHP
-	/// </summary>
-	/// <returns></returns>
-	float GetPlayerHp() { return hp_; };
-	/// <summary>
-	/// 現在のSP
-	/// </summary>
-	/// <returns></returns>
-	float GetPlayerSp() { return sp_; };
 
 	/// <summary>
 	/// 最大値のHP
@@ -126,30 +116,20 @@ public:
 
 private:
 
-	//基準となる情報(ここからアニメーション用に引っ張る)
-	CharaBase charaBase_;
-
 	//マウスの位置(Yも無いと関数動かん)
 	IntState mousePos_ = {0,0};
 	
-
 	//STATE用変数
 	STATE playerState_ = IDOL;
 
 	//Hp,Sp関連(最大、現在,減少量)
 	const float maxHp_ = 500.0f;
 	const float maxSp_ = 500.0f;
-	float hp_;
-	float sp_;
 	float decreasedHp_;
 	float decreasedSp_;
 	
 	
 
-	//現在の狂気度
-	MaindState maindStateNow_ = Normal;
-	//狂気カラー(デバック用)
-	unsigned int maindColor_ = WHITE;
 	//プレイヤーの向き(攻撃の向き)
 	PlayerDirection playerDirectionA_ = RIGHT;
 
