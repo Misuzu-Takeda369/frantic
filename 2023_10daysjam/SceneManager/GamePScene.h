@@ -48,22 +48,7 @@ public:
 	/// </summary>
 	void CollisionDetection();
 
-	/// <summary>
-	/// プレイヤーと敵
-	/// </summary>
-	void PtoECollision();
-	/// <summary>
-	/// プレイヤー近攻と敵
-	/// </summary>
-	void PMAtoECollision();
-	/// <summary>
-	/// プレイヤー遠攻と敵
-	/// </summary>
-	void PLAtoECollision();
-	/// <summary>
-	/// プレイヤーとアイテム
-	/// </summary>
-	void PtoICollision();
+	
 
 	///ゲッターセッター
 
