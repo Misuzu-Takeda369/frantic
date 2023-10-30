@@ -35,8 +35,10 @@ void PlayerAnimation::Initialize()
 	_lunaEffectTimer = 0;
 }
 
-void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab)
+void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab,  MaindState maindState)
 {
+
+	_maindState = maindState;
 	switch (main)
 	{
 	case IDOL:

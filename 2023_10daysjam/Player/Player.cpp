@@ -4,7 +4,7 @@
 Player::~Player()
 {
 	delete mAttack_;
-	for (PlayerLAttack* lAttack: lAttack_) {
+	for (PlayerLAttack* lAttack : lAttack_) {
 		delete lAttack;
 	}
 
@@ -53,14 +53,14 @@ void Player::Initialize()
 void Player::Update(char* keys, char* preKeys)
 {
 	//移動処理
-	Move(keys,preKeys);
+	Move(keys, preKeys);
 	//攻撃モードの変移
 	AttackTypeChange();
 	//攻撃
 	Attack();
 
 	//アニメーション
-	playerAnimation_->Update(Vector2(charaBase_.pos_.x , charaBase_.pos_.y ), playerState_, _NONE);
+	playerAnimation_->Update(Vector2(charaBase_.pos_.x, charaBase_.pos_.y), playerState_, _NONE, maindStateNow_);
 	//減った量
 	//ゲージ処理用
 	decreasedHp_ = maxHp_ - hp_;
@@ -91,7 +91,7 @@ void Player::Update(char* keys, char* preKeys)
 	ImGui::Text("maindStateNow: %d\n0_Nomal,1_Mad\n", maindStateNow_);
 	ImGui::Text("attackFrag: %d\nMouseLeftBottun\n", attackFrag_);
 	ImGui::Text("playerState: %d\n", playerState_);
-	ImGui::InputFloat("Hp:",&hp_);
+	ImGui::InputFloat("Hp:", &hp_);
 	ImGui::InputFloat("Sp:\n", &sp_);
 	ImGui::InputFloat("spChangingPoint:", &spChangingPoint_);
 	ImGui::InputFloat("attackSpDown:\n", &attackSpDown_);
@@ -106,7 +106,7 @@ void Player::Draw()
 {
 
 	//プレイヤー本体
-	Novice::DrawEllipse(int(charaBase_.pos_.x),int(charaBase_.pos_.y),	int(charaBase_.radius_), int(charaBase_.radius_),0.0f, charaBase_.color_,kFillModeSolid);
+	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
 
 	playerAnimation_->Draw();
 
@@ -121,30 +121,31 @@ void Player::Draw()
 
 #ifdef _DEBUG
 
-	Novice::DrawLine(0,int(standardPos_.y+charaBase_.radius_),1280, int(standardPos_.y + charaBase_.radius_),BLACK);
-	Novice::DrawBox(900,100,50,50,0.0f, maindColor_,kFillModeSolid);
+	Novice::DrawLine(0, int(standardPos_.y + charaBase_.radius_), 1280, int(standardPos_.y + charaBase_.radius_), BLACK);
+	Novice::DrawBox(900, 100, 50, 50, 0.0f, maindColor_, kFillModeSolid);
 #endif // _DEBUG
 
 }
 
 void Player::Move(char* keys, char* preKeys)
 {
-	
-	//横移動
-	if (keys[DIK_LEFT] || keys[DIK_A]) {
-		charaBase_.pos_.x -= charaBase_.speed_.x;
-		playerDirectionM_ = LEFT;
-		//playerState_ = MOVE;
-	}
-	else if (keys[DIK_RIGHT] || keys[DIK_D]) {
-		charaBase_.pos_.x += charaBase_.speed_.x;
-		playerDirectionM_ = RIGHT;
-		//playerState_ = MOVE;
-	}
 
+	if (!attackFrag_) {
+		//横移動
+		if (keys[DIK_LEFT] || keys[DIK_A]) {
+			charaBase_.pos_.x -= charaBase_.speed_.x;
+			playerDirectionM_ = LEFT;
+			//playerState_ = MOVE;
+		}
+		else if (keys[DIK_RIGHT] || keys[DIK_D]) {
+			charaBase_.pos_.x += charaBase_.speed_.x;
+			playerDirectionM_ = RIGHT;
+			//playerState_ = MOVE;
+		}
+	}
 	//縦
 	Jump();
-	if (((preKeys[DIK_UP] ==0 && keys[DIK_UP] !=0)|| (preKeys[DIK_W] == 0 && keys[DIK_W] != 0))&& jumpLag_ <= 0) {
+	if (((preKeys[DIK_UP] == 0 && keys[DIK_UP] != 0) || (preKeys[DIK_W] == 0 && keys[DIK_W] != 0)) && jumpLag_ <= 0) {
 		jumpFrag_ = true;
 		jumpLag_ = 10;
 	}
@@ -157,9 +158,9 @@ void Player::Jump()
 	if (jumpFrag_) {
 		jumpSpeed_ += charaBase_.speed_.y;
 		charaBase_.pos_.y -= jumpSpeed_;
-	
 
-		if (charaBase_.pos_.y>= standardPos_.y) {
+
+		if (charaBase_.pos_.y >= standardPos_.y) {
 			jumpFrag_ = false;
 			charaBase_.pos_.y = standardPos_.y;
 			jumpSpeed_ = 25.0f;
@@ -180,10 +181,10 @@ void Player::AttackTypeChange()
 			charaBase_.color_ = RED;
 		}
 		else {
-			playerAttackTypeNow_ = Plane; 
+			playerAttackTypeNow_ = Plane;
 			charaBase_.color_ = WHITE;
 		}
-		
+
 
 	}
 
@@ -192,7 +193,7 @@ void Player::AttackTypeChange()
 
 void Player::MindTypeChange()
 {
-	if (sp_<= spChangingPoint_) {
+	if (sp_ <= spChangingPoint_) {
 		maindStateNow_ = Lunatic;
 		maindColor_ = RED;
 	}
@@ -229,11 +230,11 @@ void Player::Attack()
 		}
 
 		mAttack_ = new PlayerMAttack();
-		mAttack_->Initialize(playerAttackTypeNow_,maindStateNow_,playerDirectionA_);
+		mAttack_->Initialize(playerAttackTypeNow_, maindStateNow_, playerDirectionA_);
 
 
 		//攻撃力の設定
-		mAttack_->DeterminingAttackPower(hp_,maxHp_);
+		mAttack_->DeterminingAttackPower(hp_, maxHp_);
 
 		for (PlayerLAttack* lAttack : lAttack_) {
 			lAttack->DeterminingAttackPower(hp_, maxHp_);
@@ -246,12 +247,12 @@ void Player::Attack()
 
 		//近距離用当たり判定が起きている時場合
 		if (mAttack_) {
-			mAttack_->Update(charaBase_.pos_,playerDirectionA_);
+			mAttack_->Update(charaBase_.pos_, playerDirectionA_);
 		}
 
 		//アニメーション入るまで仮フレーム
 		attackframe_--;
-		if (attackframe_<= 0) {
+		if (attackframe_ <= 0) {
 			attackFrag_ = false;
 			delete mAttack_;
 			mAttack_ = nullptr;
@@ -275,7 +276,7 @@ void Player::BulletDead()
 
 void Player::AttackSpDown()
 {
-	if (playerAttackTypeNow_== Magic) {
+	if (playerAttackTypeNow_ == Magic) {
 		sp_ -= attackSpDown_;
 	}
 }
@@ -304,7 +305,7 @@ void Player::PlayerStateChange(char* keys)
 		else {
 			playerState_ = SKILL;
 		}
-		
+
 	}
 	else if (jumpFrag_) {
 		playerState_ = JUMP;

@@ -23,7 +23,7 @@ void TimerUI::Initialize()
 
 void TimerUI::Update()
 {
-	timer_--;
+	//timer_--;
 	timerDisplay_ = timer_ / 60;
 	
 	ConversionUIVer2();
