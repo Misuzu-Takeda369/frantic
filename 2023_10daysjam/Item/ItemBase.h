@@ -28,8 +28,6 @@ public:
 
 protected:
 
-	//位置
-	Vector2 pos_;
 	//画像サイズ
 	int sizeX_; int sizeY_;
 	int image_;

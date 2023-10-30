@@ -6,6 +6,8 @@
 #include "UI/HpUI.h"
 #include "UI/SpUI.h"
 #include "UI/TimerUI.h"
+#include "Item/PopItem.h"
+#include <list>
 /// <summary>
 /// プレイシーンのクラス
 /// </summary>
@@ -14,7 +16,7 @@ class GamePScene {
 public:
 
 	enum GameSMode {
-		None, Pause,Option
+		None, Pause, Option
 		//何もなし,ポーズ
 	};
 
@@ -48,7 +50,6 @@ public:
 	/// </summary>
 	void CollisionDetection();
 
-	
 
 	///ゲッターセッター
 
@@ -99,5 +100,8 @@ private:
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;
 	TimerUI* timerUi_ = nullptr;
+
+	//アイテムポップ関数
+	std::list<PopItem*>popItem_;
 
 };

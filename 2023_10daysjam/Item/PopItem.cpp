@@ -1,15 +1,18 @@
 ﻿#include "PopItem.h"
 
+PopItem::~PopItem()
+{
+	delete spRecoverItem_;
+}
+
 void PopItem::Initialize()
 {
 
-	run_ = 0;
+	run_ = 1;
 	popItem_ = SpRecover;
 
-	nowItem_ = new ItemBase();
-	nowItem_->Initialize();
 #pragma region ポップした時の判別
-	run_ = RandomRange(1, 2);
+	//run_ = RandomRange(1, 1);
 	if (run_ == 1) {
 		popItem_ = SpRecover;
 	}
@@ -20,10 +23,10 @@ void PopItem::Initialize()
 	switch (popItem_)
 	{
 	case SpRecover:
-			spRecoverItem_ = new SpRecoverItem();
-			spRecoverItem_->Initialize();
-			nowItem_ = (ItemBase*)spRecoverItem_;
-			
+
+		spRecoverItem_ = new SpRecoverItem();
+		spRecoverItem_->Initialize();
+
 		break;
 
 	case HpRecover:
@@ -39,14 +42,36 @@ void PopItem::Initialize()
 
 void PopItem::Update()
 {
-	nowItem_->Update();
+	spRecoverItem_->Update();
 
-	if (nowItem_->IsDead()) {
-		delete nowItem_;
+	switch (popItem_)
+	{
+	case SpRecover:
+		spRecoverItem_->Update();
+		break;
+
+	case HpRecover:
+
+		break;
+
+	default:
+		break;
 	}
 }
 
 void PopItem::Draw()
 {
-	nowItem_->Draw();
+	switch (popItem_)
+	{
+	case SpRecover:
+		spRecoverItem_->Draw();
+		break;
+
+	case HpRecover:
+
+		break;
+
+	default:
+		break;
+	}
 }

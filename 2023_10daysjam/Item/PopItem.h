@@ -11,9 +11,14 @@
 class PopItem
 {
 public:
+
+
 	enum ItemStyle {
 		SpRecover,HpRecover
 	};
+
+
+	~PopItem();
 	/// <summary>
 	/// 初期化
 	/// </summary>
