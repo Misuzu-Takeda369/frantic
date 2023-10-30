@@ -8,6 +8,8 @@
 #include "UI/TimerUI.h"
 #include "Item/PopItem.h"
 #include <list>
+#include "Object/Object.h"
+
 /// <summary>
 /// プレイシーンのクラス
 /// </summary>
@@ -48,7 +50,12 @@ public:
 	/// <summary>
 	/// 当たり判定すべてを統括する関数
 	/// </summary>
-	void CollisionDetection();
+	void CheckCollisionAll();
+
+	/// <summary>
+	/// 一つ一つの当たり判定
+	/// </summary>
+	void CheckCollision(Object* ObjectA, Object* ObjectB);
 
 	/// <summary>
 	/// アイテムが消える関数

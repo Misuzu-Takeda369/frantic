@@ -12,3 +12,7 @@ void Object::Update(char* keys, char* preKeys)
 void Object::Draw()
 {
 }
+
+void Object::OnCollision()
+{
+}

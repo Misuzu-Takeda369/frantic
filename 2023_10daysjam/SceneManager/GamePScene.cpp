@@ -74,10 +74,10 @@ void GamePScene::Update(char* keys, char* preKeys)
 				popItem_->Update();
 			}
 			ItemDead();
-			
+
 
 			//当たり判定
-			CollisionDetection();
+			CheckCollisionAll();
 
 			hpUi_->Update(player_->GetPlayerDecreasedHp());
 
@@ -182,7 +182,7 @@ void GamePScene::Draw()
 	if (!popItem_->IsDead()) {
 		popItem_->Draw();
 	}
-	
+
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
 	Novice::ScreenPrintf(500, 550, "%d", changeTimingFrame_);
 
@@ -195,8 +195,16 @@ void GamePScene::Draw()
 #pragma endregion
 }
 
-void GamePScene::CollisionDetection()
+void GamePScene::CheckCollisionAll()
 {
+}
+
+void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
+{
+	if (CircleCollision(ObjectA->GetPosX(), ObjectA->GetPosY(), ObjectA->GetRadish(), ObjectB->GetPosX(), ObjectB->GetPosY(), ObjectB->GetRadish()))
+	{
+
+	}
 }
 
 void GamePScene::ItemDead()
