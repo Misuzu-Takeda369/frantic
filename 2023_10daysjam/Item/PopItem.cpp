@@ -47,7 +47,9 @@ void PopItem::Update()
 	switch (popItem_)
 	{
 	case SpRecover:
+
 		spRecoverItem_->Update();
+
 		break;
 
 	case HpRecover:

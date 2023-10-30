@@ -102,6 +102,6 @@ private:
 	TimerUI* timerUi_ = nullptr;
 
 	//アイテムポップ関数
-	std::list<PopItem*>popItem_;
-
+	//std::list<PopItem*>popItem_;
+	PopItem* popItem_;
 };

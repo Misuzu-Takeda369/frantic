@@ -28,6 +28,6 @@ void SpRecoverItem::Update()
 
 void SpRecoverItem::Draw()
 {
-	//Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), sizeX_, sizeY_,0.0f,RED,kFillModeSolid);
-	Novice::DrawEllipse(100,600, sizeX_, sizeY_, 0.0f, RED, kFillModeSolid);
+	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), sizeX_, sizeY_,0.0f,RED,kFillModeSolid);
+	//Novice::DrawEllipse(100,600, 100, 100, 0.0f, RED, kFillModeSolid);
 }

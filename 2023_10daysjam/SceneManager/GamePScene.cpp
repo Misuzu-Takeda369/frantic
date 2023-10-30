@@ -12,10 +12,13 @@ GamePScene::~GamePScene()
 	delete spUi_;
 	delete timerUi_;
 
+	/*
 	for (PopItem* popItem : popItem_) {
 		delete popItem;
 	}
+	*/
 
+	delete popItem_;
 }
 
 void GamePScene::Initialize()
@@ -33,9 +36,12 @@ void GamePScene::Initialize()
 	timerUi_ = new TimerUI();
 	timerUi_->Initialize();
 
-	PopItem* popItem = new PopItem();
-	popItem->Initialize();
-	
+	//PopItem* popItem = new PopItem();
+	//popItem->Initialize();
+
+	popItem_ = new PopItem();
+	popItem_->Initialize();
+
 }
 
 void GamePScene::Update(char* keys, char* preKeys)
@@ -59,9 +65,12 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 			player_->Update(keys, preKeys);
 
+			/*
 			for (PopItem* popItem : popItem_) {
 				popItem->Update();
 			}
+			*/
+			popItem_->Update();
 
 			//当たり判定
 			CollisionDetection();
@@ -162,9 +171,11 @@ void GamePScene::Draw()
 
 	player_->Draw();
 
-	for (PopItem* popItem : popItem_) {
+	/*for (PopItem* popItem : popItem_) {
 		popItem->Draw();
-	}
+	}*/
+
+	popItem_->Draw();
 
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
 	Novice::ScreenPrintf(500, 550, "%d", changeTimingFrame_);
