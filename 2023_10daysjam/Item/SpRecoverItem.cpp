@@ -3,7 +3,7 @@
 void SpRecoverItem::Initialize()
 {
 	//多分敵のドロップか時間経過か
-	pos_ = {0.0f,0.0f};
+	pos_ = {500.0f,300.0f};
 	//画像サイズ
 	sizeX_ = 0; sizeY_ = 0;
 	image_= 0;

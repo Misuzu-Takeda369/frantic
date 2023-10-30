@@ -34,6 +34,8 @@ private:
 	int run_;
 	ItemStyle popItem_;
 
+	ItemBase* nowItem_ = nullptr;
+
 	//Sp回復フラグ
 	SpRecoverItem* spRecoverItem_ = nullptr;
 
