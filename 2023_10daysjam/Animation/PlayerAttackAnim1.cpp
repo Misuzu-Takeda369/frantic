@@ -3,9 +3,9 @@
 
 void PlayerAttackAnim1::Initialize()
 {
-	_texture[0] = Novice::LoadTexture("./AnimResources/player_attack.png");
-	_lunaTexture[0]= Novice::LoadTexture("./AnimResources/player_attack_luna1.png");
-	_lunaTexture[1] = Novice::LoadTexture("./AnimResources/player_attack_luna2.png");
+	_texture[0] = Novice::LoadTexture("./Resources/images/AnimResources/player_attack.png");
+	_lunaTexture[0]= Novice::LoadTexture("./Resources/images/AnimResources/player_attack_luna1.png");
+	_lunaTexture[1] = Novice::LoadTexture("./Resources/images/AnimResources/player_attack_luna2.png");
 	_spriteSize = { 1024,512 };
 	_spriteRadius = { 512,256};
 	_lunaAnimFrameFlag = false;

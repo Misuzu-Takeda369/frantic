@@ -35,6 +35,12 @@
     <Filter Include="Object">
       <UniqueIdentifier>{5b01f0df-eab4-4d82-b50f-375bea3d6355}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{1f574fc4-ba70-4d83-b3c2-9630d9959dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{85b55436-9657-46cf-9e2f-37a60d9227c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -98,6 +104,30 @@
     <ClCompile Include="UI\TimerUI.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="Item\ItemBase.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\SpRecoverItem.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\PopItem.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\Enemy.cpp">
+      <Filter>KamataEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\EnemyBullet.cpp">
+      <Filter>KamataEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation\PlayerAttack2Anim.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation\Effect\LunaMental.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
     <ClCompile Include="Animation\Animation.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
@@ -115,18 +145,6 @@
     </ClCompile>
     <ClCompile Include="Animation\PlayerRunAnim.cpp">
       <Filter>Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="Item\ItemBase.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Item\SpRecoverItem.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Item\PopItem.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\Object.cpp">
-      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +263,30 @@
     <ClInclude Include="UI\TimerUI.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Item\ItemBase.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\SpRecoverItem.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\PopItem.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyBullet.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation\PlayerAttack2Anim.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation\Effect\LunaMental.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
     <ClInclude Include="Animation\Animation.h">
       <Filter>Animation</Filter>
     </ClInclude>
@@ -265,18 +307,6 @@
     </ClInclude>
     <ClInclude Include="Animation\PlayerRunAnim.h">
       <Filter>Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="Item\ItemBase.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Item\SpRecoverItem.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Item\PopItem.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Object.h">
-      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

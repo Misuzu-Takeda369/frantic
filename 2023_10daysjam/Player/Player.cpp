@@ -60,7 +60,7 @@ void Player::Update(char* keys, char* preKeys)
 	Attack();
 
 	//アニメーション
-	playerAnimation_->Update(Vector2(charaBase_.pos_.x -charaBase_.radius_, charaBase_.pos_.y - charaBase_.radius_), playerState_, _NONE);
+	playerAnimation_->Update(Vector2(charaBase_.pos_.x , charaBase_.pos_.y ), playerState_, _NONE);
 	//減った量
 	//ゲージ処理用
 	decreasedHp_ = maxHp_ - hp_;

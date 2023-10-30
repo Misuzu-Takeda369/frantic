@@ -28,12 +28,13 @@ enum SABSTATE {
 	_SPELL,  //2_詠唱中
 };
 
-//Hpゲージ用のっぽい何か(まとめたかった)
+//HpとSPゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる
-struct HpState {
+struct IntState {
 	int x_;
 	int y_;
 };
+
 
 
 

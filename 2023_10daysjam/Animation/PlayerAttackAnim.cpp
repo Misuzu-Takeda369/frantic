@@ -4,12 +4,12 @@
 
 void PlayerAttackAnim::Initialize()
 {
-	_texture.head = Novice::LoadTexture("./AnimResources/player_head.png");
-	_texture.body = Novice::LoadTexture("./AnimResources/player_body.png");
-	_texture.leftArm = Novice::LoadTexture("./AnimResources/player_attack_arm1.png");
-	_texture.weapon = Novice::LoadTexture("./AnimResources/player_weapon.png");
-	_texture.sprite = Novice::LoadTexture("./AnimResources/player_attack_arm2.png");
-	_texture.sprite1 = Novice::LoadTexture("./AnimResources/player_attack_head1.png");
+	_texture.head = Novice::LoadTexture("../Resources/images/AnimResources/player_head.png");
+	_texture.body = Novice::LoadTexture("./Resources/images/AnimResources/player_body.png");
+	_texture.leftArm = Novice::LoadTexture("./Resources/images/AnimResources/player_attack_arm1.png");
+	_texture.weapon = Novice::LoadTexture("./Resources/images/AnimResources/player_weapon.png");
+	_texture.sprite = Novice::LoadTexture("./Resources/images/AnimResources/player_attack_arm2.png");
+	_texture.sprite1 = Novice::LoadTexture("./Resources/images/AnimResources/player_attack_head1.png");
 	_spriteSize = { 256,256 };//自機
 	_spriteSize2 = { 512,256 };//武器
 	_spriteRadius.x = _spriteSize.x * 0.5f;

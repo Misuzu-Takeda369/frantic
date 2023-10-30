@@ -2,8 +2,8 @@
 
 void PlayerAttack2Anim::Initialize()
 {
-	_texture[0] = Novice::LoadTexture("./AnimResources/player_magic.png");
-	_lunaTexture[0] = Novice::LoadTexture("./AnimResources/player_magic_luna.png");
+	_texture[0] = Novice::LoadTexture("./Resources/images/AnimResources/player_magic.png");
+	_lunaTexture[0] = Novice::LoadTexture("./Resources/images/AnimResources/player_magic_luna.png");
 	_spriteSize = { 512,512 };
 	_spriteRadius = { _spriteSize.x * 0.5f, };
 }

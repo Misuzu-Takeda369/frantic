@@ -3,14 +3,14 @@
 
 void PlayerRunAnim::Initialize()
 {
-	_texture[0] = Novice::LoadTexture("./AnimResources/w1.png");
-	_texture[1] = Novice::LoadTexture("./AnimResources/w4.png");
-	_texture[2] = Novice::LoadTexture("./AnimResources/w2.png");
-	_texture[3] = Novice::LoadTexture("./AnimResources/w3.png");
-	_lunaTexture[0]= Novice::LoadTexture("./AnimResources/w1_luna.png");
-	_lunaTexture[1] = Novice::LoadTexture("./AnimResources/w4_luna.png");
-	_lunaTexture[2] = Novice::LoadTexture("./AnimResources/w2_luna.png");
-	_lunaTexture[3] = Novice::LoadTexture("./AnimResources/w3_luna.png");
+	_texture[0] = Novice::LoadTexture("./Resources/images/AnimResources/w1.png");
+	_texture[1] = Novice::LoadTexture("./Resources/images/AnimResources/w4.png");
+	_texture[2] = Novice::LoadTexture("./Resources/images/AnimResources/w2.png");
+	_texture[3] = Novice::LoadTexture("./Resources/images/AnimResources/w3.png");
+	_lunaTexture[0]= Novice::LoadTexture("./Resources/images/AnimResources/w1_luna.png");
+	_lunaTexture[1] = Novice::LoadTexture("./Resources/images/AnimResources/w4_luna.png");
+	_lunaTexture[2] = Novice::LoadTexture("./Resources/images/AnimResources/w2_luna.png");
+	_lunaTexture[3] = Novice::LoadTexture("./Resources/images/AnimResources/w3_luna.png");
 	_spriteSize = { 512.0f,512.0f };
 	_spriteRadius = { _spriteSize.x * 0.25f,_spriteSize.y  * 0.25f };
 	_isLunatic = false;

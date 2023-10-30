@@ -7,7 +7,7 @@ class PlayerAttackAnim :public Animation
 public:
 	void Update(Vector2 pos)override;
 	void Initialize()override;
-	void Draw()override;
+	void Draw();
 	void SetActive(bool flag)override;
 	void SetDirection(bool right)override;
 	bool GetActive() { return isActive; }
