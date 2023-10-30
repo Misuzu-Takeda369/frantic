@@ -50,6 +50,10 @@ public:
 	/// </summary>
 	void CollisionDetection();
 
+	/// <summary>
+	/// アイテムが消える関数
+	/// </summary>
+	void ItemDead();
 
 	///ゲッターセッター
 

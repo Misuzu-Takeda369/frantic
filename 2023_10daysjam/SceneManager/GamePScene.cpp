@@ -70,7 +70,11 @@ void GamePScene::Update(char* keys, char* preKeys)
 				popItem->Update();
 			}
 			*/
-			popItem_->Update();
+			if (!popItem_->IsDead()) {
+				popItem_->Update();
+			}
+			ItemDead();
+			
 
 			//当たり判定
 			CollisionDetection();
@@ -175,8 +179,10 @@ void GamePScene::Draw()
 		popItem->Draw();
 	}*/
 
-	popItem_->Draw();
-
+	if (!popItem_->IsDead()) {
+		popItem_->Draw();
+	}
+	
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
 	Novice::ScreenPrintf(500, 550, "%d", changeTimingFrame_);
 
@@ -191,4 +197,24 @@ void GamePScene::Draw()
 
 void GamePScene::CollisionDetection()
 {
+}
+
+void GamePScene::ItemDead()
+{
+	/*
+	lAttack_.remove_if([](PlayerLAttack* lAttack) {
+		if (lAttack->IsDead()) {
+			delete lAttack;
+			return true;
+		}
+
+		return false;
+		});
+	*/
+
+	/*
+	if (popItem_->IsDead()) {
+		delete popItem_;
+	}
+	*/
 }

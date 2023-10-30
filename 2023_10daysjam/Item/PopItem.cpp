@@ -42,13 +42,17 @@ void PopItem::Initialize()
 
 void PopItem::Update()
 {
-	spRecoverItem_->Update();
-
 	switch (popItem_)
 	{
 	case SpRecover:
 
-		spRecoverItem_->Update();
+		if (isDead_ == false) {
+			spRecoverItem_->Update();
+		}
+
+		if (spRecoverItem_->IsDead()) {
+			isDead_ = true;
+		}
 
 		break;
 
@@ -66,7 +70,11 @@ void PopItem::Draw()
 	switch (popItem_)
 	{
 	case SpRecover:
-		spRecoverItem_->Draw();
+
+		if (isDead_ == false) {
+			spRecoverItem_->Draw();
+		}
+
 		break;
 
 	case HpRecover:

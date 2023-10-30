@@ -17,12 +17,12 @@ void SpRecoverItem::Initialize()
 void SpRecoverItem::Update()
 {
 	//アイテムが消える(時間経過)
-	/*
+	
 	--deathTimer_;
 	if (deathTimer_ <= 0) {
 		isDead_ = true;
 	}
-	*/
+	
 
 }
 
