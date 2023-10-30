@@ -23,6 +23,9 @@ public:
 	/// </summary>
 	virtual void Draw();
 
+	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
 	virtual void OnCollision();
 	/// <summary>
 	/// 現在のHP

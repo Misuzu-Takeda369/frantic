@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Object/Object.h"
 
-class PlayerLAttack :public Object
+class PlayerLAttack : public Object
 {
 public:
 	/// <summary>
@@ -33,6 +33,11 @@ public:
 	/// 攻撃力を決める関数
 	/// </summary>
 	void DeterminingAttackPower(float hp, float maxHp);
+
+	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
+	void OnCollision() override;
 
 private:
 

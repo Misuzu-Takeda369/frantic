@@ -68,3 +68,7 @@ void PlayerMAttack::DeterminingAttackPower(float hp, float maxHp)
 		attackPoint_ = nomalAttackPoint_;
 	}
 }
+
+void PlayerMAttack::OnCollision()
+{
+}

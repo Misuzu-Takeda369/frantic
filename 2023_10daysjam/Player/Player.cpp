@@ -318,3 +318,7 @@ void Player::PlayerStateChange(char* keys)
 
 }
 
+void Player::OnCollision()
+{
+}
+

@@ -79,6 +79,11 @@ public:
 	void PlayerStateChange(char* keys);
 
 	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
+	void OnCollision() override;
+
+	/// <summary>
 	/// 最大値のHP
 	/// </summary>
 	/// <returns></returns>

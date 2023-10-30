@@ -197,13 +197,43 @@ void GamePScene::Draw()
 
 void GamePScene::CheckCollisionAll()
 {
+
+	const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
+	PlayerMAttack* playerMA = player_->GetMAttack();
+	//敵
+	//アイテム(複数)
+
+#pragma region プレイヤー本体と敵本体
+	//for(えねみー)
+	//CheckCollision(player_,);
+#pragma endregion
+
+#pragma region プレイヤー近距離と敵本体
+	//for(えねみー)
+	//CheckCollision(playerMA,);
+#pragma endregion
+
+#pragma region プレイヤー遠距離と敵本体
+	//for(えねみーとえんきょり)
+	/*
+	for (PlayerLAttack* playerLAtteck : playerLAttacks) {
+			//CheckCollision(playerLAtteck, );
+	}
+	*/
+#pragma endregion
+
+#pragma region プレイヤー本体とアイテム
+	//for(アイテム)
+	//CheckCollision(player_,);
+#pragma endregion
 }
 
 void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 {
 	if (CircleCollision(ObjectA->GetPosX(), ObjectA->GetPosY(), ObjectA->GetRadish(), ObjectB->GetPosX(), ObjectB->GetPosY(), ObjectB->GetRadish()))
 	{
-
+		ObjectA->OnCollision();
+		ObjectB->OnCollision();
 	}
 }
 
