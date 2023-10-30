@@ -2,7 +2,12 @@
 #include <Novice.h>
 #include "ImGuiManager.h"
 #include "Function/Function.h"
+#include "SpRecoverItem.h"
 
+
+/// <summary>
+/// アイテムポップを管理する関数
+/// </summary>
 class PopItem
 {
 public:
@@ -28,6 +33,9 @@ private:
 
 	int run_;
 	ItemStyle popItem_;
+
+	//Sp回復フラグ
+	SpRecoverItem* spRecoverItem_ = nullptr;
 
 };
 

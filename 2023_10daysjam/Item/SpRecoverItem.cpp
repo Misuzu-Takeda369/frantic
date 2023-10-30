@@ -22,6 +22,7 @@ void SpRecoverItem::Update()
 		isDead_ = true;
 	}
 
+
 }
 
 void SpRecoverItem::Draw()

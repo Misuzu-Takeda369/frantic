@@ -122,6 +122,9 @@
     <ClCompile Include="Item\SpRecoverItem.cpp">
       <Filter>Item</Filter>
     </ClCompile>
+    <ClCompile Include="Item\PopItem.cpp">
+      <Filter>KamataEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
@@ -264,6 +267,9 @@
       <Filter>Item</Filter>
     </ClInclude>
     <ClInclude Include="Item\SpRecoverItem.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\PopItem.h">
       <Filter>Item</Filter>
     </ClInclude>
   </ItemGroup>
