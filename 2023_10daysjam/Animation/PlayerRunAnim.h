@@ -5,9 +5,9 @@ class PlayerRunAnim :public Animation
 public:
 	void Update(Vector2 pos)override;
 	void Initialize()override;
-	void Draw()override;
+	void Draw(UnitColor color)override;
 	void SetDirection(bool right)override;
-	bool GetActive() { return isActive; }
+	bool GetActive() { return _isActive; }
 	void PosReset();
 protected:
 	Vector2 _spriteSize;
@@ -17,6 +17,7 @@ protected:
 	//TextureSet _texture;
 	TexturePos _texPos;
 	unsigned int _texture[4];
+	unsigned int _lunaTexture[4];
 	bool _right;
 
 	int _frame = 0;

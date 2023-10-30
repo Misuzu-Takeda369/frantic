@@ -1,6 +1,7 @@
-﻿#pragma once
-#include "Animation/Animation.h"
-class PlayerIdolAnim :public Animation
+#pragma once
+#include "Animation.h"
+class PlayerAttack2Anim :
+    public Animation
 {
 public:
 	void Initialize()override;
@@ -11,12 +12,9 @@ public:
 
 private:
 	TexturePos _texPos;
-	unsigned int _texture[3];
+	unsigned int _texture[1];
 	Vector2 _pos;
-	bool _right;
+	unsigned int _lunaTexture[1];
 
-	unsigned int _lunaTexture[3];
-	
-	int _frame = 0;
 };
 

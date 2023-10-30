@@ -9,6 +9,7 @@
 #include "Item/PopItem.h"
 #include <list>
 #include "Object/Object.h"
+#include "Enemy/Enemy.h"
 
 /// <summary>
 /// プレイシーンのクラス
@@ -107,6 +108,8 @@ private:
 
 
 	Player* player_ = nullptr;
+
+	Enemy* enemy_ = nullptr;
 
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;

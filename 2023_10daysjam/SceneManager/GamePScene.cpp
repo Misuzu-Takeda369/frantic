@@ -12,6 +12,7 @@ GamePScene::~GamePScene()
 	delete spUi_;
 	delete timerUi_;
 
+	delete enemy_;
 	/*
 	for (PopItem* popItem : popItem_) {
 		delete popItem;
@@ -26,6 +27,9 @@ void GamePScene::Initialize()
 	CountNum_ = 0;
 	player_ = new Player();
 	player_->Initialize();
+
+	enemy_ = new Enemy();
+	//enemy_->Initialize();
 
 	hpUi_ = new HpUI();
 	hpUi_->Initialize();
@@ -65,6 +69,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 			player_->Update(keys, preKeys);
 
+			enemy_->Update();
 			/*
 			for (PopItem* popItem : popItem_) {
 				popItem->Update();
@@ -174,6 +179,7 @@ void GamePScene::Draw()
 	}
 
 	player_->Draw();
+	enemy_->Draw();
 
 	/*for (PopItem* popItem : popItem_) {
 		popItem->Draw();
@@ -198,8 +204,8 @@ void GamePScene::Draw()
 void GamePScene::CheckCollisionAll()
 {
 
-	const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
-	PlayerMAttack* playerMA = player_->GetMAttack();
+	//const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
+	//PlayerMAttack* playerMA = player_->GetMAttack();
 	//敵
 	//アイテム(複数)
 

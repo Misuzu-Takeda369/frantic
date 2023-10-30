@@ -9,6 +9,7 @@ struct UnitColor
 	unsigned int color;
 	
 };
+static const UnitColor defaultColor = { 255,255,255,255,0xFFFFFFFF };
 
 enum STATE {
 	IDOL,   //0_待機
@@ -20,17 +21,19 @@ enum STATE {
 	SPECIAL,//6_特殊攻撃?
 };
 
-//HpとSPゲージ用のっぽい何か(まとめたかった)
-//Noviceの画像処理がint統一なのでintでまとめる
-struct IntState {
-	int x_;
-	int y_;
-};
-
 //アニメーション分け&移動制御用 だと思う
 enum SABSTATE {
 	_NONE,   //0_特になし
 	_ATTACK, //1_攻撃中
 	_SPELL,  //2_詠唱中
 };
+
+//Hpゲージ用のっぽい何か(まとめたかった)
+//Noviceの画像処理がint統一なのでintでまとめる
+struct HpState {
+	int x_;
+	int y_;
+};
+
+
 
