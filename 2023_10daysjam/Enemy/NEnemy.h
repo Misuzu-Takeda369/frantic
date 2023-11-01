@@ -1,13 +1,12 @@
 ﻿#pragma once
-#include "NEnemy.h"
-#include "Object/Object.h"
-
-class NEnemy: public Object
+#include "Enemy/EnemyBase.h"
+class NEnemy :public EnemyBase
 {
+public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize()override;
+	void Initialize(Vector2& pos, Vector2& speed, float& radius) override;
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -18,5 +17,9 @@ class NEnemy: public Object
 	/// 前景描画
 	/// </summary>
 	void Draw() override;
+
+private:
+
+	const float maxHp_ = 3.0f;
 };
 

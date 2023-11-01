@@ -149,6 +149,15 @@
     <ClCompile Include="nEnemy.cpp">
       <Filter>Player\KamataEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy\PopEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBase.cpp">
+      <Filter>Player\KamataEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\EnemyBase.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="Enemy\NEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
@@ -281,7 +290,7 @@
     <ClInclude Include="Object\Object.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\Enemy.h">
+    <ClInclude Include="Enemy\PopEnemy.h">
       <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy\EnemyBullet.h">
@@ -314,7 +323,9 @@
     <ClInclude Include="Animation\PlayerRunAnim.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="nEnemy.h" />
+    <ClInclude Include="Enemy\EnemyBase.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="Enemy\NEnemy.h">
       <Filter>Enemy</Filter>
     </ClInclude>

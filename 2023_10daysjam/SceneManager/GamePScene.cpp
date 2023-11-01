@@ -14,7 +14,7 @@ GamePScene::~GamePScene()
 
 	//delete enemy_;
 
-	for (Enemy* enemies : enemy_) {
+	for (PopEnemy* enemies : enemy_) {
 		delete enemies;
 	}
 
@@ -36,8 +36,8 @@ void GamePScene::Initialize()
 
 
 
-	for (Enemy* enemies : enemy_) {
-		enemies = new Enemy();
+	for (PopEnemy* enemies : enemy_) {
+		enemies = new PopEnemy();
 		enemies->Initialize();
 	}
 
@@ -80,7 +80,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 			player_->Update(keys, preKeys);
 
 			//enemy_->Update();
-			for (Enemy* enemies : enemy_) {
+			for (PopEnemy* enemies : enemy_) {
 				enemies->Update();
 			}
 			/*
@@ -194,7 +194,7 @@ void GamePScene::Draw()
 	player_->Draw();
 	//enemy_->Draw();
 
-	for (Enemy* enemies : enemy_) {
+	for (PopEnemy* enemies : enemy_) {
 		enemies->Draw();
 	}
 

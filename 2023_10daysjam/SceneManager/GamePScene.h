@@ -9,7 +9,7 @@
 #include "Item/PopItem.h"
 #include <list>
 #include "Object/Object.h"
-#include "Enemy/Enemy.h"
+#include "Enemy/PopEnemy.h"
 
 /// <summary>
 /// プレイシーンのクラス
@@ -111,7 +111,7 @@ private:
 
 	//Enemy* enemy_ = nullptr;
 	//敵複数化
-	std::list<Enemy*>enemy_;
+	std::list<PopEnemy*>enemy_;
 
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;

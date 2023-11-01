@@ -12,7 +12,7 @@ void PopItem::Initialize()
 	popItem_ = SpRecover;
 
 #pragma region ポップした時の判別
-	//run_ = RandomRange(1, 1);
+	run_ = RandomRange(1, 1);
 	if (run_ == 1) {
 		popItem_ = SpRecover;
 	}
