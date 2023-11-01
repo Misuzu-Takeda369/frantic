@@ -4,9 +4,8 @@ void Object::Initialize()
 {
 }
 
-void Object::Update(char* keys, char* preKeys)
+void Object::Update()
 {
-	keys; preKeys;
 }
 
 void Object::Draw()

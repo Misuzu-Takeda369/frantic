@@ -26,7 +26,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update(char* keys, char* preKeys) override;
+	void Update(char* keys, char* preKeys);
 
 	/// <summary>
 	/// 前景描画

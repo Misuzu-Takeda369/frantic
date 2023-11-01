@@ -16,7 +16,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	void Update();
+	void Update() override;
 
 	/// <summary>
 	/// 前景描画

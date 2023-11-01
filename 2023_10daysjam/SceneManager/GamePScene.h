@@ -109,7 +109,9 @@ private:
 
 	Player* player_ = nullptr;
 
-	Enemy* enemy_ = nullptr;
+	//Enemy* enemy_ = nullptr;
+	//敵複数化
+	std::list<Enemy*>enemy_;
 
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;

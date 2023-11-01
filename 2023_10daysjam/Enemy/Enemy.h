@@ -1,10 +1,11 @@
 ﻿#pragma once
 #include "EnemyBullet.h"
-#include "Vector2.h"
+#include "Object/Object.h"
+#include "NEnemy.h"
 #define ENEMY_MAX 10
 
-//敵クラス
-class Enemy
+//敵クラス(総括クラスポップ用に変更)
+class Enemy :public Object
 {
 public:
 
@@ -20,5 +21,10 @@ public:
 
 	void Update();
 	void Draw();
+
+
+private:
+	//
+	NEnemy* nEnemy_ = nullptr;
 };
 

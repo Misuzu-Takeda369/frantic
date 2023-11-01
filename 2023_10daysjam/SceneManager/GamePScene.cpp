@@ -12,7 +12,13 @@ GamePScene::~GamePScene()
 	delete spUi_;
 	delete timerUi_;
 
-	delete enemy_;
+	//delete enemy_;
+
+	for (Enemy* enemies : enemy_) {
+		delete enemies;
+	}
+
+	
 	/*
 	for (PopItem* popItem : popItem_) {
 		delete popItem;
@@ -28,8 +34,12 @@ void GamePScene::Initialize()
 	player_ = new Player();
 	player_->Initialize();
 
-	enemy_ = new Enemy();
-	//enemy_->Initialize();
+
+
+	for (Enemy* enemies : enemy_) {
+		enemies = new Enemy();
+		enemies->Initialize();
+	}
 
 	hpUi_ = new HpUI();
 	hpUi_->Initialize();
@@ -69,7 +79,10 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 			player_->Update(keys, preKeys);
 
-			enemy_->Update();
+			//enemy_->Update();
+			for (Enemy* enemies : enemy_) {
+				enemies->Update();
+			}
 			/*
 			for (PopItem* popItem : popItem_) {
 				popItem->Update();
@@ -179,7 +192,11 @@ void GamePScene::Draw()
 	}
 
 	player_->Draw();
-	enemy_->Draw();
+	//enemy_->Draw();
+
+	for (Enemy* enemies : enemy_) {
+		enemies->Draw();
+	}
 
 	/*for (PopItem* popItem : popItem_) {
 		popItem->Draw();

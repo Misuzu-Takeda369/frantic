@@ -16,7 +16,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	virtual void Update(char* keys, char* preKeys);
+	virtual void Update();
 
 	/// <summary>
 	/// 前景描画
