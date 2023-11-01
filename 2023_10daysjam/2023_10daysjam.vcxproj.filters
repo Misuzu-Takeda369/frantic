@@ -22,9 +22,6 @@
     <Filter Include="Object">
       <UniqueIdentifier>{5b01f0df-eab4-4d82-b50f-375bea3d6355}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy">
-      <UniqueIdentifier>{1f574fc4-ba70-4d83-b3c2-9630d9959dde}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Effect">
       <UniqueIdentifier>{85b55436-9657-46cf-9e2f-37a60d9227c5}</UniqueIdentifier>
     </Filter>
@@ -149,17 +146,8 @@
     <ClCompile Include="nEnemy.cpp">
       <Filter>Player\KamataEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy\PopEnemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyBase.cpp">
       <Filter>Player\KamataEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy\EnemyBase.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy\NEnemy.cpp">
-      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,12 +278,6 @@
     <ClInclude Include="Object\Object.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\PopEnemy.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy\EnemyBullet.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Animation\PlayerAttack2Anim.h">
       <Filter>Animation</Filter>
     </ClInclude>
@@ -322,12 +304,6 @@
     </ClInclude>
     <ClInclude Include="Animation\PlayerRunAnim.h">
       <Filter>Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy\EnemyBase.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy\NEnemy.h">
-      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
