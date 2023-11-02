@@ -38,6 +38,9 @@
     <Filter Include="Player\KamataEngine\Adapter">
       <UniqueIdentifier>{c6468eb4-788b-4a83-b207-a5f4804e56c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{5993ed89-a504-41c3-89cc-9fd7304abe29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -113,12 +116,6 @@
     <ClCompile Include="Object\Object.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy\Enemy.cpp">
-      <Filter>Player\KamataEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy\EnemyBullet.cpp">
-      <Filter>Player\KamataEngine</Filter>
-    </ClCompile>
     <ClCompile Include="Animation\PlayerAttack2Anim.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
@@ -143,11 +140,17 @@
     <ClCompile Include="Animation\PlayerRunAnim.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="nEnemy.cpp">
-      <Filter>Player\KamataEngine</Filter>
+    <ClCompile Include="Enemy\EnemyBase.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyBase.cpp">
-      <Filter>Player\KamataEngine</Filter>
+    <ClCompile Include="Enemy\EnemyBullet.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\NEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\PopEnemy.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +307,18 @@
     </ClInclude>
     <ClInclude Include="Animation\PlayerRunAnim.h">
       <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyBase.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\EnemyBullet.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\NEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\PopEnemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

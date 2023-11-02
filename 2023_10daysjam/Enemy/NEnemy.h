@@ -6,7 +6,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize(Vector2& pos, Vector2& speed, float& radius) override;
+	void Initialize(Vector2 pos, Vector2 speed, float radius) override;
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -18,6 +18,7 @@ public:
 	/// </summary>
 	void Draw() override;
 
+	
 private:
 
 	const float maxHp_ = 3.0f;

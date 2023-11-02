@@ -63,6 +63,16 @@ public:
 	/// </summary>
 	void ItemDead();
 
+	/// <summary>
+	/// 敵が消える関数
+	/// </summary>
+	void EnemyDead();
+
+	/// <summary>
+	/// 敵が実際にポップする関数
+	/// </summary>
+	void EnemyPoping();
+
 	///ゲッターセッター
 
 	/// <summary>
@@ -112,6 +122,12 @@ private:
 	//Enemy* enemy_ = nullptr;
 	//敵複数化
 	std::list<PopEnemy*>enemy_;
+
+	//敵がポップする間隔
+	const int consEnemyPopFrame_ = 120;
+	//敵がポップするまでを数える
+	int EnemyPopFrame_ = 0;
+
 
 	HpUI* hpUi_ = nullptr;
 	SpUI* spUi_ = nullptr;

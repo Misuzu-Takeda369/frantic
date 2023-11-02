@@ -1,6 +1,6 @@
 ﻿#include"NEnemy.h"
 
-void NEnemy::Initialize(Vector2& pos, Vector2& speed, float& radius)
+void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 {
 	charaBase_.pos_ = pos;
 	charaBase_.speed_ = speed;
@@ -51,9 +51,12 @@ void NEnemy::Update()
 	//敵の移動
 	Move();
 
+
 }
 
 void NEnemy::Draw()
 {
-	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.x), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
+	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
 }
+
+

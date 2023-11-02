@@ -8,7 +8,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	virtual void Initialize(Vector2& pos, Vector2& speed, float& radius);
+	virtual void Initialize(Vector2 pos, Vector2 speed, float radius);
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -24,6 +24,11 @@ public:
 	/// 敵の移動処理
 	/// </summary>
 	virtual void Move();
+
+	/// <summary>
+	/// 自然に消えるパターン
+	/// </summary>
+	virtual void NaturalDeath();
 
 	//敵の攻撃力のゲッター
 	virtual float GetEnemyAttackPoint() { return attackpoint_; };

@@ -17,7 +17,7 @@ GamePScene::~GamePScene()
 	for (PopEnemy* enemies : enemy_) {
 		delete enemies;
 	}
-
+	
 	
 	/*
 	for (PopItem* popItem : popItem_) {
@@ -34,12 +34,6 @@ void GamePScene::Initialize()
 	player_ = new Player();
 	player_->Initialize();
 
-
-
-	for (PopEnemy* enemies : enemy_) {
-		enemies = new PopEnemy();
-		enemies->Initialize();
-	}
 
 	hpUi_ = new HpUI();
 	hpUi_->Initialize();
@@ -77,12 +71,18 @@ void GamePScene::Update(char* keys, char* preKeys)
 		}
 		else {
 
+			EnemyPoping();
 			player_->Update(keys, preKeys);
 
 			//enemy_->Update();
 			for (PopEnemy* enemies : enemy_) {
-				enemies->Update();
+				//if (enemies->GetIsDead()) {
+					enemies->Update();
+				//}
 			}
+
+			EnemyDead();
+
 			/*
 			for (PopItem* popItem : popItem_) {
 				popItem->Update();
@@ -174,6 +174,12 @@ void GamePScene::Update(char* keys, char* preKeys)
 	ImGui::Text("gameSModeNow_ %d\n0_None 1_Pause Butten[DIK_P]\n", gameSModeNow_);
 	ImGui::End();
 
+
+	ImGui::Begin("EnemyPop");
+	ImGui::Text("EnemyPop %d\n", EnemyPopFrame_);
+	ImGui::End();
+
+
 #pragma endregion
 #endif // DEBUG
 }
@@ -194,8 +200,13 @@ void GamePScene::Draw()
 	player_->Draw();
 	//enemy_->Draw();
 
+
 	for (PopEnemy* enemies : enemy_) {
-		enemies->Draw();
+
+		//if (enemies->GetIsDead()) {
+			enemies->Draw();
+		//}
+		
 	}
 
 	/*for (PopItem* popItem : popItem_) {
@@ -278,4 +289,36 @@ void GamePScene::ItemDead()
 		delete popItem_;
 	}
 	*/
+}
+
+void GamePScene::EnemyDead()
+{
+
+	
+	enemy_.remove_if([](PopEnemy* enemies) {
+		if (enemies->GetIsDead()) {
+			delete enemies;
+			return true;
+		}
+
+		return false;
+		});
+	
+}
+
+void GamePScene::EnemyPoping()
+{
+	EnemyPopFrame_++;
+
+	if (EnemyPopFrame_ >= consEnemyPopFrame_) {
+
+		
+		PopEnemy* newEnemy = new PopEnemy();
+		newEnemy->Initialize();
+		enemy_.push_back(newEnemy);
+		
+
+		EnemyPopFrame_ = 0;
+
+	}
 }

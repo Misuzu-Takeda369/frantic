@@ -15,35 +15,19 @@ public:
 	{
 		NOMAL,BULLET
 	};
-	/*
-	int enemyHp;
-	Vector2 enemyPos[ENEMY_MAX];
-	int enemyRadius;
-	float enemySpeed;
-	*/
-
-	//EnemyBullet* E_Bullet;
-
 
 	~PopEnemy();
 
+	//後から場所だけ敵から受け取る
 	void Initialize();
 
 	void Update() override;
 	void Draw() override;
 
-
-
-
 private:
 
 	//通常の敵
 	NEnemy* nEnemy_ = nullptr;
-
-	//ポップする間隔
-	const int consPopFrame_ = 120;
-	//ポップするまでを数える
-	int popFrame_ = 0;
 
 	//現在出ている敵の数(ENEMY_MAXになると減るまで敵がでなくなる)
 	int countEnemy_ = 0;
