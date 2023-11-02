@@ -193,6 +193,7 @@ bool IsCollision(Object* objA,Object* objB)
 
 	if (typeA == Circle) {
 		if (typeB == Circle) {
+
 			result = CircleCollision(charaA.pos_.x, charaA.pos_.y, charaA.radius_,
 				charaB.pos_.x, charaB.pos_.y, charaB.radius_);
 		}

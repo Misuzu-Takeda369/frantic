@@ -51,6 +51,21 @@ void NEnemy::Update()
 	//敵の移動
 	Move();
 
+	NaturalDeath();
+
+
+#ifdef _DEBUG
+#pragma region ImGui関連
+
+	ImGui::Begin("Enemy");
+	ImGui::Text("EnemyPos %f.%f\n", charaBase_.pos_.x, charaBase_.pos_.y);
+	ImGui::Text("moveEnemy%f.%f\n",  moveEnemy_.x, moveEnemy_.y);
+
+	ImGui::End();
+
+#pragma endregion
+#endif // DEBUG
+
 
 }
 

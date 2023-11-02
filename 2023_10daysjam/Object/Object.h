@@ -26,7 +26,7 @@ public:
 	/// <summary>
 	/// 当たった時の挙動
 	/// </summary>
-	virtual void OnCollision();
+	virtual void OnCollision(float& damege);
 	/// <summary>
 	/// 現在のHP
 	/// </summary>
@@ -54,6 +54,9 @@ public:
 	/// <returns></returns>
 	virtual float GetRadish() { return charaBase_.radius_; };
 
+	///攻撃力受け取り
+	virtual float GetAttackPoint() {return attackPoint_;};
+
 	virtual  CollisionType GetCollisionType() { return collisionType_; }
 
 	virtual Vector2 GetBoxSize() { return boxSize_; }
@@ -73,6 +76,9 @@ protected:
 	unsigned int maindColor_ = WHITE;
 	//精神状態が変わる値の変数
 	float spChangingPoint_ = 250.0f;
+
+	//最終的に判断する攻撃力
+	float attackPoint_ = 0.0f;
 
 	CollisionType collisionType_ = None;
 	Vector2 boxSize_;

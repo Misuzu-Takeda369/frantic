@@ -14,7 +14,9 @@ void Object::Draw()
 {
 }
 
-void Object::OnCollision()
+void Object::OnCollision(float& damage)
 {
-
+	damage;
 }
+
+

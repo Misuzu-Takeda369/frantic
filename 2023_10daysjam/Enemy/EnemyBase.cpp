@@ -23,7 +23,8 @@ void EnemyBase::Move()
 
 void EnemyBase::NaturalDeath()
 {
-	if (moveEnemy_.x <= -1300.0f) {
-		isDead_ = false;
+	if (moveEnemy_.x <= -1500.0f) {
+		isDead_ = true;
+		//moveEnemy_.x <= 1400.0f;
 	}
 }

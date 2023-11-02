@@ -22,6 +22,7 @@ void PopEnemy::Initialize()
 	//rumNum_ = 1;
 	//enemyType_ = NOMAL;
 
+	collisionType_ = Circle;
 	
 
 
@@ -62,9 +63,12 @@ void PopEnemy::Update()
 	case NOMAL:
 		nEnemy_->Update();
 
+		charaBase_.pos_.x = nEnemy_->GetPosX();
+		charaBase_.pos_.y = nEnemy_->GetPosY();
+
 		//ここがゲームシーンにこの個体が消滅している伝えるよう
 		if (nEnemy_->GetIsDead()) {
-			isDead_ = false;
+			isDead_ = true;
 		}
 
 		break;
@@ -77,17 +81,6 @@ void PopEnemy::Update()
 		break;
 	}
 
-#ifdef _DEBUG
-#pragma region ImGui関連
-
-	ImGui::Begin("Enemy");
-	ImGui::Text("EnemyPos %f.%f\n", charaBase_.pos_.x, charaBase_.pos_.y);
-	ImGui::Text("rumNum_ %d\n", rumNum_);
-	
-	ImGui::End();
-
-#pragma endregion
-#endif // DEBUG
 
 }
 

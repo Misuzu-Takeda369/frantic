@@ -229,22 +229,29 @@ void GamePScene::CheckCollisionAll()
 {
 
 	//const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
-	//PlayerMAttack* playerMA = player_->GetMAttack();
+	PlayerMAttack* playerMA = player_->GetMAttack();
 	//アイテム(複数)
 
 #pragma region プレイヤー本体と敵本体
-
+	//player_->OnCollision();
 	for (PopEnemy* enemies : enemy_) {
 
-		IsCollision(player_, enemies);
+		if (IsCollision(player_, enemies) == true) {
+			float damege = 10.0f;
+			player_->OnCollision(damege);
+			//enemies->
+		}
+		//enemies;
 
 		
 	}
 #pragma endregion
 
 #pragma region プレイヤー近距離と敵本体
-	//for(えねみー)
-	//CheckCollision(playerMA,);
+	for (PopEnemy* enemies : enemy_) {
+		//CheckCollision(playerMA,);
+
+	}
 #pragma endregion
 
 #pragma region プレイヤー遠距離と敵本体
@@ -262,6 +269,7 @@ void GamePScene::CheckCollisionAll()
 #pragma endregion
 }
 
+/*没
 void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 {
 	if (CircleCollision(ObjectA->GetPosX(), ObjectA->GetPosY(), ObjectA->GetRadish(), ObjectB->GetPosX(), ObjectB->GetPosY(), ObjectB->GetRadish()))
@@ -270,6 +278,7 @@ void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 		ObjectB->OnCollision();
 	}
 }
+*/
 
 void GamePScene::ItemDead()
 {

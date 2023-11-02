@@ -48,6 +48,12 @@ void Player::Initialize()
 	playerAnimation_ = new PlayerAnimation();
 	playerAnimation_->Initialize();
 
+	collisionType_ = Circle;
+
+
+	hitPlayer_ = false;
+	hitCoolTime_ = 0;
+
 }
 
 void Player::Update(char* keys, char* preKeys)
@@ -78,6 +84,9 @@ void Player::Update(char* keys, char* preKeys)
 
 	//状態の奴
 	PlayerStateChange(keys);
+
+	//被弾クール
+	CoolCheak();
 
 
 #pragma region ImGum関連
@@ -319,8 +328,34 @@ void Player::PlayerStateChange(char* keys)
 
 }
 
-void Player::OnCollision()
+void Player::OnCollision(float& damage)
 {
-	//hp_ -= 1;
+	if (!hitPlayer_) {
+		hp_ -= damage;
+		hitPlayer_ = true;
+
+
+#ifdef _DEBUG
+		charaBase_.color_ = BLACK;
+#endif // _DEBUG
+
+	}
+}
+
+void Player::CoolCheak()
+{
+	if (hitPlayer_) {
+		hitCoolTime_++;
+
+		if (hitCoolTime_ >= MaxHitCoolTime_) {
+			hitPlayer_ = false;
+			hitCoolTime_ = 0;
+
+#ifdef _DEBUG
+			charaBase_.color_ = WHITE;
+#endif // _DEBUG
+		}
+	}
+	
 }
 

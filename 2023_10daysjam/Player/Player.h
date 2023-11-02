@@ -81,7 +81,12 @@ public:
 	/// <summary>
 	/// 当たった時の挙動
 	/// </summary>
-	void OnCollision() override;
+	void OnCollision(float& damage) override;
+
+	/// <summary>
+	/// クールタイムか否か
+	/// </summary>
+	void CoolCheak();
 
 	/// <summary>
 	/// 最大値のHP
@@ -173,8 +178,14 @@ private:
 	Vector2 standardPos_;
 
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
-	int attackframe_ = 60;
+	int attackframe_ = 30;
 
+	//攻撃をされている
+	bool hitPlayer_ = false;
+
+	//被弾のクールタイム
+	int hitCoolTime_ = 0;
+	const int MaxHitCoolTime_ = 60;
 	
 };
 

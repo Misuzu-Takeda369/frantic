@@ -50,9 +50,9 @@ public:
 	void CheckCollisionAll();
 
 	/// <summary>
-	/// 一つ一つの当たり判定
+	/// 一つ一つの当たり判定(没)
 	/// </summary>
-	void CheckCollision(Object* ObjectA, Object* ObjectB);
+	//void CheckCollision(Object* ObjectA, Object* ObjectB);
 
 	/// <summary>
 	/// アイテムが消える関数

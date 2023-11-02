@@ -36,7 +36,7 @@ public:
 	/// <summary>
 	/// 当たった時の挙動
 	/// </summary>
-	void OnCollision() override;
+	void OnCollision();
 
 private:
 
