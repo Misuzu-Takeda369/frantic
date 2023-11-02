@@ -16,7 +16,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	virtual void Update();
+	virtual void Update(char* keys, char* preKeys);
 
 	/// <summary>
 	/// 前景描画
@@ -54,6 +54,11 @@ public:
 	/// <returns></returns>
 	virtual float GetRadish() { return charaBase_.radius_; };
 
+	virtual  CollisionType GetCollisionType() { return collisionType_; }
+
+	virtual Vector2 GetBoxSize() { return boxSize_; }
+	virtual CharaBase GetCharaBase() { return charaBase_; }
+
 protected:
 
 	//基準となる情報(ここからアニメーション用に引っ張る)
@@ -68,5 +73,8 @@ protected:
 	unsigned int maindColor_ = WHITE;
 	//精神状態が変わる値の変数
 	float spChangingPoint_ = 250.0f;
+
+	CollisionType collisionType_ = None;
+	Vector2 boxSize_;
 };
 

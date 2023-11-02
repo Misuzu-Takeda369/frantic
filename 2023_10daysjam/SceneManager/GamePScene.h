@@ -23,10 +23,6 @@ public:
 		//何もなし,ポーズ
 	};
 
-	/// <summary>
-	/// コンストクラタ
-	/// </summary>
-	GamePScene();
 
 	/// <summary>
 	/// デストラクタ

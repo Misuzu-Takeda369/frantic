@@ -13,7 +13,7 @@ public:
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
-	virtual void Update() override;
+	virtual void Update();
 
 	/// <summary>
 	/// 前景描画

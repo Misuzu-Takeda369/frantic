@@ -1,10 +1,11 @@
-﻿#pragma once
+#pragma once
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
 #include <cstdint>
 #include "Vector2.h"
+#include "Object/Object.h"
 
 /// <summary>
 /// 角度の変換
@@ -76,10 +77,7 @@ void TranslateWave(float& pos, const float& theta, float range1, float range2);
 /// <param name="theta"></param>
 void CircumferentialMovement(Vector2& v, const float& theta);
 
-/// <summary> 
-/// 足し算ベクター同士
-/// </summary>
- /// <param name="a"></param>
- ///  <param name="b"></param>
- ///  <returns></returns>
-Vector2 VectorAdd(Vector2& a, Vector2& b);
+bool IsCollisionCircleAndBox(Vector2 posA, float radiusA, Vector2 posB, float heigthB, float widthB);
+bool IsCollisonBox(Vector2 posA, float heigthA, float widthA, Vector2 posB, float heigthB, float widthB);
+
+bool IsCollision(Object* objA, Object* objB);

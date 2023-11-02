@@ -25,45 +25,45 @@
     <Filter Include="Effect">
       <UniqueIdentifier>{85b55436-9657-46cf-9e2f-37a60d9227c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player\KamataEngine">
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{5993ed89-a504-41c3-89cc-9fd7304abe29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KamataEngine">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Player\KamataEngine\Source">
+    <Filter Include="KamataEngine\Source">
       <UniqueIdentifier>{d966e9f8-e880-44ae-8586-a08515e4cffc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player\KamataEngine\Include">
+    <Filter Include="KamataEngine\Include">
       <UniqueIdentifier>{4aae4e40-94f7-4d32-9a91-c0c37a2edf0d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player\KamataEngine\Adapter">
+    <Filter Include="KamataEngine\Adapter">
       <UniqueIdentifier>{c6468eb4-788b-4a83-b207-a5f4804e56c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemy">
-      <UniqueIdentifier>{5993ed89-a504-41c3-89cc-9fd7304abe29}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
-      <Filter>Player\KamataEngine\Source</Filter>
+      <Filter>KamataEngine\Source</Filter>
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\TextureManager.cpp">
-      <Filter>Player\KamataEngine\Source</Filter>
+      <Filter>KamataEngine\Source</Filter>
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\scene\GameScene.cpp">
-      <Filter>Player\KamataEngine\Source</Filter>
+      <Filter>KamataEngine\Source</Filter>
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\WinApp.cpp">
-      <Filter>Player\KamataEngine\Source</Filter>
+      <Filter>KamataEngine\Source</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp">
-      <Filter>Player\KamataEngine\Adapter</Filter>
+      <Filter>KamataEngine\Adapter</Filter>
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.cpp">
-      <Filter>Player\KamataEngine</Filter>
+      <Filter>KamataEngine</Filter>
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp">
-      <Filter>Player\KamataEngine\Source</Filter>
+      <Filter>KamataEngine\Source</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager\GameCScene.cpp">
       <Filter>SceneManager</Filter>
@@ -93,9 +93,6 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Function\Easing.cpp">
-      <Filter>Function</Filter>
-    </ClCompile>
-    <ClCompile Include="Function\Function.cpp">
       <Filter>Function</Filter>
     </ClCompile>
     <ClCompile Include="UI\SpUI.cpp">
@@ -152,70 +149,73 @@
     <ClCompile Include="Enemy\PopEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Function\Function.cpp">
+      <Filter>Function</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\2d\DebugText.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\scene\GameScene.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\input\Input.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\Model.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\SafeDelete.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\2d\Sprite.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\TextureManager.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\ViewProjection.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\WinApp.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\WorldTransform.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\Adapter\Novice.h">
-      <Filter>Player\KamataEngine\Adapter</Filter>
+      <Filter>KamataEngine\Adapter</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\CircleShadow.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\DebugCamera.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\DirectionalLight.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\LightGroup.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\Material.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\Mesh.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\PointLight.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\3d\SpotLight.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Matrix4x4.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Vector2.h" />
@@ -223,7 +223,7 @@
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Vector4.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h">
-      <Filter>Player\KamataEngine\Include</Filter>
+      <Filter>KamataEngine\Include</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager\GameCScene.h">
       <Filter>SceneManager</Filter>
@@ -257,12 +257,6 @@
     <ClInclude Include="Function\Easing.h">
       <Filter>Function</Filter>
     </ClInclude>
-    <ClInclude Include="Function\Function.h">
-      <Filter>Function</Filter>
-    </ClInclude>
-    <ClInclude Include="Function\UtilityStruct.h">
-      <Filter>Function</Filter>
-    </ClInclude>
     <ClInclude Include="UI\SpUI.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -277,9 +271,6 @@
     </ClInclude>
     <ClInclude Include="Item\PopItem.h">
       <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Object.h">
-      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Animation\PlayerAttack2Anim.h">
       <Filter>Animation</Filter>
@@ -319,6 +310,15 @@
     </ClInclude>
     <ClInclude Include="Enemy\PopEnemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\Function.h">
+      <Filter>Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\UtilityStruct.h">
+      <Filter>Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

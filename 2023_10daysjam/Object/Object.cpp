@@ -4,9 +4,11 @@ void Object::Initialize()
 {
 }
 
-void Object::Update()
+void Object::Update(char* keys, char* preKeys)
 {
+	keys; preKeys;
 }
+
 
 void Object::Draw()
 {
@@ -14,4 +16,5 @@ void Object::Draw()
 
 void Object::OnCollision()
 {
+
 }

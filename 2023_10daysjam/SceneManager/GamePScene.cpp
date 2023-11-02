@@ -1,9 +1,5 @@
 ﻿#include "GamePScene.h"
 
-GamePScene::GamePScene()
-{
-
-}
 
 GamePScene::~GamePScene()
 {
@@ -71,17 +67,15 @@ void GamePScene::Update(char* keys, char* preKeys)
 		}
 		else {
 
+			//敵の発生
 			EnemyPoping();
+			//プレイヤーの挙動
 			player_->Update(keys, preKeys);
 
-			//enemy_->Update();
 			for (PopEnemy* enemies : enemy_) {
-				//if (enemies->GetIsDead()) {
 					enemies->Update();
-				//}
 			}
 
-			EnemyDead();
 
 			/*
 			for (PopItem* popItem : popItem_) {
@@ -91,11 +85,14 @@ void GamePScene::Update(char* keys, char* preKeys)
 			if (!popItem_->IsDead()) {
 				popItem_->Update();
 			}
-			ItemDead();
-
 
 			//当たり判定
 			CheckCollisionAll();
+
+			//敵を消去してよいか
+			EnemyDead();
+			//アイテムを消してよいか
+			ItemDead();
 
 			hpUi_->Update(player_->GetPlayerDecreasedHp());
 
@@ -174,7 +171,6 @@ void GamePScene::Update(char* keys, char* preKeys)
 	ImGui::Text("gameSModeNow_ %d\n0_None 1_Pause Butten[DIK_P]\n", gameSModeNow_);
 	ImGui::End();
 
-
 	ImGui::Begin("EnemyPop");
 	ImGui::Text("EnemyPop %d\n", EnemyPopFrame_);
 	ImGui::End();
@@ -234,12 +230,16 @@ void GamePScene::CheckCollisionAll()
 
 	//const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
 	//PlayerMAttack* playerMA = player_->GetMAttack();
-	//敵
 	//アイテム(複数)
 
 #pragma region プレイヤー本体と敵本体
-	//for(えねみー)
-	//CheckCollision(player_,);
+
+	for (PopEnemy* enemies : enemy_) {
+
+		IsCollision(player_, enemies);
+
+		
+	}
 #pragma endregion
 
 #pragma region プレイヤー近距離と敵本体
@@ -293,8 +293,6 @@ void GamePScene::ItemDead()
 
 void GamePScene::EnemyDead()
 {
-
-	
 	enemy_.remove_if([](PopEnemy* enemies) {
 		if (enemies->GetIsDead()) {
 			delete enemies;

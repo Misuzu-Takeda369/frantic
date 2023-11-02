@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <cstdint>
 
 /// <summary>
@@ -28,13 +28,18 @@ enum SABSTATE {
 	_SPELL,  //2_詠唱中
 };
 
-//HpとSPゲージ用のっぽい何か(まとめたかった)
+//Hpゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる
 struct IntState {
 	int x_;
 	int y_;
 };
 
-
+enum CollisionType
+{
+	None,
+	Circle,
+	Box
+};
 
 

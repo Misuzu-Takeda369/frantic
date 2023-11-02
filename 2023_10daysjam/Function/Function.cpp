@@ -1,4 +1,5 @@
-﻿#include "Function.h"
+#include "Function.h"
+#include "CharaBase.h"
 float DegreeToRadian(float a) {
 	float radian;
 	radian = a * (float(M_PI) / 180.0f);
@@ -101,13 +102,119 @@ void CircumferentialMovement(Vector2& v, const float& theta)
 	v.y = v2.y * cosf(theta) + v2.x * sinf(theta);
 }
 
+float DistanceSqrtf(float aX, float aY, float bX, float bY) {
+	float dx = bX - aX;
+	float dy = bY - aY;
 
-Vector2 VectorAdd(Vector2& a, Vector2& b) {
+	return (dx * dx) + (dy * dy);
+}
 
-	Vector2 result;
-	result.x = a.x + b.x;
-	result.y = a.y + b.y;
+bool IsCollisionCircleAndBox(Vector2 posA, float radiusA, Vector2 posB, float heigthB, float widthB)
+{
+	bool result=false;
+	float leftB = posB.x - (widthB / 2);
+	float rightB = posB.x + (widthB / 2);
+	float topB = posB.y - (heigthB / 2);
+	float bottomB = posB.y + (heigthB / 2);
+	if ((posA.x > leftB - radiusA) && (posA.x < rightB + radiusA)) {
+		if ((posA.y > topB - radiusA) && (posA.y < bottomB + radiusA)) {
+			result = true;
+			float f1 = radiusA * radiusA;
+			if (posA.x < leftB) {
+				if (posA.y < topB) {
+
+					if ((DistanceSqrtf(leftB, topB, posA.x, posA.y) >= f1)) {
+						result = false;
+					}
+					else {
+						if (posA.y > bottomB) {
+							if ((DistanceSqrtf(leftB, bottomB, posA.x, posA.y)>=f1)) {
+								result = false;
+							}
+						}
+					}
+				}
+			}
+			else {
+				if (posA.x > rightB) {
+					if (posA.y < topB) {
+						if (DistanceSqrtf(rightB, topB, posA.x, posA.y) >= f1) {
+							result = false;
+						}
+					}
+					else
+					{
+						if (posA.y > bottomB) {
+							if (DistanceSqrtf(rightB, bottomB, posA.x, posA.y)>=f1) {
+								result = false;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return result;
+}
+
+bool IsCollisonBox(Vector2 posA, float heigthA, float widthA, Vector2 posB, float heigthB, float widthB)
+{
+
+	//A
+	float leftA = posA.x - (widthA / 2);
+	float rightA = posA.x + (widthA / 2);
+	float topA = posA.y - (heigthA / 2);
+	float bottomA = posA.y + (heigthA / 2);
+	//B
+	float leftB = posB.x - (widthB / 2);
+	float rightB = posB.x + (widthB / 2);
+	float topB = posB.y - (heigthB / 2);
+	float bottomB = posB.y + (heigthB / 2);
+
+	if (leftB < rightA && leftA < rightB) {
+		if (topB < bottomA && topA < bottomB) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool IsCollision(Object* objA,Object* objB)
+{
+	CollisionType typeA = objA->GetCollisionType();
+	CollisionType typeB = objB->GetCollisionType();
+	CharaBase charaA = objA->GetCharaBase();
+	CharaBase charaB = objB->GetCharaBase();
+	bool result = false;
+
+	if (typeA == None) {
+		return false;
+	}
+
+	if (typeA == Circle) {
+		if (typeB == Circle) {
+			result = CircleCollision(charaA.pos_.x, charaA.pos_.y, charaA.radius_,
+				charaB.pos_.x, charaB.pos_.y, charaB.radius_);
+		}
+		else if (typeB == Box) {
+			Vector2 sizeB = objB->GetBoxSize();
+			result = IsCollisionCircleAndBox(charaA.pos_, charaA.radius_, charaB.pos_, sizeB.y, sizeB.x);
+		}
+	}
+
+	else if (typeA == Box) {
+		if (typeB == Circle) {
+			Vector2 sizeA = objA->GetBoxSize();
+			result = IsCollisionCircleAndBox(charaB.pos_, charaB.radius_, charaA.pos_, sizeA.y, sizeA.x);
+		}
+		else if (typeB == Box) {
+			Vector2 sizeA = objA->GetBoxSize();
+			Vector2 sizeB = objB->GetBoxSize();
+			result = IsCollisonBox(charaA.pos_, sizeA.y, sizeA.x, charaB.pos_, sizeB.y, sizeB.x);
+		}
+	}
 
 	return result;
-
 }
+
+
