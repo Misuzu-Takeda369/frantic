@@ -300,6 +300,10 @@ void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 }
 */
 
+void GamePScene::ItemPoping()
+{
+}
+
 void GamePScene::ItemDead()
 {
 	/*

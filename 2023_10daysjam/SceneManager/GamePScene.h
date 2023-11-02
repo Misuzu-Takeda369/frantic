@@ -55,6 +55,11 @@ public:
 	//void CheckCollision(Object* ObjectA, Object* ObjectB);
 
 	/// <summary>
+	/// アイテムが実際にポップする関数
+	/// </summary>
+	void ItemPoping();
+
+	/// <summary>
 	/// アイテムが消える関数
 	/// </summary>
 	void ItemDead();
@@ -88,6 +93,7 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	bool GetFlagGameOver() { return flagGameOver_; };
+
 
 
 
