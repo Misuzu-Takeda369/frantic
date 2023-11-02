@@ -24,6 +24,14 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	void OnCollision(float& damege);
+
+	/// <summary>
+	/// クールタイムか否か
+	/// </summary>
+	 void CoolCheak() override;
+
+
 private:
 
 	//通常の敵

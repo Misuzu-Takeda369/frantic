@@ -34,6 +34,12 @@ public:
 	/// </summary>
 	void DeterminingAttackPower(float hp, float maxHp);
 
+	/// <summary>
+	/// 攻撃力受け取り
+	/// </summary>
+	/// <returns></returns>
+	float GetAttackPoint() { return attackPoint_; };
+
 
 private:
 

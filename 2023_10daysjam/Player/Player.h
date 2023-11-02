@@ -86,7 +86,7 @@ public:
 	/// <summary>
 	/// クールタイムか否か
 	/// </summary>
-	void CoolCheak();
+	void CoolCheak() override;
 
 	/// <summary>
 	/// 最大値のHP
@@ -109,6 +109,8 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	float GetPlayerDecreasedSp() { return decreasedSp_; };
+
+	bool GetAttackFrag() { return attackFrag_; };
 
 	/// <summary>
 	/// 近距離の攻撃のゲッター
@@ -179,13 +181,6 @@ private:
 
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
 	int attackframe_ = 30;
-
-	//攻撃をされている
-	bool hitPlayer_ = false;
-
-	//被弾のクールタイム
-	int hitCoolTime_ = 0;
-	const int MaxHitCoolTime_ = 60;
 	
 };
 

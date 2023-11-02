@@ -17,10 +17,9 @@ public:
 	/// 前景描画
 	/// </summary>
 	void Draw() override;
-
 	
 private:
 
-	const float maxHp_ = 3.0f;
+	const float maxHp_ = 10.0f;
 };
 

@@ -27,16 +27,22 @@ public:
 	/// 当たった時の挙動
 	/// </summary>
 	virtual void OnCollision(float& damege);
+
+	/// <summary>
+	/// クールタイムか否か
+	/// </summary>
+	virtual void CoolCheak();
+
 	/// <summary>
 	/// 現在のHP
 	/// </summary>
 	/// <returns></returns>
-	virtual float GetPlayerHp() { return hp_; };
+	virtual float GetHp() { return hp_; };
 	/// <summary>
 	/// 現在のSP
 	/// </summary>
 	/// <returns></returns>
-	virtual float GetPlayerSp() { return sp_; };
+	virtual float GetSp() { return sp_; };
 
 	/// <summary>
 	/// 当たり判定に使う用のゲッターX
@@ -54,8 +60,11 @@ public:
 	/// <returns></returns>
 	virtual float GetRadish() { return charaBase_.radius_; };
 
-	///攻撃力受け取り
-	virtual float GetAttackPoint() {return attackPoint_;};
+	/// <summary>
+	/// 攻撃力受け取り
+	/// </summary>
+	/// <returns></returns>
+	virtual float GetAttackPoint() { return attackPoint_; };
 
 	virtual  CollisionType GetCollisionType() { return collisionType_; }
 
@@ -82,5 +91,13 @@ protected:
 
 	CollisionType collisionType_ = None;
 	Vector2 boxSize_;
+
+	//攻撃をされている
+	bool hit_ = false;
+	//被弾のクールタイム
+	int hitCoolTime_ = 0;
+	const int MaxHitCoolTime_ = 60;
+
+
 };
 

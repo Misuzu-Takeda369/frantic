@@ -19,6 +19,8 @@ void PlayerMAttack::Initialize(PlayerAttackType& playerAttackTypeNow, MaindState
 	magicAttackPoint_ = 10.0f;
 
 
+	collisionType_ = Circle;
+
 }
 
 void PlayerMAttack::Update(Vector2& playerPos, PlayerDirection& playerDirection)

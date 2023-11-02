@@ -38,6 +38,13 @@ public:
 	/// </summary>
 	void OnCollision();
 
+
+	/// <summary>
+	/// 攻撃力受け取り
+	/// </summary>
+	/// <returns></returns>
+	float GetAttackPoint() {return attackPoint_;};
+
 private:
 
 	

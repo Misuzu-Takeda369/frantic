@@ -28,3 +28,8 @@ void EnemyBase::NaturalDeath()
 		//moveEnemy_.x <= 1400.0f;
 	}
 }
+
+void EnemyBase::OnCollision(float& damege)
+{
+	damege;
+}

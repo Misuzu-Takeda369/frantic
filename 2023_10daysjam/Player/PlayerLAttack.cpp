@@ -18,6 +18,9 @@ void PlayerLAttack::Initialize(PlayerAttackType& playerAttackTypeNow, MaindState
 	attackPoint_ = 0.0f;
 	//攻撃力(magic時　変attackPoint_動あり)
 	magicAttackPoint_ = 5.0f;
+
+	collisionType_ = Circle;
+
 }
 
 void PlayerLAttack::Update()

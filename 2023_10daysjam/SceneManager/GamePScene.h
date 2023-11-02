@@ -120,7 +120,7 @@ private:
 	std::list<PopEnemy*>enemy_;
 
 	//敵がポップする間隔
-	const int consEnemyPopFrame_ = 120;
+	const int consEnemyPopFrame_ = 360;
 	//敵がポップするまでを数える
 	int EnemyPopFrame_ = 0;
 

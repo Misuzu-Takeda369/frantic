@@ -30,16 +30,19 @@ public:
 	/// </summary>
 	virtual void NaturalDeath();
 
+	virtual void OnCollision(float& damege) override;
+
 	//敵の攻撃力のゲッター
 	virtual float GetEnemyAttackPoint() { return attackpoint_; };
 
 	//敵が死んでいるか
 	virtual bool GetIsDead() { return isDead_; };
 
+
+
+
 protected:
 
-	//敵の体力
-	float hp_;
 
 	//プレイヤーに影響する攻撃力
 	float attackpoint_;

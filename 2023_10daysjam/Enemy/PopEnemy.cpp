@@ -14,9 +14,8 @@ void PopEnemy::Initialize()
 {
 	
 	charaBase_.pos_ = { 1400.f,550.0f};
-	charaBase_.speed_ = {3.0f,0.3f};
+	charaBase_.speed_ = {0.8f,0.3f};
 	charaBase_.radius_ = 50;
-	
 
 	countEnemy_ = 0;
 	//rumNum_ = 1;
@@ -24,7 +23,6 @@ void PopEnemy::Initialize()
 
 	collisionType_ = Circle;
 	
-
 
 #pragma region ポップした時の判別
 	rumNum_ = RandomRange(1, 1);
@@ -41,6 +39,7 @@ void PopEnemy::Initialize()
 
 		nEnemy_ = new NEnemy();
 		nEnemy_->Initialize(charaBase_.pos_, charaBase_.speed_, charaBase_.radius_);
+		hp_ = nEnemy_->GetHp();
 
 		break;
 
@@ -57,6 +56,8 @@ void PopEnemy::Initialize()
 
 void PopEnemy::Update()
 {
+
+	CoolCheak();
 
 	switch (enemyType_)
 	{
@@ -82,6 +83,15 @@ void PopEnemy::Update()
 	}
 
 
+#ifdef _DEBUG
+#pragma region ImGui関連
+
+	ImGui::Begin("EnemyHp");
+	ImGui::Text("EnemyHp %f\n", hp_);
+	
+	ImGui::End();
+#pragma endregion
+#endif // DEBUG
 }
 
 void PopEnemy::Draw()
@@ -101,6 +111,34 @@ void PopEnemy::Draw()
 		break;
 	}
 
+}
+
+void PopEnemy::OnCollision(float& damege)
+{
+	//damege;
+	//hp_ -= 10.0f;
+	
+	if (!hit_) {
+		hp_ -= damege;
+		hit_ = true;
+	}
+
+	if (hp_ <= 0.0f) {
+		isDead_ = true;
+	}
+
+}
+
+void PopEnemy::CoolCheak()
+{
+	if (hit_) {
+		hitCoolTime_++;
+
+		if (hitCoolTime_ >= MaxHitCoolTime_) {
+			hit_ = false;
+			hitCoolTime_ = 0;
+		}
+	}
 }
 
 

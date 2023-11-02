@@ -60,7 +60,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 				GameMove_ = true;
 			}
 
-			if ((timerUi_->GetterTimer() <= 0) || ((player_->GetPlayerHp() <= 0) || (player_->GetPlayerSp() <= 0))) {
+			if ((timerUi_->GetterTimer() <= 0) || ((player_->GetHp() <= 0) || (player_->GetSp() <= 0))) {
 				flagChange_ = true;
 			}
 
@@ -135,7 +135,7 @@ void GamePScene::Update(char* keys, char* preKeys)
 			}
 			//ここのif文でシーン移行出来るかを判別
 			//現在はOを押したときに移動(がめおべ)
-			if ((player_->GetPlayerHp() <= 0) || (player_->GetPlayerSp() <= 0)) {
+			if ((player_->GetHp() <= 0) || (player_->GetSp() <= 0)) {
 				//flagChange_ = true;
 				flagGameOver_ = true;
 				changeTimingFrame_ = 0;
@@ -228,7 +228,7 @@ void GamePScene::Draw()
 void GamePScene::CheckCollisionAll()
 {
 
-	//const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
+	const std::list<PlayerLAttack*>& playerLA = player_->GetBullet();
 	PlayerMAttack* playerMA = player_->GetMAttack();
 	//アイテム(複数)
 
@@ -248,19 +248,39 @@ void GamePScene::CheckCollisionAll()
 #pragma endregion
 
 #pragma region プレイヤー近距離と敵本体
-	for (PopEnemy* enemies : enemy_) {
-		//CheckCollision(playerMA,);
-
+	if (playerMA) {
+		for (PopEnemy* enemies : enemy_) {
+ 
+			if (IsCollision(playerMA, enemies) == true) {
+				float damege = playerMA->GetAttackPoint();
+				enemies->OnCollision(damege);
+			}
+			
+		}
 	}
 #pragma endregion
 
 #pragma region プレイヤー遠距離と敵本体
-	//for(えねみーとえんきょり)
-	/*
-	for (PlayerLAttack* playerLAtteck : playerLAttacks) {
-			//CheckCollision(playerLAtteck, );
-	}
-	*/
+
+	
+		for (PopEnemy* enemies : enemy_) {
+
+			
+			for (PlayerLAttack* playerLAtteck : playerLA) {
+
+				if (playerLAtteck) {
+
+					if (IsCollision(playerLAtteck, enemies) == true) {
+
+						float damege = playerLAtteck->GetAttackPoint();
+						enemies->OnCollision(damege);
+
+					}
+				}
+
+			}
+
+		}
 #pragma endregion
 
 #pragma region プレイヤー本体とアイテム

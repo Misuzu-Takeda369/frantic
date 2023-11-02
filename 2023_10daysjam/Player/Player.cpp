@@ -51,7 +51,7 @@ void Player::Initialize()
 	collisionType_ = Circle;
 
 
-	hitPlayer_ = false;
+	hit_ = false;
 	hitCoolTime_ = 0;
 
 }
@@ -330,9 +330,9 @@ void Player::PlayerStateChange(char* keys)
 
 void Player::OnCollision(float& damage)
 {
-	if (!hitPlayer_) {
+	if (!hit_) {
 		hp_ -= damage;
-		hitPlayer_ = true;
+		hit_ = true;
 
 
 #ifdef _DEBUG
@@ -344,11 +344,11 @@ void Player::OnCollision(float& damage)
 
 void Player::CoolCheak()
 {
-	if (hitPlayer_) {
+	if (hit_) {
 		hitCoolTime_++;
 
 		if (hitCoolTime_ >= MaxHitCoolTime_) {
-			hitPlayer_ = false;
+			hit_ = false;
 			hitCoolTime_ = 0;
 
 #ifdef _DEBUG

@@ -19,4 +19,8 @@ void Object::OnCollision(float& damage)
 	damage;
 }
 
+void Object::CoolCheak()
+{
+}
+
 
