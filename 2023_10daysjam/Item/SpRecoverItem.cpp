@@ -1,9 +1,9 @@
 ﻿#include "SpRecoverItem.h"
 
-void SpRecoverItem::Initialize()
+void SpRecoverItem::Initialize(Vector2& pos)
 {
 	//多分敵のドロップか時間経過か
-	charaBase_.pos_ = {500.0f,300.0f};
+	charaBase_.pos_ = pos;
 	//画像サイズ
 	sizeX_ = 32; sizeY_ = 32;
 	image_= 0;
@@ -28,6 +28,6 @@ void SpRecoverItem::Update()
 
 void SpRecoverItem::Draw()
 {
-	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), sizeX_, sizeY_,0.0f,RED,kFillModeSolid);
+	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), sizeX_, sizeY_,0.0f,WHITE,kFillModeSolid);
 	//Novice::DrawEllipse(100,600, 100, 100, 0.0f, RED, kFillModeSolid);
 }

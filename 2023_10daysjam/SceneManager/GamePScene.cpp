@@ -302,14 +302,17 @@ void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 }
 */
 
-void GamePScene::ItemPoping()
-{
-
-	PopItem* newItem = new PopItem();
-	newItem->Initialize();
-	popItem_.push_back(newItem);
-
-}
+//void GamePScene::ItemPoping()
+//{
+//
+//				
+//				PopItem* newItem = new PopItem();
+//				Vector2 pos = { enemies->GetPosX(), enemies->GetPosY() };
+//				newItem->Initialize( pos);
+//
+//				popItem_.push_back(newItem); 
+//	
+//}
 
 void GamePScene::ItemDead()
 {
@@ -333,18 +336,20 @@ void GamePScene::ItemDead()
 
 void GamePScene::EnemyDead()
 {
-
-	//確率は現在仮(流石にもうちょっと低くする)
 	for (PopEnemy* enemies : enemy_) {
 		if (enemies->GetIsDead()) {
 			int rum = RandomRange(1, 2);
 
 			if (rum % 2 == 0) {
-				ItemPoping();
+
+				PopItem* newItem = new PopItem();
+				Vector2 pos = { enemies->GetPosX(), enemies->GetPosY() };
+				newItem->Initialize(pos);
+
+				popItem_.push_back(newItem);
 			}
 		}
 	}
-
 
 	enemy_.remove_if([](PopEnemy* enemies) {
 		if (enemies->GetIsDead()) {

@@ -5,7 +5,7 @@ PopItem::~PopItem()
 	delete spRecoverItem_;
 }
 
-void PopItem::Initialize()
+void PopItem::Initialize(Vector2& pos)
 {
 
 	run_ = 1;
@@ -25,7 +25,7 @@ void PopItem::Initialize()
 	case SpRecover:
 
 		spRecoverItem_ = new SpRecoverItem();
-		spRecoverItem_->Initialize();
+		spRecoverItem_->Initialize(pos);
 
 		break;
 
@@ -84,4 +84,9 @@ void PopItem::Draw()
 	default:
 		break;
 	}
+}
+
+void PopItem::OnColistion()
+{
+
 }

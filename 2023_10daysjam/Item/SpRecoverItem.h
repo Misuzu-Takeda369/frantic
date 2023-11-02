@@ -12,7 +12,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize()override;
+	void Initialize(Vector2& pos);
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -23,7 +23,6 @@ public:
 	/// 前景描画
 	/// </summary>
 	void Draw()override;
-
 
 	float GetRecoverSp() { return recoverSp_; }
 

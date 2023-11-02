@@ -24,7 +24,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize() override;
+	void Initialize(Vector2& pos);
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -35,6 +35,11 @@ public:
 	/// 前景描画
 	/// </summary>
 	void Draw()override;
+
+	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
+	void OnColistion() override;
 
 	SpRecoverItem* GetSpRecoverItem() { return spRecoverItem_; };
 

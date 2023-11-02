@@ -11,3 +11,7 @@ void ItemBase::Update()
 void ItemBase::Draw()
 {
 }
+
+void ItemBase::OnColistion()
+{
+}

@@ -26,6 +26,11 @@ public:
 	/// </summary>
 	bool IsDead() const { return isDead_; };
 
+	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
+	virtual void OnColistion();
+
 protected:
 
 	//画像サイズ
@@ -33,7 +38,7 @@ protected:
 	int image_;
 
 	//弾の寿命(消えるまでの時間の定数)
-	static const int kLifeTime = 120;
+	static const int kLifeTime = 360;
 	// 弾の寿命(消えるまでの時間の判定用変数)
 	int deathTimer_ = kLifeTime;
 	//消えるフラグ
