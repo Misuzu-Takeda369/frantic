@@ -15,13 +15,11 @@ GamePScene::~GamePScene()
 	}
 	
 	
-	/*
+	
 	for (PopItem* popItem : popItem_) {
 		delete popItem;
 	}
-	*/
-
-	delete popItem_;
+	
 }
 
 void GamePScene::Initialize()
@@ -43,8 +41,8 @@ void GamePScene::Initialize()
 	//PopItem* popItem = new PopItem();
 	//popItem->Initialize();
 
-	popItem_ = new PopItem();
-	popItem_->Initialize();
+	/*popItem_ = new PopItem();
+	popItem_->Initialize();*/
 
 }
 
@@ -77,14 +75,16 @@ void GamePScene::Update(char* keys, char* preKeys)
 			}
 
 
-			/*
+			
 			for (PopItem* popItem : popItem_) {
-				popItem->Update();
+				if (!popItem->IsDead()) {
+					popItem->Update();
+				}
 			}
-			*/
-			if (!popItem_->IsDead()) {
+			
+			/*if (!popItem_->IsDead()) {
 				popItem_->Update();
-			}
+			}*/
 
 			//当たり判定
 			CheckCollisionAll();
@@ -209,8 +209,10 @@ void GamePScene::Draw()
 		popItem->Draw();
 	}*/
 
-	if (!popItem_->IsDead()) {
-		popItem_->Draw();
+	for (PopItem* popItem : popItem_) {
+		if (!popItem->IsDead()) {
+			popItem->Draw();
+		}
 	}
 
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
@@ -302,20 +304,25 @@ void GamePScene::CheckCollision(Object* ObjectA, Object* ObjectB)
 
 void GamePScene::ItemPoping()
 {
+
+	PopItem* newItem = new PopItem();
+	newItem->Initialize();
+	popItem_.push_back(newItem);
+
 }
 
 void GamePScene::ItemDead()
 {
-	/*
-	lAttack_.remove_if([](PlayerLAttack* lAttack) {
-		if (lAttack->IsDead()) {
-			delete lAttack;
+	
+	popItem_.remove_if([](PopItem* popItem) {
+		if (popItem->IsDead()) {
+			delete popItem;
 			return true;
 		}
 
 		return false;
 		});
-	*/
+	
 
 	/*
 	if (popItem_->IsDead()) {
@@ -326,6 +333,19 @@ void GamePScene::ItemDead()
 
 void GamePScene::EnemyDead()
 {
+
+	//確率は現在仮(流石にもうちょっと低くする)
+	for (PopEnemy* enemies : enemy_) {
+		if (enemies->GetIsDead()) {
+			int rum = RandomRange(1, 2);
+
+			if (rum % 2 == 0) {
+				ItemPoping();
+			}
+		}
+	}
+
+
 	enemy_.remove_if([](PopEnemy* enemies) {
 		if (enemies->GetIsDead()) {
 			delete enemies;
