@@ -37,8 +37,9 @@ void PlayerAnimation::Initialize()
 
 void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab,  MaindState maindState, PlayerDirection mDclection, PlayerDirection aDclection)
 {
+	//感情の受け取りを関数に変更
+	SetMaindState(maindState);
 
-	_maindState = maindState;
 	switch (main)
 	{
 	case IDOL:
