@@ -4,6 +4,7 @@ void SpRecoverItem::Initialize(Vector2& pos)
 {
 	//多分敵のドロップか時間経過か
 	charaBase_.pos_ = pos;
+	charaBase_.radius_ = 32.0f;
 	//画像サイズ
 	sizeX_ = 32; sizeY_ = 32;
 	image_= 0;

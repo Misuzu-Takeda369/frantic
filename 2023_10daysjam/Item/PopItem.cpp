@@ -10,6 +10,9 @@ void PopItem::Initialize(Vector2& pos)
 
 	run_ = 1;
 	popItem_ = SpRecover;
+	recoverState_ = 0.0f;
+
+	collisionType_ = Circle;
 
 #pragma region ポップした時の判別
 	run_ = RandomRange(1, 1);
@@ -48,6 +51,10 @@ void PopItem::Update()
 
 		if (isDead_ == false) {
 			spRecoverItem_->Update();
+			charaBase_.pos_.x = spRecoverItem_->GetPosX();
+			charaBase_.pos_.y = spRecoverItem_->GetPosY();
+			charaBase_.radius_ = spRecoverItem_->GetRadish();
+			recoverState_ = spRecoverItem_->GetRecoverSp();
 		}
 
 		if (spRecoverItem_->IsDead()) {
@@ -63,6 +70,18 @@ void PopItem::Update()
 	default:
 		break;
 	}
+
+#ifdef _DEBUG
+#pragma region ImGui関連
+
+	ImGui::Begin("Item");
+	ImGui::Text("ItemPos:%f,%f\n", charaBase_.pos_.x, charaBase_.pos_.y);
+	ImGui::End();
+
+
+#pragma endregion
+#endif // DEBUG
+
 }
 
 void PopItem::Draw()
@@ -90,3 +109,4 @@ void PopItem::OnColistion()
 {
 
 }
+

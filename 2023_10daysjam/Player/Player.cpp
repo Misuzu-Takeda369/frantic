@@ -54,6 +54,9 @@ void Player::Initialize()
 	hit_ = false;
 	hitCoolTime_ = 0;
 
+	getItem_ = false;
+	getCoolTime_ = 0;
+
 }
 
 void Player::Update(char* keys, char* preKeys)
@@ -87,6 +90,9 @@ void Player::Update(char* keys, char* preKeys)
 
 	//被弾クール
 	CoolCheak();
+
+	//アイテムゲットクール
+	ItemCoolCheak();
 
 
 #pragma region ImGum関連
@@ -342,6 +348,30 @@ void Player::OnCollision(float& damage)
 	}
 }
 
+void Player::UsedItem(float& recover) {
+
+	/*sp_ += recover;
+	getItem_ = true;
+	charaBase_.color_ = GREEN;*/
+
+	
+	if (!getItem_) {
+		sp_ += recover;
+		getItem_ = true;
+
+		if (sp_>= maxHp_) {
+			sp_ = maxHp_;
+		}
+
+#ifdef _DEBUG
+		charaBase_.color_ = GREEN;
+#endif // _DEBUG
+
+	}
+	
+}
+
+
 void Player::CoolCheak()
 {
 	if (hit_) {
@@ -357,5 +387,21 @@ void Player::CoolCheak()
 		}
 	}
 	
+}
+
+void Player::ItemCoolCheak()
+{
+	if (getItem_) {
+		getCoolTime_++;
+
+		if (getCoolTime_ >= MaxGetCoolTime_) {
+			getItem_ = false;
+			getCoolTime_ = 0;
+
+#ifdef _DEBUG
+			charaBase_.color_ = WHITE;
+#endif // _DEBUG
+		}
+	}
 }
 

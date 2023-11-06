@@ -234,6 +234,7 @@ void GamePScene::CheckCollisionAll()
 	PlayerMAttack* playerMA = player_->GetMAttack();
 	//アイテム(複数)
 
+/*
 #pragma region プレイヤー本体と敵本体
 	//player_->OnCollision();
 	for (PopEnemy* enemies : enemy_) {
@@ -248,6 +249,7 @@ void GamePScene::CheckCollisionAll()
 		
 	}
 #pragma endregion
+*/
 
 #pragma region プレイヤー近距離と敵本体
 	if (playerMA) {
@@ -286,8 +288,23 @@ void GamePScene::CheckCollisionAll()
 #pragma endregion
 
 #pragma region プレイヤー本体とアイテム
-	//for(アイテム)
-	//CheckCollision(player_,);
+		for (PopItem* popItem : popItem_) {
+			//ここで動いたのでプレイヤー関連では無さソう
+			//float recover = popItem->GetRecoverState();
+			//player_->UsedItem(recover);
+
+			
+			if (IsCollision(player_, popItem) == true) {
+				float recover = popItem->GetRecoverState();
+				player_->UsedItem(recover);
+				
+			}
+			
+			
+			//enemies;
+
+
+		}
 #pragma endregion
 }
 

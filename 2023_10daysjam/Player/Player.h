@@ -84,9 +84,19 @@ public:
 	void OnCollision(float& damage) override;
 
 	/// <summary>
+	/// 当たった時の挙動
+	/// </summary>
+	void UsedItem(float& recover);
+
+	/// <summary>
 	/// クールタイムか否か
 	/// </summary>
 	void CoolCheak() override;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	void ItemCoolCheak();
 
 	/// <summary>
 	/// 最大値のHP
@@ -181,6 +191,11 @@ private:
 
 	//攻撃している時間仮近距離(多分eff・animeでいらなくなる)
 	int attackframe_ = 30;
+
+	//アイテムを取得中か
+	bool getItem_ = false;
+	int getCoolTime_ = 0;
+	const int MaxGetCoolTime_ = 10;
 	
 };
 

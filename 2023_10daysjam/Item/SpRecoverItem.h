@@ -24,11 +24,20 @@ public:
 	/// </summary>
 	void Draw()override;
 
+	/// <summary>
+	/// Spの挙動
+	/// </summary>
+	/// <returns></returns>
 	float GetRecoverSp() { return recoverSp_; }
 
+	/// <summary>
+	/// 狂気ラインダウン挙動
+	/// </summary>
+	/// <returns></returns>
 	float GetDownLineLunatic() { return downLineLunatic_; }
 
-
+	//プレイヤーとアイテムの当たり判定
+	//アイテムのSP回復処理(Player操作)
 	
 private:
 

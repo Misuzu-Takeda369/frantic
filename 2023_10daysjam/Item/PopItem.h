@@ -41,7 +41,15 @@ public:
 	/// </summary>
 	void OnColistion() override;
 
+
+
 	SpRecoverItem* GetSpRecoverItem() { return spRecoverItem_; };
+
+	/// <summary>
+	/// 当たり判定の時に引用するよう変数
+	/// </summary>
+	/// <returns></returns>
+	float  GetRecoverState() { return recoverState_; };
 
 private:
 
@@ -50,6 +58,10 @@ private:
 
 	//Sp回復フラグ
 	SpRecoverItem* spRecoverItem_ = nullptr;
+
+	//当たり判定の時に引用するよう変数
+	float recoverState_ = 0.0f;
+
 
 };
 

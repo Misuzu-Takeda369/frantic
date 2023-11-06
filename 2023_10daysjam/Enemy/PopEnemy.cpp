@@ -26,6 +26,7 @@ void PopEnemy::Initialize()
 
 #pragma region ポップした時の判別
 	rumNum_ = RandomRange(1, 1);
+
 	if (rumNum_ == 1) {
 		enemyType_ = NOMAL;
 	}
@@ -139,6 +140,7 @@ void PopEnemy::CoolCheak()
 			hitCoolTime_ = 0;
 		}
 	}
+
 }
 
 
