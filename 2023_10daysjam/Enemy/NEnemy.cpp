@@ -7,6 +7,8 @@ void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 	charaBase_.radius_ = radius;
 	charaBase_.color_ = RED;
 
+	maindStateNow_ = Normal;
+
 	hp_ = maxHp_;
 
 	//プレイヤーに影響する攻撃力

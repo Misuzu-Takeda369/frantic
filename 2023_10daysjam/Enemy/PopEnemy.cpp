@@ -10,12 +10,14 @@ PopEnemy::~PopEnemy()
 	delete nEnemy_;
 }
 
-void PopEnemy::Initialize()
+void PopEnemy::Initialize(MaindState maindStateNow)
 {
 	
 	charaBase_.pos_ = { 1400.f,550.0f};
 	charaBase_.speed_ = {0.8f,0.3f};
 	charaBase_.radius_ = 50;
+
+	maindStateNow_ = maindStateNow;
 
 	countEnemy_ = 0;
 	//rumNum_ = 1;
@@ -27,6 +29,7 @@ void PopEnemy::Initialize()
 #pragma region ポップした時の判別
 	rumNum_ = RandomRange(1, 1);
 
+	//動き
 	if (rumNum_ == 1) {
 		enemyType_ = NOMAL;
 	}

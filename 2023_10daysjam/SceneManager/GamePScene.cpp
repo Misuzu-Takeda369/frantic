@@ -387,7 +387,8 @@ void GamePScene::EnemyPoping()
 
 		
 		PopEnemy* newEnemy = new PopEnemy();
-		newEnemy->Initialize();
+
+		newEnemy->Initialize(player_->GetMaindStateNow());
 		enemy_.push_back(newEnemy);
 		
 

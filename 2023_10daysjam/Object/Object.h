@@ -71,6 +71,8 @@ public:
 	virtual Vector2 GetBoxSize() { return boxSize_; }
 	virtual CharaBase GetCharaBase() { return charaBase_; }
 
+	virtual MaindState GetMaindStateNow() { return maindStateNow_; };
+
 protected:
 
 	//基準となる情報(ここからアニメーション用に引っ張る)

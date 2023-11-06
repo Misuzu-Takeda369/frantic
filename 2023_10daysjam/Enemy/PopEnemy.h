@@ -19,7 +19,7 @@ public:
 	~PopEnemy();
 
 	//後から場所だけ敵から受け取る
-	void Initialize();
+	void Initialize(MaindState maindStateNow);
 
 	void Update() override;
 	void Draw() override;
