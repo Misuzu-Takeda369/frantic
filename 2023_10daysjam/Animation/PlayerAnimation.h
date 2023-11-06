@@ -15,7 +15,7 @@ public:
     ~PlayerAnimation();
     PlayerAnimation();
     void Initialize();
-    void Update(Vector2 pos, STATE main, SABSTATE sab, MaindState maindState);
+    void Update(Vector2 pos, STATE main, SABSTATE sab, MaindState maindState,PlayerDirection mDclection, PlayerDirection aDclection);
     void SetDirection(bool right);
     void SetMaindState(const MaindState& state);
     void Draw();
