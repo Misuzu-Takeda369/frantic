@@ -55,9 +55,9 @@ public:
 	//void CheckCollision(Object* ObjectA, Object* ObjectB);
 
 	/// <summary>
-	/// アイテムが実際にポップする関数
+	/// アイテムが実際にポップする関数(敵消滅と同じ所に実装)
 	/// </summary>
-	void ItemPoping();
+	//void ItemPoping();
 
 	/// <summary>
 	/// アイテムが消える関数
@@ -128,7 +128,7 @@ private:
 	//敵がポップする間隔
 	const int consEnemyPopFrame_ = 180;
 	//敵がポップするまでを数える
-	int EnemyPopFrame_ = 0;
+	int EnemyPopFrame_ = consEnemyPopFrame_;
 
 
 	HpUI* hpUi_ = nullptr;

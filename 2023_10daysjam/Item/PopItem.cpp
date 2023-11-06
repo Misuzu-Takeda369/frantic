@@ -107,6 +107,7 @@ void PopItem::Draw()
 
 void PopItem::OnColistion()
 {
-
+	//ここにエフェクト関連
+	isDead_ = true;
 }
 

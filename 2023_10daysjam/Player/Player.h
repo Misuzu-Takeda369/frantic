@@ -194,6 +194,7 @@ private:
 
 	//アイテムを取得中か
 	bool getItem_ = false;
+	//取得フレーム関連
 	int getCoolTime_ = 0;
 	const int MaxGetCoolTime_ = 10;
 	

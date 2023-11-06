@@ -44,7 +44,7 @@ private:
 	//実際に回復する量
 	float recoverSp_;
 	//回復する量(定数)
-	const float recoveryAmount_ = 5.0f;
+	const float recoveryAmount_ = 10.0f;
 	//ラインが下がる量
 	float downLineLunatic_;
 	//狂気ラインダウン(定数)
