@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include "EnemyBullet.h"
 #include "Object/Object.h"
-#include "NEnemy.h"
+#include "NHEnemy.h"
+#include "NSEnemy.h"
 #include "Function/Function.h"
 #include "EnemyBase.h"
 #define ENEMY_MAX 10
@@ -13,7 +14,9 @@ public:
 
 	enum EnemyType
 	{
-		NOMAL,BULLET
+		//ただ突き進むやつオンリー
+		//左からHP減らす奴、SP減らす奴
+		HPNOMAL,SPNOMAL,NONE
 	};
 
 	~PopEnemy();
@@ -35,7 +38,8 @@ public:
 private:
 
 	//通常の敵
-	NEnemy* nEnemy_ = nullptr;
+	NHEnemy* nHEnemy_ = nullptr;
+	NSEnemy* nSEnemy_ = nullptr;
 
 	//現在出ている敵の数(ENEMY_MAXになると減るまで敵がでなくなる)
 	int countEnemy_ = 0;
@@ -43,7 +47,7 @@ private:
 	//乱数用の数
 	int rumNum_ = 0;
 	//敵の種類用
-	EnemyType enemyType_ = NOMAL;
+	EnemyType enemyType_ = NONE;
 
 };
 

@@ -7,14 +7,15 @@
 PopEnemy::~PopEnemy()
 {
 	//delete E_Bullet;
-	delete nEnemy_;
+	delete nHEnemy_;
+	delete nSEnemy_;
 }
 
 void PopEnemy::Initialize(MaindState maindStateNow)
 {
-	
-	charaBase_.pos_ = { 1400.f,550.0f};
-	charaBase_.speed_ = {0.8f,0.3f};
+
+	charaBase_.pos_ = { 1400.f,550.0f };
+	charaBase_.speed_ = { 0.8f,0.3f };
 	charaBase_.radius_ = 50;
 
 	maindStateNow_ = maindStateNow;
@@ -24,34 +25,49 @@ void PopEnemy::Initialize(MaindState maindStateNow)
 	//enemyType_ = NOMAL;
 
 	collisionType_ = Circle;
-	
+
 
 #pragma region ポップした時の判別
-	rumNum_ = RandomRange(1, 1);
+	rumNum_ = RandomRange(1, 2);
 
-	//動き
+	//
 	if (rumNum_ == 1) {
-		enemyType_ = NOMAL;
+		enemyType_ = HPNOMAL;
 	}
 	else if (rumNum_ == 2) {
-		enemyType_ = BULLET;
+
+		if (maindStateNow_ == Lunatic) {
+			enemyType_ = SPNOMAL;
+		}
+		else {
+			enemyType_ = NONE;
+		}
+
+	}
+	else {
+		enemyType_ = NONE;
 	}
 
 	switch (enemyType_)
 	{
-	case NOMAL:
+	case HPNOMAL:
 
-		nEnemy_ = new NEnemy();
-		nEnemy_->Initialize(charaBase_.pos_, charaBase_.speed_, charaBase_.radius_);
-		hp_ = nEnemy_->GetHp();
+		nHEnemy_ = new NHEnemy();
+		nHEnemy_->Initialize(charaBase_.pos_, charaBase_.speed_, charaBase_.radius_);
+		hp_ = nHEnemy_->GetHp();
 
 		break;
 
-	case BULLET:
+	case SPNOMAL:
 
+
+		nSEnemy_ = new NSEnemy();
+		nSEnemy_->Initialize(charaBase_.pos_, charaBase_.speed_, charaBase_.radius_);
+		hp_ = nSEnemy_->GetHp();
 		break;
 
 	default:
+		isDead_ = true;
 		break;
 	}
 #pragma endregion
@@ -65,21 +81,25 @@ void PopEnemy::Update()
 
 	switch (enemyType_)
 	{
-	case NOMAL:
-		nEnemy_->Update();
+	case HPNOMAL:
+		nHEnemy_->Update();
 
-		charaBase_.pos_.x = nEnemy_->GetPosX();
-		charaBase_.pos_.y = nEnemy_->GetPosY();
+		charaBase_.pos_.x = nHEnemy_->GetPosX();
+		charaBase_.pos_.y = nHEnemy_->GetPosY();
 
 		//ここがゲームシーンにこの個体が消滅している伝えるよう
-		if (nEnemy_->GetIsDead()) {
+		if (nHEnemy_->GetIsDead()) {
 			isDead_ = true;
 		}
 
 		break;
 
-	case BULLET:
+	case SPNOMAL:
 
+		nSEnemy_->Update();
+
+		charaBase_.pos_.x = nSEnemy_->GetPosX();
+		charaBase_.pos_.y = nSEnemy_->GetPosY();
 		break;
 
 	default:
@@ -92,7 +112,7 @@ void PopEnemy::Update()
 
 	ImGui::Begin("EnemyHp");
 	ImGui::Text("EnemyHp %f\n", hp_);
-	
+
 	ImGui::End();
 #pragma endregion
 #endif // DEBUG
@@ -103,12 +123,12 @@ void PopEnemy::Draw()
 
 	switch (enemyType_)
 	{
-	case NOMAL:
-		nEnemy_->Draw();
+	case HPNOMAL:
+		nHEnemy_->Draw();
 		break;
 
-	case BULLET:
-
+	case SPNOMAL:
+		nSEnemy_->Draw();
 		break;
 
 	default:
@@ -121,7 +141,7 @@ void PopEnemy::OnCollision(float& damege)
 {
 	//damege;
 	//hp_ -= 10.0f;
-	
+
 	if (!hit_) {
 		hp_ -= damege;
 		hit_ = true;

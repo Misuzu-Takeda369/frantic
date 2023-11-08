@@ -143,7 +143,7 @@
     <ClCompile Include="Enemy\EnemyBullet.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy\NEnemy.cpp">
+    <ClCompile Include="Enemy\NSEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemy\PopEnemy.cpp">
@@ -151,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="Function\Function.cpp">
       <Filter>Function</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\NHEnemy.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -305,7 +308,7 @@
     <ClInclude Include="Enemy\EnemyBullet.h">
       <Filter>Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\NEnemy.h">
+    <ClInclude Include="Enemy\NSEnemy.h">
       <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemy\PopEnemy.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="Function\UtilityStruct.h">
       <Filter>Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\NHEnemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

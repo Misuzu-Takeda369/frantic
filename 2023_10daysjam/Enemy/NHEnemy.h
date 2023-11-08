@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "Enemy/EnemyBase.h"
-class NEnemy :public EnemyBase
+#include "EnemyBase.h"
+class NHEnemy :public EnemyBase
 {
 public:
 	/// <summary>
@@ -21,5 +21,7 @@ public:
 private:
 
 	const float maxHp_ = 10.0f;
+
+	const float nomalPoint_ = 10.0f;
 };
 

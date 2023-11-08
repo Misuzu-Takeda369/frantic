@@ -1,4 +1,4 @@
-﻿#include"NEnemy.h"
+﻿#include"NHEnemy.h"
 
 void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 {
@@ -7,12 +7,12 @@ void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 	charaBase_.radius_ = radius;
 	charaBase_.color_ = RED;
 
-	maindStateNow_ = Normal;
 
 	hp_ = maxHp_;
 
 	//プレイヤーに影響する攻撃力
-	attackpoint_ = 10.0f;
+	attackpoint_ = nomalPoint_;
+
 
 	//敵が死んでいるか
 	isDead_ = false;
@@ -54,6 +54,8 @@ void NEnemy::Update()
 	Move();
 
 	NaturalDeath();
+
+	
 
 
 #ifdef _DEBUG
