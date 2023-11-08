@@ -1,6 +1,6 @@
 ﻿#include"NHEnemy.h"
 
-void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
+void NHEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 {
 	charaBase_.pos_ = pos;
 	charaBase_.speed_ = speed;
@@ -11,7 +11,7 @@ void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 	hp_ = maxHp_;
 
 	//プレイヤーに影響する攻撃力
-	attackpoint_ = nomalPoint_;
+	attackPoint_ = nomalPoint_;
 
 
 	//敵が死んでいるか
@@ -21,7 +21,7 @@ void NEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 	moveEnemy_ = { 0.0f,0.0f };
 }
 
-void NEnemy::Update()
+void NHEnemy::Update()
 {
 	/*
 	//敵の移動
@@ -73,7 +73,7 @@ void NEnemy::Update()
 
 }
 
-void NEnemy::Draw()
+void NHEnemy::Draw()
 {
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
 }

@@ -240,8 +240,9 @@ void GamePScene::CheckCollisionAll()
 	for (PopEnemy* enemies : enemy_) {
 
 		if (IsCollision(player_, enemies) == true) {
-			float damege = 10.0f;
-			player_->OnCollision(damege);
+			float damege = enemies->GetAttackPoint();
+			EnemyType enemytype = enemies->GetEnemyType();
+			player_->OnCollision(damege, enemytype);
 			//enemies->
 		}
 		//enemies;

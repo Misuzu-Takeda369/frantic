@@ -32,9 +32,6 @@ public:
 
 	virtual void OnCollision(float& damege) override;
 
-	//敵の攻撃力のゲッター
-	virtual float GetEnemyAttackPoint() { return attackpoint_; };
-
 	//敵が死んでいるか
 	virtual bool GetIsDead() { return isDead_; };
 
@@ -43,9 +40,6 @@ public:
 
 protected:
 
-
-	//プレイヤーに影響する攻撃力
-	float attackpoint_;
 
 	//敵が死んでいるか
 	bool isDead_;

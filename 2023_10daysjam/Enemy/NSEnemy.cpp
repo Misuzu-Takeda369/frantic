@@ -14,7 +14,7 @@ void NSEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 	lunaticPoint_ = 10.0f * 2;
 
 	//プレイヤーに影響する攻撃力
-	attackpoint_ = lunaticPoint_;
+	attackPoint_ = lunaticPoint_;
 
 
 	//敵が死んでいるか
@@ -57,8 +57,6 @@ void NSEnemy::Update()
 	Move();
 
 	NaturalDeath();
-
-
 
 
 

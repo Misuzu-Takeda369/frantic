@@ -81,7 +81,7 @@ public:
 	/// <summary>
 	/// 当たった時の挙動
 	/// </summary>
-	void OnCollision(float& damage) override;
+	void OnCollision(float& damage, EnemyType& enemytype);
 
 	/// <summary>
 	/// 当たった時の挙動

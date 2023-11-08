@@ -12,12 +12,6 @@ class PopEnemy :public EnemyBase
 {
 public:
 
-	enum EnemyType
-	{
-		//ただ突き進むやつオンリー
-		//左からHP減らす奴、SP減らす奴
-		HPNOMAL,SPNOMAL,NONE
-	};
 
 	~PopEnemy();
 
@@ -34,6 +28,12 @@ public:
 	/// </summary>
 	 void CoolCheak() override;
 
+
+	 /// <summary>
+	 /// 当たり判定用に使う敵のタイプ
+	 /// </summary>
+	 /// <returns></returns>
+	 EnemyType GetEnemyType() { return enemyType_; };
 
 private:
 

@@ -84,6 +84,7 @@ void PopEnemy::Update()
 	case HPNOMAL:
 		nHEnemy_->Update();
 
+		attackPoint_ = nHEnemy_->GetAttackPoint();
 		charaBase_.pos_.x = nHEnemy_->GetPosX();
 		charaBase_.pos_.y = nHEnemy_->GetPosY();
 
@@ -98,8 +99,14 @@ void PopEnemy::Update()
 
 		nSEnemy_->Update();
 
+		attackPoint_ = nSEnemy_->GetAttackPoint();
 		charaBase_.pos_.x = nSEnemy_->GetPosX();
 		charaBase_.pos_.y = nSEnemy_->GetPosY();
+
+		//ここがゲームシーンにこの個体が消滅している伝えるよう
+		if (nSEnemy_->GetIsDead()) {
+			isDead_ = true;
+		}
 		break;
 
 	default:

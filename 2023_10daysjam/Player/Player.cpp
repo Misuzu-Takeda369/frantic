@@ -334,11 +334,19 @@ void Player::PlayerStateChange(char* keys)
 
 }
 
-void Player::OnCollision(float& damage)
+void Player::OnCollision(float& damage, EnemyType& enemytype)
 {
 	if (!hit_) {
-		hp_ -= damage;
-		hit_ = true;
+
+		if (enemytype == HPNOMAL) {
+			hp_ -= damage;
+			hit_ = true;
+		}
+		else {
+			sp_ -= damage;
+			hit_ = true;
+		}
+	
 
 
 #ifdef _DEBUG

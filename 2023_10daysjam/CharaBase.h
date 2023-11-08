@@ -29,3 +29,13 @@ enum PlayerDirection {
 	//0:左,1:右
 	LEFT, RIGHT
 };
+
+/// <summary>
+/// 敵のtype
+/// </summary>
+enum EnemyType
+{
+	//ただ突き進むやつオンリー
+	//左からHP減らす奴、SP減らす奴
+	HPNOMAL, SPNOMAL, NONE
+};
