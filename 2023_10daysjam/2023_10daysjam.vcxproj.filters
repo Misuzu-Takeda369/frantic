@@ -158,6 +158,9 @@
     <ClCompile Include="Enemy\NSEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Back\BackGround.cpp">
+      <Filter>Back</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="Enemy\NSEnemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Back\BackGround.h">
+      <Filter>Back</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

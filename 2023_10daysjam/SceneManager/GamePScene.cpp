@@ -7,6 +7,7 @@ GamePScene::~GamePScene()
 	delete hpUi_;
 	delete spUi_;
 	delete timerUi_;
+	delete backGround_;
 
 	//delete enemy_;
 
@@ -37,6 +38,9 @@ void GamePScene::Initialize()
 
 	timerUi_ = new TimerUI();
 	timerUi_->Initialize();
+
+	backGround_ = new BackGround();
+	backGround_->Initialize();
 
 	//PopItem* popItem = new PopItem();
 	//popItem->Initialize();
@@ -192,6 +196,8 @@ void GamePScene::Draw()
 	default:
 		break;
 	}
+
+	backGround_->Draw();
 
 	player_->Draw();
 	//enemy_->Draw();
