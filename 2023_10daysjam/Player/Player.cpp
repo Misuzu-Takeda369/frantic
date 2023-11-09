@@ -48,7 +48,8 @@ void Player::Initialize()
 	playerAnimation_ = new PlayerAnimation();
 	playerAnimation_->Initialize();
 
-	collisionType_ = Circle;
+	collisionType_ = Box;
+	boxSize_ = {32.0f,128.0f};
 
 
 	hit_ = false;

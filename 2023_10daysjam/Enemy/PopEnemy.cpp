@@ -25,6 +25,7 @@ void PopEnemy::Initialize(MaindState maindStateNow)
 	//enemyType_ = NOMAL;
 
 	collisionType_ = Circle;
+	boxSize_ = { charaBase_.radius_,charaBase_.radius_ };
 
 
 #pragma region ポップした時の判別
