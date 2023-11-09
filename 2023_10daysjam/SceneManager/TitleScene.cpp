@@ -17,7 +17,7 @@ void TitleScene::Initialize()
 
 void TitleScene::Update(char* keys, char* preKeys)
 {
-
+	keys; preKeys;
 
 	switch (titleSModeNow_)
 	{

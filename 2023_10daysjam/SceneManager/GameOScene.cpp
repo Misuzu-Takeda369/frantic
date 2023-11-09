@@ -22,6 +22,7 @@ void GameOScene::Initialize()
 
 void GameOScene::Update(char* keys, char* preKeys)
 {
+	keys; preKeys;
 #pragma region シーン変換
 	
 	changeTimingFrame_++;
