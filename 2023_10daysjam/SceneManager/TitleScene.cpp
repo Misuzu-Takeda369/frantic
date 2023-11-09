@@ -6,8 +6,8 @@ TitleScene::~TitleScene() {}
 
 void TitleScene::Initialize()
 {
-	titleImage_ = Novice::LoadTexture("./Resources/images/Title/Title(kari).png");
-	startImage_ = Novice::LoadTexture("./Resources/images/Title/Start(kari).png");
+	titleImage_ = Novice::LoadTexture("./Resources/images/Title/Title_kari.png");
+	startImage_ = Novice::LoadTexture("./Resources/images/Title/Start_kari.png");
 
 	startPos_ = {
 		450,350
