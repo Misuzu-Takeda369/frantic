@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <Novice.h>
+#include "Function/UtilityStruct.h"
 /// <summary>
 /// タイトルシーンのクラス
 /// </summary>
@@ -9,7 +10,7 @@ class TitleScene
 public:
 
 	enum TitleSMode {
-		None,Expriense,Option
+		None, Expriense, Option
 		//何もなし,操作説明,オプション？
 	};
 	/// <summary>
@@ -37,6 +38,10 @@ public:
 	/// </summary>
 	void Draw();
 
+	/// <summary>
+	/// マウスでのシーン変換
+	/// </summary>
+	void StartChack();
 
 	/// <summary>
 	/// シーン変更管理のゲッター
@@ -48,12 +53,12 @@ public:
 	/// シーン変更管理のセッター
 	/// </summary>
 	/// <returns></returns>
-	bool SetFlagChange(bool flagChange) {  return this->flagChange_ = flagChange; };
+	bool SetFlagChange(bool flagChange) { return this->flagChange_ = flagChange; };
 
 private:
 
 	//シーン変更できるかどうか
-	bool flagChange_ = false; 
+	bool flagChange_ = false;
 
 	/// <summary>
 	/// 現在のタイトル画面のモード
@@ -62,5 +67,17 @@ private:
 
 	//受け取りのせいですぐに変わるのでそれを防ぐためのラグ(後で消える)
 	int changeTimingFrame_ = 40;
+
+	///リソース関連
+	int titleImage_ = 0;
+	int startImage_ = 0;
+
+	IntState startPos_;
+	const int startSizeX_ = 384;
+	const int startSizeY_ = 128;
+
+	//マウスの位置(Yも無いと関数動かん)
+	IntState mousePos_ = { 0,0 };
+	int startColor_ = WHITE;
 
 };

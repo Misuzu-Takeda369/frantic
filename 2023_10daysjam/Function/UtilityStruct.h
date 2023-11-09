@@ -35,6 +35,7 @@ struct IntState {
 	int y_;
 };
 
+//当たり判定の形(円かたんけいか)
 enum CollisionType
 {
 	None,

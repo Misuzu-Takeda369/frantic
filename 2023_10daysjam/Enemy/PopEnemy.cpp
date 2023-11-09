@@ -40,7 +40,7 @@ void PopEnemy::Initialize(MaindState maindStateNow)
 			enemyType_ = SPNOMAL;
 		}
 		else {
-			enemyType_ = NONE;
+			enemyType_ = HPNOMAL;
 		}
 
 	}
