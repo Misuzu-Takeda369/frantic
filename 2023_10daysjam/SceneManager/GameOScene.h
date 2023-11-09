@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <Novice.h>
+#include "Function/UtilityStruct.h"
 
 /// <summary>
 /// ゲームオーバーシーンのクラス
@@ -35,6 +36,12 @@ public:
 
 
 	/// <summary>
+	/// マウスでのシーン変換
+	/// </summary>
+	void MouseBottonChack();
+
+
+	/// <summary>
 	/// シーン変更管理のゲッター
 	/// </summary>
 	/// <returns></returns>
@@ -62,4 +69,18 @@ private:
 	//リトライするかを判別するためのフラグ
 	bool flagRetry_ = false;
 
+	int gameOverImage_ = 0;
+	int retryImage_ = 0;
+	int toTitleImage_ = 0;
+
+	IntState retryPos_;
+	IntState toTitlePos_;
+	const int textSizeX_ = 384;
+	const int textSizeY_ = 128;
+
+
+	//マウスの位置(Yも無いと関数動かん)
+	IntState mousePos_ = { 0,0 };
+	UnitColor retryColor_ = { 255,255,255,255,0xFFFFFFFF };
+	UnitColor toTitleColor_ = { 255,255,255,255,0xFFFFFFFF };
 };

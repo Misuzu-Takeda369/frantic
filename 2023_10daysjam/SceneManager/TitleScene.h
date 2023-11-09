@@ -41,7 +41,7 @@ public:
 	/// <summary>
 	/// マウスでのシーン変換
 	/// </summary>
-	void StartChack();
+	void MouseBottonChack();
 
 	/// <summary>
 	/// シーン変更管理のゲッター
@@ -78,6 +78,6 @@ private:
 
 	//マウスの位置(Yも無いと関数動かん)
 	IntState mousePos_ = { 0,0 };
-	int startColor_ = WHITE;
+	UnitColor startColor_ = { 255,255,255,255,0xFFFFFFFF };
 
 };

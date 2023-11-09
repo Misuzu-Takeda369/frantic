@@ -6,13 +6,13 @@ TitleScene::~TitleScene() {}
 
 void TitleScene::Initialize()
 {
-	titleImage_ = Novice::LoadTexture("./Resources/images/Title/Title_kari.png");
-	startImage_ = Novice::LoadTexture("./Resources/images/Title/Start_kari.png");
+	titleImage_ = Novice::LoadTexture("./Resources/images/Text/Title_kari.png");
+	startImage_ = Novice::LoadTexture("./Resources/images/Text/Start_kari.png");
 
 	startPos_ = {
 		450,350
 	};
-	startColor_ = WHITE;
+	startColor_ = { 255,255,255,255,0xFFFFFFFF };
 }
 
 void TitleScene::Update(char* keys, char* preKeys)
@@ -28,7 +28,7 @@ void TitleScene::Update(char* keys, char* preKeys)
 		//ここのif文でシーン移行出来るかを判別
 		
 		//マウスでのシーン移動
-		StartChack();
+		MouseBottonChack();
 
 #ifdef _DEBUG
 		//現在は1を押したときに移動
@@ -58,10 +58,10 @@ void TitleScene::Draw()
 	//タイトル
 	Novice::DrawSprite(250,50, titleImage_,1.0f,1.0f,0.0f,WHITE);
 	//文字の奴
-	Novice::DrawSprite(startPos_.x_, startPos_.y_, startImage_, 1.0f, 1.0f, 0.0f, startColor_);
+	Novice::DrawSprite(startPos_.x_, startPos_.y_, startImage_, 1.0f, 1.0f, 0.0f, startColor_.color);
 }
 
-void TitleScene::StartChack()
+void TitleScene::MouseBottonChack()
 {
 	Novice::GetMousePosition(&mousePos_.x_, &mousePos_.y_);
 
@@ -70,7 +70,7 @@ void TitleScene::StartChack()
 		&&
 		(mousePos_.y_ >= startPos_.y_ && mousePos_.y_ <= startPos_.y_ + startSizeY_))
 	{
-		startColor_ = RED;
+		startColor_.color = RED;
 		//はじめるに入っている場合左クリックするとスターとする
 		if (Novice::IsTriggerMouse(0) && changeTimingFrame_ >= 60) {
 			flagChange_ = true;
@@ -78,7 +78,7 @@ void TitleScene::StartChack()
 		}
 	}
 	else {
-		startColor_ = WHITE;
+		startColor_.color = WHITE;
 	}
 }
 
