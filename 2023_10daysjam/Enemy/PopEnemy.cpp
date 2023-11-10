@@ -29,19 +29,19 @@ void PopEnemy::Initialize(MaindState maindStateNow)
 
 
 #pragma region ポップした時の判別
-	rumNum_ = RandomRange(1, 2);
+	rumNum_ = RandomRange(1, 3);
 
 	//
-	if (rumNum_ == 1) {
+	if (rumNum_ == 1 || rumNum_ == 2) {
 		enemyType_ = HPNOMAL;
 	}
-	else if (rumNum_ == 2) {
+	else if (rumNum_ == 3) {
 
 		if (maindStateNow_ == Lunatic) {
 			enemyType_ = SPNOMAL;
 		}
 		else {
-			enemyType_ = HPNOMAL;
+			enemyType_ = NONE;
 		}
 
 	}
@@ -171,7 +171,6 @@ void PopEnemy::CoolCheak()
 			hitCoolTime_ = 0;
 		}
 	}
-
 }
 
 

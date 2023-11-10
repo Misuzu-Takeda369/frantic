@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "EnemyBase.h"
+#include "Animation/Enemy1Anim.h"
 
 class NHEnemy :public EnemyBase
 {
@@ -21,8 +22,13 @@ public:
 	
 private:
 
+	//体力の最大値
 	const float maxHp_ = 10.0f;
 
+	//コイツの火力
 	const float nomalPoint_ = 10.0f;
+
+	//アニメーション
+	Enemy1Anim* animation_ = nullptr;
 };
 

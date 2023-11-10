@@ -30,6 +30,14 @@ public:
 	/// </summary>
 	void Draw();
 
+	/// <summary>
+	/// SP受け取るよう
+	/// </summary>
+	/// <returns></returns>
+	void SetSpChangingPoint(float spChangingPoint) { 
+		spChangingPoint_ = spChangingPoint;
+	};
+
 private:
 
 	//左端
@@ -39,6 +47,7 @@ private:
 	//画像
 	int image_ = 0;
 	int frameImage_ = 0;
+	int lineImage_ = 0;
 	//写したいサイズ
 	const int sizeX_ = 500;
 	const int sizeY_ = 32;
@@ -47,6 +56,8 @@ private:
 	int moveX_ = 0;
 	//移動する量(HPが1減るたびに動く量)
 	int moveSpeedX_ = 1;
+
+	float spChangingPoint_;
 
 };
 

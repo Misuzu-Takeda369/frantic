@@ -71,15 +71,20 @@ void GamePScene::Update(char* keys, char* preKeys)
 
 			//敵の発生
 			EnemyPoping();
+
+			//ここプレイヤーからUIに変化点を受け取っておく
+			spUi_->SetSpChangingPoint(player_->GetSpChangingPoint());
+
 			//プレイヤーの挙動
 			player_->Update(keys, preKeys);
 
+			//敵の動き
 			for (PopEnemy* enemies : enemy_) {
 					enemies->Update();
 			}
 
 
-			
+			//アイテムの挙動
 			for (PopItem* popItem : popItem_) {
 				if (!popItem->IsDead()) {
 					popItem->Update();
@@ -199,10 +204,6 @@ void GamePScene::Draw()
 
 	backGround_->Draw();
 
-	player_->Draw();
-	//enemy_->Draw();
-
-
 	for (PopEnemy* enemies : enemy_) {
 
 		//if (enemies->GetIsDead()) {
@@ -221,9 +222,12 @@ void GamePScene::Draw()
 		}
 	}
 
+	player_->Draw();
+
+#ifdef _DEBUG
 	Novice::ScreenPrintf(500, 500, "%d", CountNum_);
 	Novice::ScreenPrintf(500, 550, "%d", changeTimingFrame_);
-
+#endif // _DEBUG
 
 #pragma region UI関連(一番前に写す)
 	hpUi_->Draw();

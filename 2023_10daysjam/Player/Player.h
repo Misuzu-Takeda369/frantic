@@ -6,6 +6,7 @@
 #include "PlayerMAttack.h"
 #include "PlayerLAttack.h"
 #include "Animation/PlayerAnimation.h"
+#include "PlayerJewel.h"
 
 
 
@@ -123,6 +124,13 @@ public:
 	bool GetAttackFrag() { return attackFrag_; };
 
 	/// <summary>
+	/// UIに投げるよう
+	/// </summary>
+	/// <returns></returns>
+	float GetSpChangingPoint() {return spChangingPoint_;};
+	
+
+	/// <summary>
 	/// 近距離の攻撃のゲッター
 	/// </summary>
 	/// <returns></returns>
@@ -156,7 +164,7 @@ private:
 	//プレイヤーの向き(動き(待機や移動などキー入力で変化するタイプ))
 	PlayerDirection playerDirectionM_ = RIGHT;
 
-	//精神状態が変わる値の変数
+	//精神状態が変わる値の変数(koko)
 	float spChangingPoint_ = 250.0f;
 	//magic攻撃時のSP減少量
 	float attackSpDown_ = 20.0f;
@@ -169,6 +177,9 @@ private:
 
 	//アニメーション関連
 	PlayerAnimation* playerAnimation_ = nullptr;
+
+	//プレイヤーの攻撃モードが分かる奴
+	PlayerJewel* jewel_ = nullptr;
 
 	///ジャンプ関連
 	//ジャンプの最初のスピード
@@ -197,6 +208,7 @@ private:
 	//取得フレーム関連
 	int getCoolTime_ = 0;
 	const int MaxGetCoolTime_ = 10;
+
 	
 };
 

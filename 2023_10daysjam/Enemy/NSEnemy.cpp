@@ -22,6 +22,10 @@ void NSEnemy::Initialize(Vector2 pos, Vector2 speed, float radius)
 
 	//敵が移動した量
 	moveEnemy_ = { 0.0f,0.0f };
+
+	//アニメーション初期化
+	animation_ = new Enemy1Anim;
+	animation_->Initialize();
 }
 
 void NSEnemy::Update()
@@ -58,11 +62,19 @@ void NSEnemy::Update()
 
 	NaturalDeath();
 
+	//アニメーションUpdate
+	animation_->Update(charaBase_.pos_);
+
 
 
 }
 
 void NSEnemy::Draw()
 {
+#ifdef _DEBUG
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
+#endif
+	//アニメーションDraw
+	animation_->Draw(charaBase_.color_);
+
 }

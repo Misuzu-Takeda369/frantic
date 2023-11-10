@@ -49,8 +49,10 @@ void PlayerMAttack::Update(Vector2& playerPos, PlayerDirection& playerDirection)
 
 void PlayerMAttack::Draw()
 {
+#ifdef _DEBUG
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeWireFrame);
 	Novice::ScreenPrintf(600,600,"attackPoint_:%.2f", attackPoint_);
+#endif // DEBUG
 }
 
 void PlayerMAttack::DeterminingAttackPower(float hp, float maxHp)

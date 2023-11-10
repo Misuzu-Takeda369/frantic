@@ -164,6 +164,9 @@
     <ClCompile Include="Animation\Enemy1Anim.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
+    <ClCompile Include="Player\PlayerJewel.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
@@ -340,6 +343,9 @@
     </ClInclude>
     <ClInclude Include="Animation\Enemy1Anim.h">
       <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\PlayerJewel.h">
+      <Filter>Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

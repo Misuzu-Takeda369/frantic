@@ -9,6 +9,8 @@ Player::~Player()
 	}
 
 	delete playerAnimation_;
+
+	delete jewel_;
 }
 
 void Player::Initialize()
@@ -48,6 +50,9 @@ void Player::Initialize()
 	playerAnimation_ = new PlayerAnimation();
 	playerAnimation_->Initialize();
 
+	jewel_= new PlayerJewel();
+	jewel_->Initialize(charaBase_.pos_, charaBase_.color_);
+
 	collisionType_ = Box;
 	boxSize_ = {32.0f,128.0f};
 
@@ -71,6 +76,8 @@ void Player::Update(char* keys, char* preKeys)
 
 	//アニメーション
 	playerAnimation_->Update(Vector2(charaBase_.pos_.x, charaBase_.pos_.y), playerState_, _NONE, maindStateNow_, playerDirectionM_, playerDirectionA_);
+	
+	jewel_->Update(charaBase_.pos_, playerAttackTypeNow_, playerDirectionM_);
 	//減った量
 	//ゲージ処理用
 	decreasedHp_ = maxHp_ - hp_;
@@ -120,9 +127,15 @@ void Player::Update(char* keys, char* preKeys)
 
 void Player::Draw()
 {
+	jewel_->Draw();
 
+#ifdef _DEBUG
 	//プレイヤー本体
 	Novice::DrawEllipse(int(charaBase_.pos_.x), int(charaBase_.pos_.y), int(charaBase_.radius_), int(charaBase_.radius_), 0.0f, charaBase_.color_, kFillModeSolid);
+
+	Novice::DrawLine(0, int(standardPos_.y + charaBase_.radius_), 1280, int(standardPos_.y + charaBase_.radius_), BLACK);
+	Novice::DrawBox(900, 100, 50, 50, 0.0f, maindColor_, kFillModeSolid);
+#endif // _DEBUG
 
 	playerAnimation_->Draw();
 
@@ -134,12 +147,6 @@ void Player::Draw()
 	for (PlayerLAttack* lAttack : lAttack_) {
 		lAttack->Draw();
 	}
-
-#ifdef _DEBUG
-
-	Novice::DrawLine(0, int(standardPos_.y + charaBase_.radius_), 1280, int(standardPos_.y + charaBase_.radius_), BLACK);
-	Novice::DrawBox(900, 100, 50, 50, 0.0f, maindColor_, kFillModeSolid);
-#endif // _DEBUG
 
 }
 
@@ -368,6 +375,12 @@ void Player::UsedItem(float& recover) {
 		sp_ += recover;
 		getItem_ = true;
 
+		spChangingPoint_ += 10.0f;
+		if (spChangingPoint_ >= maxSp_) {
+			spChangingPoint_ = maxSp_;
+		}
+
+
 		if (sp_>= maxHp_) {
 			sp_ = maxHp_;
 		}
@@ -391,7 +404,13 @@ void Player::CoolCheak()
 			hitCoolTime_ = 0;
 
 #ifdef _DEBUG
-			charaBase_.color_ = WHITE;
+			if (maindStateNow_ == Normal) {
+				charaBase_.color_ = WHITE;
+			}
+			else {
+				charaBase_.color_ = RED;
+			}
+			
 #endif // _DEBUG
 		}
 	}

@@ -85,8 +85,6 @@ protected:
 	MaindState maindStateNow_ = Normal;
 	//狂気カラー(デバック用)
 	unsigned int maindColor_ = WHITE;
-	//精神状態が変わる値の変数
-	float spChangingPoint_ = 250.0f;
 
 	//最終的に判断する攻撃力
 	float attackPoint_ = 0.0f;
@@ -98,7 +96,7 @@ protected:
 	bool hit_ = false;
 	//被弾のクールタイム
 	int hitCoolTime_ = 0;
-	const int MaxHitCoolTime_ = 60;
+	const int MaxHitCoolTime_ = 120;
 
 
 };
