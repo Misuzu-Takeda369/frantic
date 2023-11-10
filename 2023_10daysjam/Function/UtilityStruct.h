@@ -26,7 +26,9 @@ enum SABSTATE {
 	_NONE,   //0_特になし
 	_ATTACK, //1_攻撃中
 	_SPELL,  //2_詠唱中
+	_MAGIC,  //3_魔法攻撃中
 };
+
 
 //Hpゲージ用のっぽい何か(まとめたかった)
 //Noviceの画像処理がint統一なのでintでまとめる

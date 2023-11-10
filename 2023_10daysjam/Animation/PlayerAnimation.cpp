@@ -35,49 +35,21 @@ void PlayerAnimation::Initialize()
 	_lunaEffectTimer = 0;
 }
 
-void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab,  MaindState maindState, PlayerDirection mDclection, PlayerDirection aDclection)
+void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab)
 {
-	//感情の受け取りを関数に変更
-	SetMaindState(maindState);
-
 	switch (main)
 	{
 	case IDOL:
-
-		//攻撃と移動で向きの変更条件が別なため
-		if (mDclection == RIGHT) {
-			_isDirectionRight = true;
-		}
-		else {
-			_isDirectionRight = false;
-		}
-
 		_idol->Update(pos);
 		_idol->SetDirection(_isDirectionRight);
 		_now = (Animation*)_idol;
 		break;
 	case MOVE:
-
-		if (mDclection == RIGHT) {
-			_isDirectionRight = true;
-		}
-		else {
-			_isDirectionRight = false;
-		}
-
 		_run->Update(pos);
 		_run->SetDirection(_isDirectionRight);
 		_now = (Animation*)_run;
 		break;
 	case JUMP:
-
-		if (mDclection == RIGHT) {
-			_isDirectionRight = true;
-		}
-		else {
-			_isDirectionRight = false;
-		}
-
 		_run->Update(pos);
 		_run->SetDirection(_isDirectionRight);
 		_now = (Animation*)_run;
@@ -85,40 +57,45 @@ void PlayerAnimation::Update(Vector2 pos, STATE main, SABSTATE sab,  MaindState 
 	case DEAD:
 		break;
 	case ATTACK:
-
-		if (aDclection == RIGHT) {
-			_isDirectionRight = true;
-		}
-		else {
-			_isDirectionRight = false;
-		}
-
 		_attack1->Update(pos);
 		_attack1->SetDirection(_isDirectionRight);
 		_now = (Animation*)_attack1;
 		_attack1->SetActive(true);
 		break;
 	case SKILL:
-
-		if (aDclection == RIGHT) {
-			_isDirectionRight = true;
-		}
-		else {
-			_isDirectionRight = false;
-		}
-
 		_attack2->Update(pos);
 		_attack2->SetDirection(_isDirectionRight);
 		_now = (Animation*)_attack2;
+
 		break;
 	case SPECIAL:
 		break;
 	default:
 		break;
 	}
-	sab;
 
-	if (main != ATTACK) {
+	switch (sab)
+	{
+	case _NONE:
+		break;
+	case _ATTACK:
+		_attack1->Update(pos);
+		_attack1->SetDirection(_isDirectionRight);
+		_now = (Animation*)_attack1;
+		_attack1->SetActive(true);
+		break;
+	case _SPELL:
+		break;
+	case _MAGIC:
+		_attack2->Update(pos);
+		_attack2->SetDirection(_isDirectionRight);
+		_now = (Animation*)_attack2;
+		break;
+	default:
+		break;
+	}
+
+	if (sab != _ATTACK && main != ATTACK) {
 		_attack1->SetActive(false);
 	}
 
@@ -167,7 +144,7 @@ void PlayerAnimation::Draw()
 {
 	_now->Draw(_defaultColor);
 
-	if (_maindState==Lunatic) {
+	if (_maindState == Lunatic) {
 		for (LunaMentalEffect* effect : _lunaticEffect) {
 			effect->Draw();
 		}

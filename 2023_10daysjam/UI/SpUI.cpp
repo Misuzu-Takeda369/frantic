@@ -1,4 +1,5 @@
 ﻿#include "SpUI.h"
+#include "ColorDefineEx.h"
 
 void SpUI::Initialize()
 {
@@ -18,7 +19,7 @@ void SpUI::Initialize()
 
 	spChangingPoint_ = 0;
 
-
+	color_.color = CYAN;
 }
 
 void SpUI::Update(float decreasedSp)

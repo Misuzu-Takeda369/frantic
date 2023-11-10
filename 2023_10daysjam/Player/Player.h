@@ -149,6 +149,7 @@ private:
 	
 	//STATE用変数
 	STATE playerState_ = IDOL;
+	SABSTATE sabState_ = _NONE;
 
 	//Hp,Sp関連(最大、現在,減少量)
 	const float maxHp_ = 500.0f;

@@ -59,6 +59,8 @@ private:
 
 	float spChangingPoint_;
 
+	unsigned int texture_;
+	UnitColor color_;
 };
 
 

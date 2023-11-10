@@ -18,7 +18,7 @@ void Player::Initialize()
 	standardPos_ = { 150.0f,550.0f };
 
 	charaBase_ = {
-		{standardPos_.x,standardPos_.y},{2.0f,-2.0f},64.0f,0.0f,WHITE
+		{standardPos_.x,standardPos_.y},{5.0f,-1.8f },64.0f,0.0f,WHITE
 	};
 
 	hp_ = maxHp_;
@@ -27,7 +27,7 @@ void Player::Initialize()
 	decreasedHp_ = maxHp_ - hp_;
 	decreasedSp_ = maxSp_ - sp_;
 
-	jumpSpeed_ = 25.0f;
+	jumpSpeed_ = 30.0f;
 
 	jumpFrag_ = false;
 	jumpLag_ = 10;
@@ -42,7 +42,7 @@ void Player::Initialize()
 	playerDirectionA_ = RIGHT;
 	playerDirectionM_ = RIGHT;
 
-	attackframe_ = 60;
+	attackframe_ = 10;
 
 	playerState_ = IDOL;
 	mousePos_ = { 0,0 };
@@ -75,8 +75,11 @@ void Player::Update(char* keys, char* preKeys)
 	Attack();
 
 	//アニメーション
-	playerAnimation_->Update(Vector2(charaBase_.pos_.x, charaBase_.pos_.y), playerState_, _NONE, maindStateNow_, playerDirectionM_, playerDirectionA_);
-	
+	playerAnimation_->Update(Vector2(charaBase_.pos_.x, charaBase_.pos_.y), playerState_, sabState_);
+	playerAnimation_->SetDirection(playerDirectionM_);
+	playerAnimation_->SetMaindState(maindStateNow_);
+
+
 	jewel_->Update(charaBase_.pos_, playerAttackTypeNow_, playerDirectionM_);
 	//減った量
 	//ゲージ処理用
@@ -153,7 +156,7 @@ void Player::Draw()
 void Player::Move(char* keys, char* preKeys)
 {
 
-	if (!attackFrag_) {
+	if (1) {
 		//横移動
 		if (keys[DIK_LEFT] || keys[DIK_A]) {
 			charaBase_.pos_.x -= charaBase_.speed_.x;
@@ -323,14 +326,19 @@ void Player::PlayerStateChange(char* keys)
 	//移動処理のモーションよりもジャンプの方が優先度高い
 	if (attackFrag_) {
 		if (playerAttackTypeNow_ == Plane) {
-			playerState_ = ATTACK;
+			//playerState_ = ATTACK;
+			sabState_ = _ATTACK;
 		}
-		else {
-			playerState_ = SKILL;
+		else if (playerAttackTypeNow_ == Magic) {
+			//playerState_ = SKILL;
+			sabState_ = _MAGIC;
 		}
-
 	}
-	else if (jumpFrag_) {
+	else {
+		sabState_ = _NONE;
+	}
+
+	if (jumpFrag_) {
 		playerState_ = JUMP;
 	}
 	else if ((keys[DIK_LEFT] || keys[DIK_A]) || (keys[DIK_RIGHT] || keys[DIK_D])) {
@@ -375,7 +383,7 @@ void Player::UsedItem(float& recover) {
 		sp_ += recover;
 		getItem_ = true;
 
-		spChangingPoint_ += 20.0f;
+		spChangingPoint_ += 5.0f;
 		if (spChangingPoint_ >= maxSp_) {
 			spChangingPoint_ = maxSp_;
 		}

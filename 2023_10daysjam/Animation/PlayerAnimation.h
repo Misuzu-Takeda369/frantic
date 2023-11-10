@@ -9,19 +9,19 @@
 #include "Animation/PlayerAttack2Anim.h"
 #include "Animation/Effect/LunaMental.h"
 
-class PlayerAnimation 
+class PlayerAnimation
 {
 public:
     ~PlayerAnimation();
     PlayerAnimation();
     void Initialize();
-    void Update(Vector2 pos, STATE main, SABSTATE sab, MaindState maindState,PlayerDirection mDclection, PlayerDirection aDclection);
+    void Update(Vector2 pos, STATE main, SABSTATE sab);
     void SetDirection(bool right);
     void SetMaindState(const MaindState& state);
     void Draw();
 private:
-    void AddLunaEffect(const Vector2 &pos);
-    int _lunaEffectTimer=0;
+    void AddLunaEffect(const Vector2& pos);
+    int _lunaEffectTimer = 0;
     bool _isDirectionRight;
     PlayerIdolAnim* _idol = nullptr;
     PlayerRunAnim* _run = nullptr;
