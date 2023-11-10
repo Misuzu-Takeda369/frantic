@@ -8,7 +8,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize(Vector2& pos, unsigned int& color);
+	void Initialize(unsigned int& color);
 
 	/// <summary>
 	/// 毎フレーム処理

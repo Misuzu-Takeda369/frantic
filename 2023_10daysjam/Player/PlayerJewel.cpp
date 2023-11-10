@@ -1,9 +1,9 @@
 ﻿#include "PlayerJewel.h"
 
-void PlayerJewel::Initialize(Vector2& pos, unsigned int& color)
+void PlayerJewel::Initialize(unsigned int& color)
 {
 	jewelstate_ = {
-		{pos.x,pos.y},{0.0f,0.0f},0.0f,0.0f,color,
+		{-200.0f,-200.0f},{0.0f,0.0f},0.0f,0.0f,color,
 		Novice::LoadTexture("./Resources/images/AnimResources/PlayerAttackImage_kari.png")
 	};
 }
@@ -22,10 +22,10 @@ void PlayerJewel::Update(Vector2& pos, PlayerAttackType& playerAttackType, Playe
 	jewelstate_.pos_ = { dposX ,pos.y- playerDistance_.y_ };
 
 	if (playerAttackType == Magic) {
-		jewelstate_.color_ = RED;
+		jewelstate_.color_ = WHITE;
 	}
 	else {
-		jewelstate_.color_ = WHITE;
+		jewelstate_.color_ = 0x9E67FFFF;
 	}
 }
 

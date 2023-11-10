@@ -51,7 +51,7 @@ void Player::Initialize()
 	playerAnimation_->Initialize();
 
 	jewel_= new PlayerJewel();
-	jewel_->Initialize(charaBase_.pos_, charaBase_.color_);
+	jewel_->Initialize( charaBase_.color_);
 
 	collisionType_ = Box;
 	boxSize_ = {32.0f,128.0f};
@@ -375,7 +375,7 @@ void Player::UsedItem(float& recover) {
 		sp_ += recover;
 		getItem_ = true;
 
-		spChangingPoint_ += 10.0f;
+		spChangingPoint_ += 20.0f;
 		if (spChangingPoint_ >= maxSp_) {
 			spChangingPoint_ = maxSp_;
 		}
