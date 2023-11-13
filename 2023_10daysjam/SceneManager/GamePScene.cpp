@@ -196,6 +196,7 @@ void GamePScene::Draw()
 	{
 	case None:
 
+		Novice::ScreenPrintf(550,620,"Start to Space");
 		break;
 
 	default:
@@ -233,6 +234,11 @@ void GamePScene::Draw()
 	hpUi_->Draw();
 	spUi_->Draw();
 	timerUi_->Draw();
+
+	Novice::ScreenPrintf(1000, 10, "Move AD");
+	Novice::ScreenPrintf(1000, 30, "Jump W");
+	Novice::ScreenPrintf(1000, 50, "Attack Left Click");
+	Novice::ScreenPrintf(1000, 70, "ModeChange Right Click");
 
 #pragma endregion
 }

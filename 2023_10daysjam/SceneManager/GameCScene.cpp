@@ -6,8 +6,8 @@ GameCScene::~GameCScene() {}
 
 void GameCScene::Initialize()
 {
-	gameClearImage_ = Novice::LoadTexture("./Resources/images/Text/GameClear_kari.png");
-	toTitleImage_ = Novice::LoadTexture("./Resources/images/Text/clickTitle_kari.png");
+	gameClearImage_ = Novice::LoadTexture("./Resources/images/Text/GameClear.png");
+	toTitleImage_ = Novice::LoadTexture("./Resources/images/Text/clickTitle.png");
 
 	toTitlePos_  = { 450,400 };
 

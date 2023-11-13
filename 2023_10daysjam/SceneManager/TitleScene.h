@@ -71,6 +71,7 @@ private:
 	///リソース関連
 	int titleImage_ = 0;
 	int startImage_ = 0;
+	int titleBack_ = 0;
 
 	IntState startPos_;
 	const int startSizeX_ = 384;

@@ -3,7 +3,7 @@
 #include "ScreenSize.h"
 
 
-const char kWindowTitle[] = "Frantic";
+const char kWindowTitle[] = "Lunacy -月の宝珠-";
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {

@@ -7,9 +7,9 @@ GameOScene::~GameOScene() {}
 
 void GameOScene::Initialize() 
 {
-	gameOverImage_ = Novice::LoadTexture("./Resources/images/Text/GameOver_kari.png");
-	retryImage_ = Novice::LoadTexture("./Resources/images/Text/Retry_kari.png"); 
-	toTitleImage_ = Novice::LoadTexture("./Resources/images/Text/toTitle_kari.png");
+	gameOverImage_ = Novice::LoadTexture("./Resources/images/Text/GameOver.png");
+	retryImage_ = Novice::LoadTexture("./Resources/images/Text/Retry.png"); 
+	toTitleImage_ = Novice::LoadTexture("./Resources/images/Text/toTitle.png");
 
 
 	retryPos_ = { 450,350 };
